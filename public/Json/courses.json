@@ -1,0 +1,885 @@
+[
+    {
+        "id": 1,
+        "title": "Digital Marketing",
+        "sub_title": "Gain In-Demand Skills and Real-World Project Experience",
+        "description": "From Basics to Mastery: Courses Designed for Every Level",
+        "img": "/assets/images/Cources/digital marketing/DM.webp",
+        "alt": "offline",
+        "artical_id": "3",
+        "status": "offline",
+        "link_text": "🚀 Join Free Seminar",
+        "status_id": "2",
+        "facilities": {
+            "houre": 160,
+            "seats": "10/20",
+            "time": "10:00 AM - 12:00 PM",
+            "day": "Fri, Sat, Thurs",
+            "classes": 80
+        },
+        "introData": {
+            "img": "/assets/images/Cources/digital marketing/SS.webp",
+            "header": "Digital marketing has become a game-changer in today’s business landscape. With billions of people actively engaging online, businesses are shifting to digital platforms to connect with potential customers. The global digital advertising market is expected to exceed $786.2 billion by 2026. If you want to master online marketing strategies, enhance your business reach, or establish yourself as a professional digital marketer, this course is the perfect stepping stone.",
+            "title": "Level Up Your Skills",
+            "sub_title": "Turn Your Passion into a Profession with WiztecBD Training!",
+            "facilities": [
+                { "name": "Duration", "value": 6, "type": "month" },
+                { "name": "Lectures", "value": 48 },
+                { "name": "Projects", "value": 18, "type": "plus" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Course Overview",
+            "overview": "Becoming a skilled digital marketer requires expertise in multiple areas. WiztecBD’s Digital Marketing Course provides in-depth training on essential topics like SEO, social media marketing, email marketing, paid advertising, and marketplace strategies. You’ll gain hands-on experience with industry-leading tools, empowering you to drive business growth and career success.",
+            "curriculum": {
+                "title": "Course Curriculum",
+                "lists": [
+                    { "id": 1, "content": "Keyword Research & Strategy" },
+                    { "id": 2, "content": "Facebook & Instagram Ads Campaign" },
+                    { "id": 3, "content": "SEO Audit & Optimization" },
+                    { "id": 4, "content": "Messenger Chatbot Marketing" },
+                    { "id": 5, "content": "Competitor Analysis & Market Research" },
+                    { "id": 6, "content": "YouTube & Video SEO" },
+                    { "id": 7, "content": "WordPress Customization & Blogging" },
+                    { "id": 8, "content": "LinkedIn & Twitter Marketing" },
+                    { "id": 9, "content": "AI-Powered Content Creation" },
+                    { "id": 10, "content": "Email & SMS Marketing" },
+                    { "id": 11, "content": "On-Page & Off-Page SEO" },
+                    { "id": 12, "content": "Technical SEO & Core Web Vitals" },
+                    { "id": 13, "content": "Google Analytics, Search Console & GBP Optimization" },
+                    { "id": 14, "content": "Local & E-commerce SEO" },
+                    { "id": 15, "content": "Marketplace Strategies (Fiverr, Upwork, Freelancer)" },
+                    { "id": 16, "content": "Facebook Pixel & Conversion API" }
+                ]
+            },
+            "software_learn": {
+                "title": "Softwares You'll Learn",
+                "list": [
+                    { "id": 1, "title": "Google Analytics & Google Ads", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Softwares You’ll Learn/Google Analytics & Google Ads.webp", "alt": "Tailored" },
+                    { "id": 2, "title": "Ahrefs & SEMrush", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Softwares You’ll Learn/Ahrefs & SEMrush.webp", "alt": "Tailored" },
+                    { "id": 3, "title": "Moz & Ubersuggest", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Softwares You’ll Learn/Moz & Ubersuggest.webp", "alt": "Tailored" },
+                    { "id": 4, "title": "Facebook Business Suite", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Softwares You’ll Learn/Facebook Business Suite.webp", "alt": "Tailored" },
+                    { "id": 5, "title": "Agency Analytics", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Softwares You’ll Learn/Agency Analytics.webp", "alt": "Tailored" },
+                    { "id": 6, "title": "SE Ranking", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Softwares You’ll Learn/SE Ranking.webp", "alt": "Tailored" }
+                ]
+            },
+            "designed": {
+                "title": "This Course is Designed for",
+                "list": [
+                    { "id": 1, "title": "Aspiring Freelancers & Entrepreneurs", "icon": "/assets/icons/CoursePage/Digital Marketing Course/This Course is Designed For/Aspiring Freelancers & Entrepreneurs.webp" },
+                    { "id": 2, "title": "Job Seekers & Career Changers", "icon": "/assets/icons/CoursePage/Digital Marketing Course/This Course is Designed For/Job Seekers & Career Changers.webp" },
+                    { "id": 3, "title": "Students & Recent Graduates", "icon": "/assets/icons/CoursePage/Digital Marketing Course/This Course is Designed For/Students & Recent Graduates.webp" },
+                    { "id": 4, "title": "Small Business Owners & Startups", "icon": "/assets/icons/CoursePage/Digital Marketing Course/This Course is Designed For/Small Business Owners& Startup.webp" },
+                    { "id": 5, "title": "Marketing Professionals Looking to Upskill", "icon": "/assets/icons/CoursePage/Digital Marketing Course/This Course is Designed For/Marketing Professionals Looking to Upskill.webp" },
+                    { "id": 6, "title": "Anyone Passionate About Digital Marketing", "icon": "/assets/icons/CoursePage/Digital Marketing Course/This Course is Designed For/Anyone Passionate About Digital Marketing.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Career Opportunities",
+                "list": [
+                    { "id": 1, "description": "Full-time employment in tech companies, agencies & startups", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Career Opportunities/Full-time employment in tech companies, agencies & startups.webp" },
+                    { "id": 2, "description": "Freelancing on platforms like Fiverr, Upwork, and Legiit", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Career Opportunities/Freelancing on platforms like Fiverr, Upwork, and Legiit.webp" },
+                    { "id": 3, "description": "Building your own digital marketing agency", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Career Opportunities/Building your own digital marketing agency.webp" },
+                    { "id": 4, "description": "Scaling your e-commerce or local business", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Career Opportunities/Scaling your e-commerce or local business.webp" }
+                ]
+            },
+            "open_job": {
+                "title": "Open Job Positions",
+                "list": [
+                    { "id": 1, "content": "Digital Marketing Specialist" },
+                    { "id": 2, "content": "SEO Expert" },
+                    { "id": 3, "content": "Social Media Manager" },
+                    { "id": 4, "content": "Content Strategist & Copywriter" },
+                    { "id": 5, "content": "Paid Ads & PPC Specialist" },
+                    { "id": 6, "content": "Email Marketing Manager" },
+                    { "id": 7, "content": "Growth Marketer" }
+                ]
+            },
+
+            "solutions": {
+                "title": "Exclusive Solutions That Set Us Apart",
+                "list": [
+                    { "id": 1, "title": "Live Q&A & Review Sessions", "description": "Struggling with a topic? Join our review classes to reinforce your learning and get personalized mentorship.", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": "Lifetime Learning Support", "description": "Our commitment to your success doesn’t end after the course! Get lifetime access to our expert support team for career guidance.", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": "Practical Lab Sessions", "description": "Work on real-world projects in a hands-on learning environment to build confidence and expertise.", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Exclusive Solutions That Set Us Apart/Practical Lab Sessions.webp" },
+                    { "id": 4, "title": "Class Recordings for Flexible Learning", "description": "Missed a session? No worries! Get access to class recordings and revisit lessons anytime.", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 5, "title": "Career Placement Assistance", "description": "We connect you with job opportunities through our hiring network, helping you land your first job or project with ease.", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 6, "title": "Virtual Internship Opportunity", "description": "Gain practical experience with WiztecBD’s exclusive internship program, working on live projects under expert guidance.", "icon": "/assets/icons/CoursePage/Digital Marketing Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.33_ffe9922c.jpg",
+                "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.46_9590129c.jpg",
+                "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.46_fefd34aa.jpg",
+                "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.47_6cdf1685.jpg"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "title": "Artificial Intelligence",
+        "sub_title": "Gain In-Demand Skills and Real-World Project Experience",
+        "description": "From Basics to Mastery: Courses Designed for Every Level",
+        "img": "/assets/images/Cources/Artificial int/AI.webp",
+        "alt": "offline",
+        "artical_id": "7",
+        "status": "offline",
+        "link_text": "🚀 Join Free Seminar",
+        "status_id": "2",
+        "facilities": {
+            "houre": 160,
+            "seats": "12/20",
+            "time": "7:00 PM - 9:00 PM",
+            "day": "Fri, Sat, Thurs",
+            "classes": 80
+        },
+        "introData": {
+            "img": "/assets/images/Cources/Artificial int/A.webp",
+            "header": "Artificial Intelligence (AI) is transforming industries worldwide, driving innovation in automation, data analysis, and decision-making. From chatbots to self-driving cars, AI is shaping the future of technology. The global AI market is expected to reach $1.8 trillion by 2030, making AI expertise a highly valuable skill. If you want to develop cutting-edge AI models, work on real-world machine learning projects, or explore deep learning techniques, this course is your gateway to the future.",
+
+            "title": "Level Up Your Skills",
+            "sub_title": "Turn Your Passion into a Profession with WiztecBD Training!",
+            "facilities": [
+                { "name": "Duration", "value": 6, "type": "month" },
+                { "name": "Lectures", "value": 48 },
+                { "name": "Projects", "value": 15, "type": "plus" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Course Overview",
+            "overview": "To become an AI professional, mastering machine learning, deep learning, and data science is essential. WiztecBD’s AI Course covers everything from Python programming to neural networks and AI-driven applications. Through hands-on projects, industry-level case studies, and expert mentorship, you will gain the skills needed to build, train, and deploy AI models effectively.",
+            "curriculum": {
+                "title": "Course Curriculum",
+                "lists": [
+                    { "id": 1, "content": "Introduction to Artificial Intelligence & Machine Learning" },
+                    { "id": 2, "content": "Python for AI & Data Science" },
+                    { "id": 3, "content": "Supervised & Unsupervised Learning" },
+                    { "id": 4, "content": "Neural Networks & Deep Learning" },
+                    { "id": 5, "content": "Natural Language Processing (NLP)" },
+                    { "id": 6, "content": "Computer Vision & Image Processing" },
+                    { "id": 7, "content": "AI for Automation & Chatbots" },
+                    { "id": 8, "content": "Data Preprocessing & Feature Engineering" },
+                    { "id": 9, "content": "AI in Business & E-commerce" },
+                    { "id": 10, "content": "Reinforcement Learning & Advanced AI Models" },
+                    { "id": 11, "content": "Deployment of AI Models in Cloud Platforms" },
+                    { "id": 12, "content": "Ethical AI & Future Trends" }
+                ]
+            },
+            "software_learn": {
+                "title": "Softwares You'll Learn",
+                "list": [
+                    { "id": 1, "title": "Python & TensorFlow", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Softwares & Tools You’ll Learn/Python & TensorFlow.webp", "alt": "Tailored" },
+                    { "id": 2, "title": "PyTorch & Scikit-Learn", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Softwares & Tools You’ll Learn/PyTorch & Scikit-Learn.webp", "alt": "Tailored" },
+                    { "id": 3, "title": "OpenCV & NLTK", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Softwares & Tools You’ll Learn/OpenCV & NLTK.webp", "alt": "Tailored" },
+                    { "id": 4, "title": "Jupyter Notebook & Google Colab", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Softwares & Tools You’ll Learn/Jupyter Notebook & Google Colab.webp", "alt": "Tailored" },
+                    { "id": 5, "title": "AWS & Google Cloud AI", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Softwares & Tools You’ll Learn/AWS & Google Cloud AI.webp", "alt": "Tailored" },
+                    { "id": 6, "title": "Hugging Face & GPT Models", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Softwares & Tools You’ll Learn/Hugging Face & GPT Models.webp", "alt": "Tailored" }
+                ]
+            },
+            "designed": {
+                "title": "This Course is Designed for",
+                "list": [
+                    { "id": 1, "title": "Aspiring AI Engineers & Data Scientists", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/This Course is Designed For/Aspiring AI Engineers & Data Scientists.webp" },
+                    { "id": 2, "title": "Software Developers & Engineers looking to transition into AI", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/This Course is Designed For/Software Developers & Engineers.webp" },
+                    { "id": 3, "title": "Students & Job Seekers aiming for AI-based careers", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 4, "title": "Entrepreneurs & Business Owners who want to integrate AI into their business", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/This Course is Designed For/Entrepreneurs & Business Owners.webp" },
+                    { "id": 5, "title": "Tech Enthusiasts eager to explore the world of Artificial Intelligence", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/This Course is Designed For/Tech Enthusiasts.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Career Opportunities",
+                "list": [
+                    { "id": 1, "description": "High-paying AI jobs in tech giants and startups", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Career Opportunities/High-paying AI jobs in tech giants and startups.webp" },
+                    { "id": 2, "description": "AI freelancing on platforms like Upwork, Fiverr, and Toptal", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Career Opportunities/AI freelancing on platforms like Upwork, Fiverr, and Toptal.webp" },
+                    { "id": 3, "description": "AI-driven business and product development", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Career Opportunities/AI-driven business and product development.webp" },
+                    { "id": 4, "description": "Research and innovation in AI & ML", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Career Opportunities/Research and innovation in AI & ML.webp" }
+                ]
+            },
+            "open_job": {
+                "title": "Open Job Positions",
+                "list": [
+                    { "id": 1, "content": "AI Engineer" },
+                    { "id": 2, "content": "Machine Learning Specialist" },
+                    { "id": 3, "content": "Data Scientist" },
+                    { "id": 4, "content": "Deep Learning Engineer" },
+                    { "id": 5, "content": "NLP Engineer" },
+                    { "id": 6, "content": "Computer Vision Expert" },
+                    { "id": 7, "content": "AI Researcher" },
+                    { "id": 8, "content": "AI Solutions Architect" }
+                ]
+            },
+            "solutions": {
+                "title": "Exclusive Solutions That Set Us Apart",
+                "list": [
+                    { "id": 1, "title": " Live Q&A & Review Sessions", "description": "Get personalized mentorship and support to reinforce your learning.", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": " Lifetime Learning Support", "description": "Even after course completion, our expert team is here to help with guidance and problem-solving.", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": "Hands-on AI Labs", "description": " Gain practical experience by working on industry-level projects and real-world datasets.", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Exclusive Solutions That Set Us Apart/Hands-on AI Labs.webp" },
+                    { "id": 4, "title": "Class Recordings for Flexible Learning", "description": " Missed a class? Access session recordings anytime to revise concepts.", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 5, "title": "Career Placement Assistance", "description": " Our hiring network connects you to AI job opportunities and freelance projects worldwide.", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 6, "title": "Virtual Internship Opportunity", "description": "Work on live AI projects under the guidance of industry professionals and gain practical experience.", "icon": "/assets/icons/CoursePage/Artificial Intelligence Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/Artificial int/AI/WhatsApp Image 2025-03-11 at 11.32.37_1abe3f91.jpg",
+                "/assets/images/Cources/Artificial int/AI/WhatsApp Image 2025-03-11 at 11.32.37_aa2ed28a.jpg",
+                "/assets/images/Cources/Artificial int/AI/WhatsApp Image 2025-03-11 at 11.32.40_bec0feb5.jpg",
+                "/assets/images/Cources/Artificial int/AI/WhatsApp Image 2025-03-11 at 11.32.52_b0677d0b.jpg",
+                "/assets/images/Cources/Artificial int/AI/WhatsApp Image 2025-03-11 at 11.33.01_9b081da3.jpg"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "title": "Data Analytics",
+        "sub_title": "Gain In-Demand Skills and Real-World Project Experience",
+        "description": "From Basics to Mastery: Courses Designed for Every Level",
+        "img": "/assets/images/Cources/data analitics/DA (2).webp",
+        "alt": "offline",
+        "artical_id": "10",
+        "status": "offline",
+        "link_text": "🚀 Join Free Seminar",
+        "status_id": "2",
+        "facilities": {
+            "houre": 160,
+            "seats": "12/20",
+            "time": "7:00 PM - 9:00 PM",
+            "day": "Fri, Sat, Thurs",
+            "classes": 80
+        },
+        "introData": {
+            "img": "/assets/images/Cources/data analitics/da.webp",
+            "header": "Data is the new fuel of the digital era, and organizations rely on data analytics to drive business decisions. From e-commerce to healthcare, every industry depends on data to improve efficiency and predict future trends. The global big data analytics market is expected to surpass $650 billion by 2029, making data analysts one of the most in-demand professionals. If you want to learn how to process, analyze, and visualize data to generate valuable insights, this course is your gateway to a data-driven career.",
+            "title": "Level Up Your Skills",
+            "sub_title": "Turn Your Passion into a Profession with WiztecBD Training!",
+            "facilities": [
+                { "name": "Duration", "value": 6, "type": "month" },
+                { "name": "Lectures", "value": 48 },
+                { "name": "Projects", "value": 15, "type": "plus" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Course Overview",
+            "overview": "Becoming a skilled Data Analyst requires expertise in data processing, visualization, and statistical analysis. WiztecBD’s Data Analytics Course provides hands-on training in tools like Python, SQL, Power BI, and Excel, enabling you to work with large datasets, extract insights, and present data in a meaningful way. You will learn real-world problem-solving techniques and data storytelling, ensuring you stand out in the job market.",
+            "curriculum": {
+                "title": "Course Curriculum",
+                "lists": [
+                    { "id": 1, "content": "Introduction to Data Analytics & Data Science" },
+                    { "id": 2, "content": "Data Collection, Cleaning & Preprocessing" },
+                    { "id": 3, "content": "SQL for Data Analysis" },
+                    { "id": 4, "content": "Data Visualization with Power BI & Tableau" },
+                    { "id": 5, "content": "Statistical Analysis & Hypothesis Testing" },
+                    { "id": 6, "content": "Exploratory Data Analysis (EDA)" },
+                    { "id": 7, "content": "Python for Data Analytics (Pandas, NumPy, Matplotlib)" },
+                    { "id": 8, "content": "Business Intelligence & Dashboarding" },
+                    { "id": 9, "content": "Predictive Analytics & Forecasting" },
+                    { "id": 10, "content": "Machine Learning for Data Analytics" },
+                    { "id": 11, "content": "Google Analytics & Web Data Tracking" },
+                    { "id": 12, "content": "Data-Driven Decision-Making" }
+                ]
+            },
+            "software_learn": {
+                "title": "Softwares You'll Learn",
+                "list": [
+                    { "id": 1, "title": "Python (Pandas, NumPy, Matplotlib, Seaborn)", "icon": "/assets/icons/CoursePage/Data Analytics Course/Softwares & Tools You’ll Learn/Python (Pandas, NumPy, Matplotlib, Seaborn).webp", "alt": "Tailored" },
+                    { "id": 2, "title": "SQL & PostgreSQL", "icon": "/assets/icons/CoursePage/Data Analytics Course/Softwares & Tools You’ll Learn/SQL & PostgreSQL.webp", "alt": "Tailored" },
+                    { "id": 3, "title": "Power BI & Tableau", "icon": "/assets/icons/CoursePage/Data Analytics Course/Softwares & Tools You’ll Learn/Power BI & Tableau.webp", "alt": "Tailored" },
+                    { "id": 4, "title": "Google Sheets & Excel", "icon": "/assets/icons/CoursePage/Data Analytics Course/Softwares & Tools You’ll Learn/Google Sheets & Excel.webp", "alt": "Tailored" },
+                    { "id": 5, "title": "Google Analytics & Data Studio", "icon": "/assets/icons/CoursePage/Data Analytics Course/Softwares & Tools You’ll Learn/Google Analytics & Data Studio.webp", "alt": "Tailored" },
+                    { "id": 6, "title": "Jupyter Notebook", "icon": "/assets/icons/CoursePage/Data Analytics Course/Softwares & Tools You’ll Learn/Jupyter Notebook.webp", "alt": "Tailored" }
+                ]
+            },
+            "designed": {
+                "title": "This Course is Designed for",
+                "list": [
+                    { "id": 1, "title": "Aspiring Data Analysts & Business Analysts", "icon": "/assets/icons/CoursePage/Data Analytics Course/This Course is Designed For/Aspiring Data Analysts & Business Analysts.webp" },
+                    { "id": 2, "title": "Students & Job Seekers looking for a career in data analytics", "icon": "/assets/icons/CoursePage/Data Analytics Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 3, "title": "Entrepreneurs & Business Owners who want to make data-driven decisions", "icon": "/assets/icons/CoursePage/Data Analytics Course/This Course is Designed For/Entrepreneurs & Business Owners.webp" },
+                    { "id": 4, "title": "Software Engineers & Developers looking to expand into data analytics", "icon": "/assets/icons/CoursePage/Data Analytics Course/This Course is Designed For/Software Engineers & Developers.webp" },
+                    { "id": 5, "title": "Freelancers & Consultants seeking high-paying data-related projects", "icon": "/assets/icons/CoursePage/Data Analytics Course/This Course is Designed For/Freelancers & Consultants.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Career Opportunities",
+                "list": [
+                    { "id": 1, "description": "Full-time positions in leading tech companies", "icon": "/assets/icons/CoursePage/Data Analytics Course/Career Opportunities/Full-time positions in leading tech companies.webp" },
+                    { "id": 2, "description": "Freelance projects on Upwork, Fiverr, and Toptal", "icon": "/assets/icons/CoursePage/Data Analytics Course/Career Opportunities/Freelance projects on Upwork, Fiverr, and Toptal.webp" },
+                    { "id": 3, "description": "Analytics roles in startups, corporations & agencies", "icon": "/assets/icons/CoursePage/Data Analytics Course/Career Opportunities/Analytics roles in startups, corporations & agencies.webp" },
+                    { "id": 4, "description": "Business intelligence and data-driven consulting", "icon": "/assets/icons/CoursePage/Data Analytics Course/Career Opportunities/Business intelligence and data-driven consulting.webp" }
+                ]
+            },
+            "open_job": {
+                "title": "Open Job Positions",
+                "list": [
+                    { "id": 1, "content": "Data Analyst" },
+                    { "id": 2, "content": "Business Intelligence Analyst" },
+                    { "id": 3, "content": "Data Visualization Specialist" },
+                    { "id": 4, "content": "SQL Data Analyst" },
+                    { "id": 5, "content": "Marketing & Web Analyst" },
+                    { "id": 6, "content": "Machine Learning Analyst" },
+                    { "id": 7, "content": "Financial Data Analyst" },
+                    { "id": 8, "content": "Big Data Engineer" }
+                ]
+            },
+            "solutions": {
+                "title": "Exclusive Solutions That Set Us Apart",
+                "list": [
+                    { "id": 1, "title": "Live Q&A & Review Sessions", "description": "Get personalized mentorship and support to reinforce your learning.", "icon": "/assets/icons/CoursePage/Data Analytics Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions (2).webp" },
+                    { "id": 2, "title": "Lifetime Learning Support ", "description": "Continue receiving guidance and career advice even after course completion.", "icon": "/assets/icons/CoursePage/Data Analytics Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": "Hands-on Data Labs", "description": " Work on real-world datasets and analytics projects for practical experience.", "icon": "/assets/icons/CoursePage/Data Analytics Course/Exclusive Solutions That Set Us Apart/Hands-on Data Labs.webp" },
+                    { "id": 4, "title": " Class Recordings for Flexible Learning", "description": "Missed a class? Access recordings anytime to revisit key topics.", "icon": "/assets/icons/CoursePage/Data Analytics Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 5, "title": "Career Placement Assistance", "description": "Our hiring network connects you to top companies and freelance opportunities.", "icon": "/assets/icons/CoursePage/Data Analytics Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 6, "title": "Virtual Internship Opportunity", "description": "Gain hands-on experience working on live data projects under expert supervision.", "icon": "/assets/icons/CoursePage/Data Analytics Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.32_843189b0.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.38_53d30d92.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.39_7eb7b8ee.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.43_af4d74dd.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.47_6089e13e.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.50_53c90113.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.53_02ec5d78.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.32.54_07f82e04.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.33.00_864a7ccb.jpg",
+                "/assets/images/Cources/data analitics/DA/WhatsApp Image 2025-03-11 at 11.33.02_a7a4c493.jpg"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "title": "Software Development",
+        "sub_title": "Gain In-Demand Skills and Real-World Project Experience",
+        "description": "From Basics to Mastery: Courses Designed for Every Level",
+        "img": "/assets/images/Cources/softwer dev/SD.webp",
+        "alt": "offline",
+        "artical_id": "2",
+        "status": "offline",
+        "link_text": "🚀 Join Free Seminar",
+        "status_id": "2",
+        "facilities": {
+            "houre": 160,
+            "seats": "12/20",
+            "time": "7:00 PM - 9:00 PM",
+            "day": "Fri, Sat, Thurs",
+            "classes": 80
+        },
+        "introData": {
+            "img": "/assets/images/Cources/softwer dev/sd(1).webp",
+            "header": "Software development is at the core of the digital revolution, powering businesses, apps, and systems worldwide. From startups to enterprises, the demand for skilled software developers continues to rise. The global software market is projected to exceed $900 billion by 2027, creating immense job opportunities. If you want to build web applications, mobile apps, or enterprise software, this course will equip you with the essential skills to thrive in the fast-growing tech industry.",
+
+            "title": "Level Up Your Skills",
+            "sub_title": "Turn Your Passion into a Profession with WiztecBD Training!",
+            "facilities": [
+                { "name": "Duration", "value": 6, "type": "month" },
+                { "name": "Lectures", "value": 50 },
+                { "name": "Projects", "value": 12, "type": "plus" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Course Overview",
+            "overview": "To become a proficient Software Developer, mastering coding, software architecture, and development frameworks is essential. WiztecBD’s Software Development Course provides hands-on training in front-end, back-end, and full-stack development, covering industry-leading technologies and best practices. By the end of the course, you will be able to design, develop, and deploy robust software applications efficiently.",
+            "curriculum": {
+                "title": "Course Curriculum",
+                "lists": [
+                    { "id": 1, "content": "Introduction to Software Development & Programming" },
+                    { "id": 2, "content": "Frontend Development (HTML, CSS, JavaScript, React.js)" },
+                    { "id": 3, "content": "Backend Development (Node.js, Express.js)" },
+                    { "id": 4, "content": "Database Management (SQL, MongoDB)" },
+                    { "id": 5, "content": "API Development & Integration" },
+                    { "id": 6, "content": "Object-Oriented Programming (OOP) Principles" },
+                    { "id": 7, "content": "Version Control with Git & GitHub" },
+                    { "id": 8, "content": "Software Development Life Cycle (SDLC)" },
+                    { "id": 9, "content": "Mobile App Development Basics (React Native, Flutter)" },
+                    { "id": 10, "content": "Cloud Computing & DevOps Essentials" },
+                    { "id": 11, "content": "Debugging & Testing Strategies" },
+                    { "id": 12, "content": "Software Deployment & Maintenance" }
+                ]
+            },
+            "software_learn": {
+                "title": "Softwares You'll Learn",
+                "list": [
+                    { "id": 1, "title": "Visual Studio Code & IntelliJ IDEA", "icon": "/assets/icons/CoursePage/Software Development Course/Softwares & Tools You’ll Learn/Visual Studio Code & IntelliJ IDEA.webp", "alt": "Tailored" },
+                    { "id": 2, "title": "Git & GitHub", "icon": "/assets/icons/CoursePage/Software Development Course/Softwares & Tools You’ll Learn/Git & GitHub.webp", "alt": "Tailored" },
+                    { "id": 3, "title": "Postman & API Testing Tools", "icon": "/assets/icons/CoursePage/Software Development Course/Softwares & Tools You’ll Learn/Postman & API Testing Tools.webp", "alt": "Tailored" },
+                    { "id": 4, "title": "Docker & Kubernetes", "icon": "/assets/icons/CoursePage/Software Development Course/Softwares & Tools You’ll Learn/Docker & Kubernetes.webp", "alt": "Tailored" },
+                    { "id": 5, "title": "Firebase & AWS", "icon": "/assets/icons/CoursePage/Software Development Course/Softwares & Tools You’ll Learn/Firebase & AWS.webp", "alt": "Tailored" },
+                    { "id": 6, "title": "Agile & Scrum Development Tools", "icon": "/assets/icons/CoursePage/Software Development Course/Softwares & Tools You’ll Learn/Agile & Scrum Development Tools.webp", "alt": "Tailored" }
+                ]
+            },
+            "designed": {
+                "title": "This Course is Designed for",
+                "list": [
+                    { "id": 1, "title": "Aspiring Software Developers & Engineers", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Aspiring Software Developers & Engineers.webp" },
+                    { "id": 2, "title": "Students & Job Seekers looking to enter the tech industry", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 3, "title": "Freelancers & Entrepreneurs who want to build their own software solutions", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Freelancers & Entrepreneurs.webp" },
+                    { "id": 4, "title": "IT Professionals who want to enhance their software development skills", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/IT Professionals.webp" },
+                    { "id": 5, "title": "Startup Founders looking to develop their own tech products", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Startup Founders.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Career Opportunities",
+                "list": [
+                    { "id": 1, "description": "Software development jobs in global tech companies", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Software development.webp" },
+                    { "id": 2, "description": "Freelancing on platforms like Upwork, Fiverr, and Freelancer", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Freelancing on platforms.webp" },
+                    { "id": 3, "description": "Starting your own software-based business or SaaS startup", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" },
+                    { "id": 4, "description": "Contributing to open-source and enterprise-level projects", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Contributing to.webp" }
+                ]
+            },
+            "open_job": {
+                "title": "Open Job Positions",
+                "list": [
+                    { "id": 1, "content": "Software Developer" },
+                    { "id": 2, "content": "Full-Stack Developer" },
+                    { "id": 3, "content": "Backend Developer" },
+                    { "id": 4, "content": "Frontend Developer" },
+                    { "id": 5, "content": "Web Application Developer" },
+                    { "id": 6, "content": "Mobile App Developer" },
+                    { "id": 7, "content": "DevOps Engineer" },
+                    { "id": 8, "content": "Cloud Software Engineer" }
+                ]
+            },
+            "solutions": {
+                "title": "Exclusive Solutions That Set Us Apart",
+                "list": [
+                    { "id": 1, "title": " Live Q&A & Review Sessions", "description": "Get personalized mentorship and in-depth technical discussions.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": "Lifetime Learning Support ", "description": "Stay connected with WiztecBD for ongoing career and coding support.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": " Hands-on Coding Labs", "description": " Work on real-world software projects and get industry exposure.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Hands-on Coding Labs.webp" },
+                    { "id": 4, "title": " Class Recordings for Flexible Learning", "description": "Revisit any session at any time for better understanding.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 5, "title": "Career Placement Assistance", "description": "Get job referrals and networking opportunities in the tech industry.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 6, "title": "Virtual Internship Opportunity", "description": " Work on live software projects with expert supervision for real-world experience.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.01_a174ce31.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.04_1f9d963f.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.14_9626e78e.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.15_15fe27a4.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.19_fe9134f9.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.20_0fd737de.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.24_b4847b1e.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.28_bec7eae8.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.30_f862a75b.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.31_53add57d.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.51_406b8754.jpg",
+                "/assets/images/Cources/softwer dev/SE/WhatsApp Image 2025-03-11 at 11.33.53_1dd7d1f1.jpg"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "title": "Governance of Enterprise IT (CGEIT)",
+        "sub_title": "Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP)",
+        "description": "Authorized by Bangladesh Hi-Tech Park Authority(BHTPA)",
+        "img": "/assets/images/Cources/CGEIT/8.png",
+        "alt": "offline",
+        "artical_id": "9",
+        "status": "offline",
+        "link_text": "Register Now",
+        "status_id": "2",
+        "doc_link": "https://forms.gle/PhkJ3Tc9fBeKey196",
+        "facilities": {
+            "houre": 160,
+            "seats": "20 (Evaluation based) ",
+            "time": "",
+            "day": "Fri, Sat",
+            "class": "4 hours"
+        },
+        "introData": {
+            "img": "/assets/images/Cources/softwer dev/sd(1).webp",
+            "header": "Bangladesh Hi-Tech Park Authority(BHTPA), under the Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP), is thrilled to announce a transformative training program on 4IR (Fourth Industrial Revolution)Technologies. This comprehensive training initiative is designed to enhance the skills of graduates and professionals, preparing them for high-value roles in IT/ITES and equipping them with globally recognized certifications.",
+            "title": "Training Program on 4IR (Fourth Industrial Revolution)Technologies",
+            "sub_title": "Certification: Certified in Governance of Enterprise IT (CGEIT) ",
+            "facilities": [
+                { "name": "Duration", "value": 3.5, "type": "month" },
+                { "name": "Credit", "value": 160, "type": "hours" },
+                { "name": "Softskill", "value": 40, "type": "hours" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Program Overview",
+            "overview": "This training program provides specialized, hands-on learning in the latest 4IR technologies, specifically tailored for individuals looking to advance in the IT/ITES sector. With dedicated support, career counseling, and job placement assistance, participants will gain skills and qualifications that are in high demand in the industry.",
+            "designed": {
+                "title": "Who Should Apply?",
+                "list": [
+                    { "id": 1, "title": "Job Seekers specialized in IT/ITES fields.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Aspiring Software Developers & Engineers.webp" },
+                    { "id": 2, "title": "Current Employees working in IT/ITES firms or supply chains", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 3, "title": "Aspiring Entrepreneurs those interested in self-employment ", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Freelancers & Entrepreneurs.webp" },
+                    { "id": 4, "title": "Freelancers IT/ITES fields.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/IT Professionals.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Eligibility Requirements ",
+                "list": [
+                    { "id": 1, "description": "Work Experience (CGEIT): At least Five (05) years of experience in IT governance, including at least One (01) year managing or developing an IT governance framework", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Software development.webp" },
+                    { "id": 2, "description": "Must pass an entry-level assessment process.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Freelancing on platforms.webp" },
+                    { "id": 3, "description": "Open to recent graduates, current employees, and those aiming to enter the IT/ITES sector.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" },
+                    { "id": 4, "description": "Applications are encouraged from women, individuals with disabilities, and other underrepresented groups to foster a more inclusive tech industry.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Contributing to.webp" }
+                ]
+            },
+            "solutions": {
+                "title": "Key Benefits",
+                "list": [
+                    { "id": 1, "title": " 95% Tuition Subsidy", "description": "Training costs are largely covered by DEIEDP-BHTPA, with participants only required to contribute 5%.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": "5% Tuition Fee Contribution", "description": "A total of 5% (5000 tk approx.) of the tuition fee has to be paid before the starting of the training session.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": " Certification Fees Reimbursement", "description": "Certification fees are fully reimbursed upon passing the exam, allowing you to earn internationally recognized credentials at no additional cost.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Hands-on Coding Labs.webp" },
+                    { "id": 4, "title": "Job Placement Assistance", "description": "The program includes job-matching and freelance support, with a focus on placing participants in relevant roles within STPs, HTPs, and their supply chains.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 5, "title": "Soft Skills Development", "description": " Receive training in essential workplace skills, including communication, teamwork, and leadership.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 6, "title": "Hands-On Industry Projects", "description": "Practical, project-based learning in real-world industry scenarios ensures job-ready skills.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.41_407ba911.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.41_4ee79d6d.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.41_747cc845.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.41_ff25e4f6.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.45_6e2e4a55.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.45_7b7e2685.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.46_319b5d60.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.46_c4a9daf9.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.46_ec8c139e.webp",
+                "/assets/images/Cources/CGEIT/WhatsApp Image 2025-04-29 at 18.02.47_4ed0672c.webp"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "title": "Information Systems Security (CISSP)",
+        "sub_title": "Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP)",
+        "description": "Authorized by Bangladesh Hi-Tech Park Authority(BHTPA)",
+        "img": "/assets/images/Cources/CISSP/9.png",
+        "alt": "offline",
+        "artical_id": "9",
+        "status": "offline",
+        "link_text": "Register Now",
+        "status_id": "2",
+        "doc_link": "Registration Time Over!",
+        "facilities": {
+            "houre": 160,
+            "seats": "20 (Evaluation based) ",
+            "time": "",
+            "day": "Fri, Sat",
+            "class": "4 hours"
+        },
+        "introData": {
+            "img": "/assets/images/Cources/softwer dev/sd(1).webp",
+            "header": "Bangladesh Hi-Tech Park Authority(BHTPA), under the Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP), is thrilled to announce a transformative training program on 4IR (Fourth Industrial Revolution)Technologies. This comprehensive training initiative is designed to enhance the skills of graduates and professionals, preparing them for high-value roles in IT/ITES and equipping them with globally recognized certifications.",
+            "title": "Training Program on 4IR (Fourth Industrial Revolution)Technologies",
+            "sub_title": "Certification: Certified Information Systems Security Professional (CISSP)  ",
+            "facilities": [
+                { "name": "Duration", "value": 3.5, "type": "month" },
+                { "name": "Credit", "value": 160, "type": "hours" },
+                { "name": "Softskill", "value": 40, "type": "hours" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Program Overview",
+            "overview": "This training program provides specialized, hands-on learning in the latest 4IR technologies, specifically tailored for individuals looking to advance in the IT/ITES sector. With dedicated support, career counseling, and job placement assistance, participants will gain skills and qualifications that are in high demand in the industry.",
+
+            "solutions": {
+                "title": "Key Benefits",
+
+                "list": [
+                    { "id": 1, "title": " 95% Tuition Subsidy", "description": " Training costs are largely covered by DEIEDP-BHTPA, with participants only required to contribute 5%.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": "5% Tuition Fee Contribution", "description": "A total of 5% (5000 tk approx.) of the tuition fee has to be paid before the starting of the training session.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": " Certification Fees Reimbursement", "description": " Certification fees are fully reimbursed upon passing the exam, allowing you to earn internationally recognized credentials at no additional cost.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Hands-on Coding Labs.webp" },
+                    { "id": 4, "title": "Job Placement Assistance", "description": "The program includes job-matching and freelance support, with a focus on placing participants in relevant roles within STPs, HTPs, and their supply chains.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 5, "title": "Soft Skills Development", "description": " Receive training in essential workplace skills, including communication, teamwork, and leadership.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 6, "title": "Hands-On Industry Projects", "description": "Practical, project-based learning in real-world industry scenarios ensures job-ready skills.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "designed": {
+                "title": "Who Should Apply?",
+                "list": [
+                    { "id": 1, "title": "Job Seekers specialized in IT/ITES fields.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Aspiring Software Developers & Engineers.webp" },
+                    { "id": 2, "title": "Current Employees working in IT/ITES firms or supply chains", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 3, "title": "Aspiring Entrepreneurs those interested in self-employment ", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Freelancers & Entrepreneurs.webp" },
+                    { "id": 4, "title": "Freelancers IT/ITES fields.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/IT Professionals.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Eligibility Requirements ",
+                "list": [
+                    { "id": 1, "description": "Work Experience (CISSP): Minimum Five (05) years of cumulative, paid, full-time work experience.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Software development.webp" },
+                    { "id": 2, "description": "Domain Requirement (CISSP): This experience must be in two or more of the eight CISSP domains.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Freelancing on platforms.webp" },
+                    { "id": 3, "description": "Must pass an entry-level assessment process.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" },
+                    { "id": 4, "description": "Open to recent graduates, current employees, and those aiming to enter the IT/ITES sector.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Contributing to.webp" },
+                    { "id": 5, "description": "Applications are encouraged from women, individuals with disabilities, and other underrepresented groups to foster a more inclusive tech industry.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" }
+                ]
+            },
+
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.35_e2b397fd.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.36_2c8e85ed.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.36_dfc7cab0.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.36_f29eec60.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.37_504642ed.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.37_8044ec6d.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.38_608c9d8a.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.38_741bbd87.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.39_385c3dce.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.39_c9a38365.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.39_e64cf9cd.webp",
+                "/assets/images/Cources/CISSP/WhatsApp Image 2025-04-29 at 18.02.40_29b16910.webp"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "title": "Data Analytics (CAP®)",
+        "sub_title": "Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP)",
+        "description": "Authorized by Bangladesh Hi-Tech Park Authority(BHTPA)",
+        "img": "/assets/images/Cources/CAP®/5.png",
+        "alt": "offline",
+        "artical_id": "10",
+        "status": "offline",
+        "link_text": "Register Now",
+        "status_id": "2",
+        "doc_link": "https://forms.gle/aHY7KxJHjPYWnZxC6",
+        "facilities": {
+            "houre": 160,
+            "seats": "20 (Evaluation based) ",
+            "time": "",
+            "day": "Fri, Sat",
+            "class": "4 hours"
+        },
+        "introData": {
+            "img": "/assets/images/Cources/softwer dev/sd(1).webp",
+            "header": "Bangladesh Hi-Tech Park Authority(BHTPA), under the Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP), is thrilled to announce a transformative training program on 4IR (Fourth Industrial Revolution)Technologies. This comprehensive training initiative is designed to enhance the skills of graduates and professionals, preparing them for high-value roles in IT/ITES and equipping them with globally recognized certifications.",
+            "title": "Training Program on 4IR (Fourth Industrial Revolution)Technologies",
+            "sub_title": "Certification: Certified Analytics Professional (CAP®)  ",
+            "facilities": [
+                { "name": "Duration", "value": 3.5, "type": "month" },
+                { "name": "Credit", "value": 160, "type": "hours" },
+                { "name": "Softskill", "value": 40, "type": "hours" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Program Overview",
+            "overview": "This training program provides specialized, hands-on learning in the latest 4IR technologies, specifically tailored for individuals looking to advance in the IT/ITES sector. With dedicated support, career counseling, and job placement assistance, participants will gain skills and qualifications that are in high demand in the industry.",
+
+            "solutions": {
+                "title": "Key Benefits",
+                "list": [
+                    { "id": 1, "title": "95% Tuition Subsidy", "description": "Training costs are largely covered by DEIEDP-BHTPA, with participants only required to contribute 5%.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": "5% Tuition Fee Contribution", "description": "A total of 5% (5000 tk approx.) of the tuition fee has to be paid before the starting of the training session.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": "Certification Fees Reimbursement", "description": "Certification fees are fully reimbursed upon passing the exam, allowing you to earn internationally recognized credentials at no additional cost.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Hands-on Coding Labs.webp" },
+                    { "id": 4, "title": "Job Placement Assistance", "description": "The program includes job-matching and freelance support, with a focus on placing participants in relevant roles within STPs, HTPs, and their supply chains.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 5, "title": "Soft Skills Development", "description": "Receive training in essential workplace skills, including communication, teamwork, and leadership.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 6, "title": "Hands-On Industry Projects", "description": "Practical, project-based learning in real-world industry scenarios ensures job-ready skills.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "designed": {
+                "title": "Who Should Apply?",
+                "list": [
+                    { "id": 1, "title": "Job Seekers specialized in IT/ITES fields and business management.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Aspiring Software Developers & Engineers.webp" },
+                    { "id": 2, "title": "Current Employees working in IT/ITES firms or supply chains and business management", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 3, "title": "Aspiring Entrepreneurs who are interested in self-employment ", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Freelancers & Entrepreneurs.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Eligibility Requirements ",
+                "list": [
+                    { "id": 1, "description": "2 years of analytics work experience with MA/MS degree or higher", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Software development.webp" },
+                    { "id": 2, "description": "or 4 years of analytics work experience with BA/BS degree", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Freelancing on platforms.webp" },
+                    { "id": 3, "description": "or 8 years of analytics work experience with any level of education", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" },
+                    { "id": 4, "description": "Must pass an entry-level assessment process..", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Contributing to.webp" },
+                    { "id": 5, "description": "Open to recent graduates, current employees, and those aiming to enter the IT/ITES sector.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" },
+                    { "id": 6, "description": "Applications are encouraged from women, individuals with disabilities, and other underrepresented groups to foster a more inclusive tech industry.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Contributing to.webp" }
+                ]
+            },
+
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.14_2a06cf0f.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.14_a6135e7f.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.14_f891a79b.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.52_49dd02f4.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.53_cc51b595.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.54_73ee9374.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.55_57de382e.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.56_9afda6bd.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.03.03_e56618e5.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.02.59_c911817c.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.03.00_12660493.webp",
+                "/assets/images/Cources/CAP®/WhatsApp Image 2025-04-29 at 18.03.00_e78302b5.webp"
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "title": "Artificial Intelligence Professional (CAIP)",
+        "sub_title": "Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP)",
+        "description": "Authorized by Bangladesh Hi-Tech Park Authority(BHTPA)",
+        "img": "/assets/images/Cources/AI Professional/6.png",
+        "alt": "offline",
+        "artical_id": "7",
+        "status": "offline",
+        "link_text": "Register Now",
+        "status_id": "2",
+        "doc_link": "https://forms.gle/QfGhtimrjQnZLM548",
+        "facilities": {
+            "houre": 160,
+            "seats": "20 (Evaluation based) ",
+            "time": "",
+            "day": "Fri, Sat",
+            "class": "4 hours"
+        },
+        "introData": {
+            "img": "/assets/images/Cources/softwer dev/sd(1).webp",
+            "header": "Bangladesh Hi-Tech Park Authority(BHTPA), under the Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP), is thrilled to announce a transformative training program on 4IR (Fourth Industrial Revolution)Technologies. This comprehensive training initiative is designed to enhance the skills of graduates and professionals, preparing them for high-value roles in IT/ITES and equipping them with globally recognized certifications.",
+            "title": "Training Program on 4IR (Fourth Industrial Revolution)Technologies",
+            "sub_title": "Certification: Certified Artificial Intelligence Professional (CAIP) ",
+            "facilities": [
+                { "name": "Duration", "value": 3.5, "type": "month" },
+                { "name": "Credit", "value": 160, "type": "hours" },
+                { "name": "Softskill", "value": 40, "type": "hours" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Program Overview",
+            "overview": "This training program provides specialized, hands-on learning in the latest 4IR technologies, specifically tailored for individuals looking to advance in the IT/ITES sector. With dedicated support, career counseling, and job placement assistance, participants will gain skills and qualifications that are in high demand in the industry.",
+
+            "solutions": {
+                "title": "Key Benefits",
+                "list": [
+                    { "id": 1, "title": "95% Tuition Subsidy", "description": " Training costs are largely covered by DEIEDP-BHTPA, with participants only required to contribute 5%.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": "5% Tuition Fee Contribution", "description": "A total of 5% (5000 tk approx.) of the tuition fee has to be paid before the starting of the training session.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": "Certification Fees Reimbursement", "description": "Certification fees are fully reimbursed upon passing the exam, allowing you to earn internationally recognized credentials at no additional cost.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Hands-on Coding Labs.webp" },
+                    { "id": 4, "title": "Job Placement Assistance", "description": "The program includes job-matching and freelance support, with a focus on placing participants in relevant roles within STPs, HTPs, and their supply chains.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 5, "title": "Soft Skills Development", "description": "Receive training in essential workplace skills, including communication, teamwork, and leadership.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 6, "title": "Hands-On Industry Projects", "description": "Practical, project-based learning in real-world industry scenarios ensures job-ready skills.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "designed": {
+                "title": "Who Should Apply?",
+                "list": [
+                    { "id": 1, "title": "Job Seekers specialized in IT/ITES fields..", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Aspiring Software Developers & Engineers.webp" },
+                    { "id": 2, "title": "Current Employees working in IT/ITES firms or supply chains", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 3, "title": "Aspiring Entrepreneurs those interested in self-employment ", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Freelancers & Entrepreneurs.webp" },
+                    { "id": 4, "title": "Freelancers IT/ITES fields.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/IT Professionals.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Eligibility Requirements ",
+                "list": [
+                    { "id": 1, "description": "Relevant academic background in IT, CSE, EEE, ETE, or similar fields.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Software development.webp" },
+                    { "id": 2, "description": "Must pass an entry-level assessment process.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Freelancing on platforms.webp" },
+                    { "id": 3, "description": "Open to recent graduates, current employees, and those aiming to enter the IT/ITES sector.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" },
+                    { "id": 4, "description": "Applications are encouraged from women, individuals with disabilities, and other underrepresented groups to foster a more inclusive tech industry.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Contributing to.webp" }
+                ]
+            },
+
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.15_2f073901.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.28_72b3f4d6.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.28_8147876c.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.29_6024ece1.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.29_e4d9c90e.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.29_fdb303a7.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.30_2d7a1958.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.30_e533ef77.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.31_9a17521b.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.31_f2201afb.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.32_4ab4d2db.webp",
+                "/assets/images/Cources/AI Professional/WhatsApp Image 2025-04-29 at 18.02.33_ad0fc66a.webp"
+            ]
+        }
+    },
+    {
+        "id": 9,
+        "title": "Artificial Intelligence Expert (CAIP)",
+        "sub_title": "Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP)",
+        "description": "Authorized by Bangladesh Hi-Tech Park Authority(BHTPA)",
+        "img": "/assets/images/Cources/AI Expert/7.png",
+        "alt": "offline",
+        "artical_id": "7",
+        "status": "offline",
+        "link_text": "Register Now",
+        "status_id": "2",
+        "doc_link": "https://forms.gle/QfGhtimrjQnZLM548",
+        "facilities": {
+            "houre": 160,
+            "seats": "20 (Evaluation based) ",
+            "time": "",
+            "day": "Fri, Sat",
+            "class": "4 hours"
+        },
+        "introData": {
+            "img": "/assets/images/Cources/softwer dev/sd(1).webp",
+            "header": "Bangladesh Hi-Tech Park Authority(BHTPA), under the Digital Entrepreneurship and Innovation Eco-System Development Project (DEIEDP), is thrilled to announce a transformative training program on 4IR (Fourth Industrial Revolution)Technologies. This comprehensive training initiative is designed to enhance the skills of graduates and professionals, preparing them for high-value roles in IT/ITES and equipping them with globally recognized certifications.",
+            "title": "Training Program on 4IR (Fourth Industrial Revolution)Technologies",
+            "sub_title": "Certification: Artificial Intelligence Expert Certificate (CAIEC™) ",
+            "facilities": [
+                { "name": "Duration", "value": 3.5, "type": "month" },
+                { "name": "Credit", "value": 160, "type": "hours" },
+                { "name": "Softskill", "value": 40, "type": "hours" }
+            ]
+        },
+
+        "course_overview": {
+            "title": "Program Overview",
+            "overview": "This training program provides specialized, hands-on learning in the latest 4IR technologies, specifically tailored for individuals looking to advance in the IT/ITES sector. With dedicated support, career counseling, and job placement assistance, participants will gain skills and qualifications that are in high demand in the industry.",
+
+            "solutions": {
+                "title": "Key Benefits",
+                "list": [
+                    { "id": 1, "title": "95% Tuition Subsidy", "description": "Training costs are largely covered by DEIEDP-BHTPA, with participants only required to contribute 5%.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Live Q&A & Review Sessions.webp" },
+                    { "id": 2, "title": "5% Tuition Fee Contribution", "description": " A total of 5% (5000 tk approx.) of the tuition fee has to be paid before the starting of the training session.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Lifetime Learning Support.webp" },
+                    { "id": 3, "title": "Certification Fees Reimbursement", "description": "Certification fees are fully reimbursed upon passing the exam, allowing you to earn internationally recognized credentials at no additional cost.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Hands-on Coding Labs.webp" },
+                    { "id": 4, "title": "Job Placement Assistance", "description": "The program includes job-matching and freelance support, with a focus on placing participants in relevant roles within STPs, HTPs, and their supply chains.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Career Placement Assistance.webp" },
+                    { "id": 5, "title": "Soft Skills Development", "description": "Receive training in essential workplace skills, including communication, teamwork, and leadership.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Class Recordings for Flexible Learning.webp" },
+                    { "id": 6, "title": "Hands-On Industry Projects", "description": "Practical, project-based learning in real-world industry scenarios ensures job-ready skills.", "icon": "/assets/icons/CoursePage/Software Development Course/Exclusive Solutions That Set Us Apart/Virtual Internship Opportunity.webp" }
+                ]
+            },
+            "designed": {
+                "title": "Who Should Apply?",
+                "list": [
+                    { "id": 1, "title": "Job Seekers specialized in IT/ITES fields.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Aspiring Software Developers & Engineers.webp" },
+                    { "id": 2, "title": "Current Employees working in IT/ITES firms or supply chains", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Students & Job Seekers.webp" },
+                    { "id": 3, "title": "Aspiring Entrepreneurs those interested in self-employment ", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/Freelancers & Entrepreneurs.webp" },
+                    { "id": 4, "title": "Freelancers IT/ITES fields.", "icon": "/assets/icons/CoursePage/Software Development Course/This Course is Designed For/IT Professionals.webp" }
+                ]
+            },
+            "opportunities": {
+                "title": "Eligibility Requirements ",
+                "list": [
+                    { "id": 1, "description": "Relevant academic background in IT, CSE, EEE, ETE, or similar fields.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Software development.webp" },
+                    { "id": 2, "description": "Must pass an entry-level assessment process.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Freelancing on platforms.webp" },
+                    { "id": 3, "description": "Open to recent graduates, current employees, and those aiming to enter the IT/ITES sector.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Starting your own.webp" },
+                    { "id": 4, "description": "Applications are encouraged from women, individuals with disabilities, and other underrepresented groups to foster a more inclusive tech industry.", "icon": "/assets/icons/CoursePage/Software Development Course/Career Opportunities/Contributing to.webp" }
+                ]
+            },
+
+            "Awaits": {},
+            "sliderImage": [
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.47_25bdd94e.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.47_4ed0672c.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.48_44454757.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.48_c78ce60d.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.48_eacf9aab.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.49_794309a4.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.50_1378b90f.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.51_173e10e0.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.51_4e263129.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.51_6f350b64.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.52_49dd02f4.webp",
+                "/assets/images/Cources/AI Expert/WhatsApp Image 2025-04-29 at 18.02.52_5dec5a0b.webp"
+            ]
+        }
+    }
+]

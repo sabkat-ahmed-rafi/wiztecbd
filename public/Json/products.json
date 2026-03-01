@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Online Insurance System for an Insurance Company",
+        "description": "The goal was to automate and unify insurance operations into a single digital platform. Key objectives included reducing paperwork, improving data accuracy, and enhancing user engagement with intuitive customer dashboards. Moreover, it was essential to integrate a dynamic website, a mobile app for Android and iOS, and an advanced admin dashboard to streamline overall operations and empower data-driven decision-making.",
+        "img": "/assets/images/product/IMS.gif",
+        "alt": "project",
+        "buttonText": "read more",
+        "color": "#20804F",
+        "tags": ["HTML", "CSS", "Boostrap", "PHP", "Laravel"]
+    },
+    {
+        "id": 2,
+        "title": "Beauty Product E-commerce Platform.",
+        "description": "The primary objective of the project was to create a robust and scalable digital ecosystem to address the client’s operational challenges and deliver an exceptional user experience. This included building a user-friendly and feature-rich e-commerce website with seamless navigation, advanced search capabilities, and secure payment integration; developing intuitive mobile applications for iOS and Android with features like push notifications and offline browsing; designing an advanced admin dashboard for efficient product, order, and user management with real-time analytics and reporting; and providing mobile-enabled admin capabilities for on-the-go operations and inventory management. To ensure success, our team conducted discovery workshops, analyzed user pain points, and developed a detailed project roadmap with defined milestones and regular progress reviews.",
+        "img": "/assets/images/product/Beauty Business Promotional Post.gif",
+        "alt": "project",
+        "buttonText": "read more",
+        "color": "#c53d3d",
+        "tags": ["node.js", "React.js", "Flutter", "MongoDB", "AWS"]
+    },
+    {
+        "id": 3,
+        "title": "Exam Preparation Platform",
+        "description": "The primary goal was to create a digital platform that would streamline exam preparation for students. The key objectives of the project was to develop a platform where students could access a wide range of study materials, practice tests, and expert-curated resources.Implement features that allow students to create customized study plans and track their progress. Provide students with instant feedback on their performance through detailed analytics and progress reports. Build a community feature where students could interact, share insights, and discuss exam-related topics and offer affordable subscription packages to make high-quality exam preparation accessible to a broader audience.",
+        "img": "/assets/images/product/product 3.gif",
+        "alt": "Exam Preparation Platform",
+        "buttonText": "read more",
+        "color": "#17a2b8",
+        "tags": ["Flutter.", "Laravel", "MySQL"]
+    },
+    {
+        "id": 4,
+        "title": "Job & Exam Preparation Website & Admin Panel",
+        "description": "The goal was to develop a comprehensive Job & Exam Preparation Website and Admin Panel that automates and unifies all operations. Key objectives included creating a centralized admin panel to efficiently manage users, exams, content, subscriptions, and payments; designing a user-friendly interface that provides students and job seekers seamless access to MCQs, study materials, and exam resources; implementing an automated exam generation system that allows users to create custom exams based on subject, time, and marks; introducing a points and rewards system to incentivize user participation through MCQ additions and explanations; integrating subscription management for premium content access via flexible packages; offering advanced analytics and reporting to provide real-time insights into user activities and platform performance; enabling dynamic MCQ & exam management with structured practice tests, automatic question suggestions, and instant evaluations; ensuring secure subscription model integration for premium content access; incorporating gamification, rewards, and community-driven learning to enhance user engagement; developing a comprehensive admin panel with advanced user and content management features; and utilizing marketing and growth tools such as automated notifications, email/SMS integration, and pop-up promotions to boost platform visibility and engagement.",
+        "img": "/assets/images/product/product 4.gif",
+        "alt": "Exam Preparation Platform",
+        "buttonText": "read more",
+        "color": "#000000",
+        "tags": ["PHP.", "Laravel", "MySQL", "Bootstrap"]
+    }
+]

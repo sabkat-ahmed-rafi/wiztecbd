@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+.grayscale-0 {
+    filter: grayscale(0%);
+}
+
+body {
+    @apply font-montserrat;
+    @apply font-normal;
+    @apply text-body1;
+    @apply bg-default_bg;
+    @apply text-primary;
+}
+.hover-bg-left-to-right {
+    /* @apply bg-primary; */
+    @apply relative;
+    @apply overflow-hidden;
+}
+
+.hover-bg-left-to-right::before {
+    content: "";
+    @apply absolute;
+    @apply top-0;
+    @apply -left-full;
+    @apply w-full;
+    @apply h-full;
+    @apply bg-success_main;
+    transition: left 1s ease;
+}
+
+/* For scrollbar */
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        @apply w-1; /* Width of the scrollbar */
+    }
+    .scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-success_main rounded-md; /* Thumb color and shape */
+    }
+    .scrollbar::-webkit-scrollbar-track {
+        @apply bg-transparent; /* Track color */
+    }
+    .scrollbar:hover::-webkit-scrollbar-thumb {
+        @apply bg-success_main; /* Darker thumb on hover */
+    }
+}
+
+[id^="section"] {
+    scroll-margin-top: 100px; /* Adds 40px offset when scrolling */
+}
+
+.hover-bg-left-to-right:hover::before {
+    @apply left-0;
+}
+
+.hover-bg-left-to-right span {
+    @apply relative;
+    @apply z-10;
+}
+.hover-bg-left-to-right .hover-content {
+    @apply relative;
+    @apply z-10;
+}
+/* Lets talk popup */
+.ant-modal-content {
+    padding: 0px !important;
+}
+
+.ant-select-selector {
+    border: none !important;
+    background-color: transparent !important;
+}
+.ant-select-selection-item {
+    @apply font-montserrat;
+    @apply text-base;
+}
+.ant-select-selector {
+    box-shadow: none !important;
+    font-size: "18px";
+}
+.ant-input-outlined:focus {
+    box-shadow: none;
+}
+.swiper-slide {
+    aspect-ratio: 3/5;
+}
+.no-scrollbar {
+    overflow: auto; /* Enables scrolling */
+    -ms-overflow-style: none; /* Hides scrollbar in IE and Edge */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, and Opera */
+}
+
+/* triangle */
+.play-btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-40%) translateY(-50%);
+    transform: translateX(-40%) translateY(-50%);
+    transform-origin: center center;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #fff;
+    z-index: 100;
+    -webkit-transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.input-no-arrows::-webkit-outer-spin-button,
+.input-no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-no-arrows {
+    -moz-appearance: textfield;
+}
+
+/* pulse wave */
+.play-btn:before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation: pulsate1 2s;
+    animation: pulsate1 2s;
+    -webkit-animation-direction: forwards;
+    animation-direction: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: steps;
+    animation-timing-function: steps;
+    opacity: 1;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.75);
+    top: -30%;
+    left: -30%;
+    background: rgba(143, 198, 69, 0.8);
+}
+
+@-webkit-keyframes pulsate1 {
+    0% {
+        -webkit-transform: scale(0.6);
+        transform: scale(0.6);
+        opacity: 1;
+        box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+        /* background: linear-gradient(to right, #ff7e5f, #feb47b);  */
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+        box-shadow: none;
+        /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+    }
+}
+
+.element {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: pulsate1 2s infinite;
+}
+
+.scroll-container {
+    overflow: hidden;
+}
+
+/* time and date picker */
+.custom-input {
+    text-align: left !important;
+    border-width: 0px !important;
+    height: 40px !important;
+    text-align: start;
+    border-radius: 8px !important;
+    @apply !text-body1;
+    font-size: 14px !important;
+    background-color: #eeeeee;
+}
+.custom-input-contact {
+    text-align: left !important;
+    border-width: 0px !important;
+    border-bottom-width: 1px !important;
+    border: 1px solid "#000";
+    height: 30px !important;
+    text-align: start;
+    border-radius: 0px !important;
+    @apply !pl-4;
+    @apply !text-body1;
+    @apply !border-divider;
+    background-color: transparent;
+}
+.custom-input-contact:hover {
+    @apply !border-black;
+}
+
+.custom-days {
+    .is-selected-day {
+        background-color: rgba(143, 198, 69, 1) !important;
+    }
+}
+.custom-header {
+    background-color: rgba(143, 198, 69, 1) !important;
+}
+.monthList_month.is-selected-month {
+    color: rgba(143, 198, 69, 1) !important;
+}
+.monthList_month.is-selected-month {
+    color: rgba(143, 198, 69, 1) !important;
+}
+.is-selectedYearRef {
+    color: rgba(143, 198, 69, 1) !important;
+}
+
+.bw-image {
+    filter: grayscale(100%);
+}
+/* for animation */
+/* Add this CSS for smooth fade-in and translate animation */
+.scroll-animate {
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateY(60px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* For developer page submite modal  */
+.circle {
+    fill: none;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 0 314;
+    stroke-dashoffset: 314;
+    transition: stroke-dasharray 2s ease, stroke-dashoffset 2s ease;
+}
+
+.filled {
+    stroke-dasharray: 314 314;
+    stroke-dashoffset: 0;
+}
+
+.checkmark {
+    stroke-dasharray: 0 314;
+    stroke-dashoffset: 314;
+    transition: stroke-dasharray 2s ease, stroke-dashoffset 2s ease;
+}
+
+.show {
+    stroke-dasharray: 314 314;
+    stroke-dashoffset: 0;
+}

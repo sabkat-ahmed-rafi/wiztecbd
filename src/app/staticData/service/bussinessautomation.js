@@ -1,0 +1,346 @@
+export const faqItems = [
+    { title: "What types of business processes can be automated?", description: "We can automate a wide range of business processes, including workflow management, customer relationship management (CRM), inventory tracking, accounting, human resource management (HRM), order processing, and reporting. The goal is to streamline operations, reduce manual tasks, and increase efficiency." },
+    { title: "Can automation software integrate with our existing systems?", description: "Yes, we design automation software to integrate seamlessly with your existing systems, such as CRMs, ERPs, accounting tools, or other third-party platforms. This ensures uninterrupted workflows and a unified data environment." },
+    { title: "Will I be able to customize the automation software to fit my business needs?", description: "Absolutely! We specialize in custom business automation software tailored to your specific requirements. Whether it’s unique workflows, specific integrations, or custom reporting tools, our solutions align perfectly with your business goals." },
+    { title: "What kind of support do you offer after the software is launched?", description: "We provide comprehensive post-launch support, including regular updates, performance monitoring, bug fixes, and feature enhancements. You can choose from one-time support services or opt for an Annual Maintenance Contract (AMC) for ongoing assistance." },
+    { title: "How do you handle data migration and setup for the new automation software?", description: "We offer secure data migration services to transfer your existing data into the new automation system. Our team ensures a smooth setup, minimizing downtime and preserving data integrity. Additionally, we test the system thoroughly to ensure it’s ready for use." },
+    { title: "Will the automation software require training for my team?", description: "Yes, and we provide all necessary training to ensure your team can use the new automation software effectively. Training sessions are customized to your team’s needs, accompanied by user manuals and documentation for easy reference." },
+];
+
+export const benifits = [
+    {
+        id: 1,
+        title: "Staff Augmentation",
+        description: "Augment your team with skilled professionals seamlessly to get expertise tailored to your specific needs and goals.",
+        icon: "/assets/icons/software enginner/customer soft (2).webp",
+        alt: "Staff",
+    },
+    {
+        id: 2,
+        title: "Dedicated Development Team",
+        description: " Embark on a collaborative journey with our dedicated development team focused on your project's success.",
+        icon: "/assets/icons/CoursePage/Hybrid Courses.webp",
+        alt: "Development",
+    },
+    {
+        id: 3,
+        title: "Hire Offshore Experts",
+        description: " Expand your horizons with our offshore developers for unmatched talent, cost efficiency, and global innovation.",
+        icon: "/assets/icons/Support & Maintenance/Contractual Developer Hire.png",
+        alt: "Offshore",
+    },
+];
+
+export const bussinessExpertistData = {
+    tabs: [
+        { id: "frontend", label: "Frontend" },
+        { id: "backend", label: "Backend" },
+        { id: "database", label: "Database" },
+        { id: "frameworks", label: "Frameworks" },
+        { id: "cloud", label: "Cloud" },
+        { id: "cms", label: "CMS" },
+        { id: "dataAnalytics", label: "Data Analytics" },
+        { id: "devOps", label: "DevOps" },
+        { id: "emerging", label: "Emerging" },
+    ],
+    frontend: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/Frontend/HTML5.webp",
+            name: "HTML",
+            alt: "html",
+        },
+        {
+            id: 2,
+            icon: "/assets/images/tech/Frontend/CSS3.webp",
+            name: "CSS",
+            alt: "css",
+        },
+        {
+            id: 3,
+            icon: "/assets/images/tech/Frontend/JavaScript.webp",
+            name: "Javascript",
+            alt: "js",
+        },
+        {
+            id: 4,
+            icon: "/assets/images/tech/Frontend/Angular JS.webp",
+            name: "Angular JS",
+            alt: "angular js",
+        },
+        {
+            id: 5,
+            icon: "/assets/images/tech/Frontend/React.js.webp",
+            name: "react js",
+            alt: "node",
+        },
+        {
+            id: 6,
+            icon: "/assets/images/tech/Frontend/vue.js.webp",
+            name: "vue js",
+            alt: "node",
+        },
+        {
+            id: 7,
+            icon: "/assets/images/tech/Frontend/ViteJS.webp",
+            name: "Vite JS",
+            alt: "ViteJS",
+        },
+        {
+            id: 8,
+            icon: "/assets/images/tech/Frontend/TypeScript.webp",
+            name: "ts",
+            alt: "ts",
+        },
+        {
+            id: 9,
+            icon: "/assets/images/tech/Frontend/Tailwind CSS.webp",
+            name: "tailwind css",
+            alt: "tailwind",
+        },
+        {
+            id: 10,
+            icon: "/assets/images/tech/Frontend/Less.webp",
+            name: "less",
+            alt: "less",
+        },
+        {
+            id: 11,
+            icon: "/assets/images/tech/Frontend/Sass.webp",
+            name: "sass",
+            alt: "node",
+        },
+    ],
+    backend: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/Backend/C .webp",
+            name: "C",
+            alt: "c",
+        },
+        {
+            id: 2,
+            icon: "/assets/images/tech/Backend/C++.webp",
+            name: "c++",
+            alt: "c++",
+        },
+        {
+            id: 3,
+            icon: "/assets/images/tech/Backend/Django.webp",
+            name: "Django",
+            alt: "Django",
+        },
+        {
+            id: 4,
+            icon: "/assets/images/tech/Backend/Fastify.webp",
+            name: "Fastify",
+            alt: "Fastify",
+        },
+        {
+            id: 5,
+            icon: "/assets/images/tech/Backend/Golang.webp",
+            name: "Golang",
+            alt: "Golang",
+        },
+        {
+            id: 6,
+            icon: "/assets/images/tech/Backend/JAVA.webp",
+            name: "JAVA",
+            alt: "JAVA",
+        },
+    ],
+    database: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/Database/DynamoDB.webp",
+            name: "DynamoDB",
+            alt: "DynamoDB",
+        },
+        {
+            id: 2,
+            icon: "/assets/images/tech/Database/Firebase.webp",
+            name: "Firebase",
+            alt: "node",
+        },
+        {
+            id: 3,
+            icon: "/assets/images/tech/Database/MongoDB.webp",
+            name: "MongoDB",
+            alt: "MongoDB",
+        },
+        {
+            id: 4,
+            icon: "/assets/images/tech/Database/MySQL.webp",
+            name: "MySQL",
+            alt: "MySQL",
+        },
+        {
+            id: 5,
+            icon: "/assets/images/tech/Database/Postgre SQL.webp",
+            name: "Postgre SQL",
+            alt: "Postgre SQL",
+        },
+        {
+            id: 6,
+            icon: "/assets/images/tech/Database/SQLite.webp",
+            name: "SQLite",
+            alt: "SQLite",
+        },
+        {
+            id: 6,
+            icon: "/assets/images/tech/Database/SQL Server.webp",
+            name: "SQL Server",
+            alt: "SQL Server",
+        },
+    ],
+    frameworks: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/Frameworks/CakePHP.webp",
+            name: "Cake PHP",
+            alt: "CakePHP",
+        },
+        {
+            id: 2,
+            icon: "/assets/images/tech/Frameworks/CodeIgniter.webp",
+            name: "Code Igniter",
+            alt: "CodeIgniter",
+        },
+        {
+            id: 3,
+            icon: "/assets/images/tech/Frameworks/Flask by.webp",
+            name: "Flask by",
+            alt: "Flask by",
+        },
+        {
+            id: 4,
+            icon: "/assets/images/tech/Frameworks/Laravel.webp",
+            name: "Laravel",
+            alt: "Laravel",
+        },
+        {
+            id: 5,
+            icon: "/assets/images/tech/Frameworks/MEAN.webp",
+            name: "MEAN",
+            alt: "MEAN",
+        },
+        {
+            id: 5,
+            icon: "/assets/images/tech/Frameworks/Ruby on Rails.webp",
+            name: "Ruby on Rails",
+            alt: "Ruby on Rails",
+        },
+    ],
+    cloud: [
+        {
+            id: 2,
+            icon: "/assets/images/tech/Cloud/AWS.webp",
+            name: "AWS",
+            alt: "AWS",
+        },
+        {
+            id: 3,
+            icon: "/assets/images/tech/Cloud/Azure.webp",
+            name: "Azure",
+            alt: "Azure",
+        },
+        {
+            id: 4,
+            icon: "/assets/images/tech/Cloud/DigitalOcean.webp",
+            name: "Digital Ocean",
+            alt: "Digital Ocean",
+        },
+        {
+            id: 5,
+            icon: "/assets/images/tech/Cloud/Google Cloud.webp",
+            name: "Google Cloud",
+            alt: "Google Cloud",
+        },
+        {
+            id: 6,
+            icon: "/assets/images/tech/Cloud/IBM Cloud.webp",
+            name: "IBM Cloud",
+            alt: "IBM Cloud",
+        },
+        {
+            id: 7,
+            icon: "/assets/images/tech/Cloud/Oracle Cloud.webp",
+            name: "Oracle Cloud",
+            alt: "Oracle Cloud",
+        },
+    ],
+    cms: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/cms/DotNetNuke.webp",
+            name: "Dot Net Nuke",
+            alt: "DotNetNuke",
+        },
+        {
+            id: 2,
+            icon: "/assets/images/tech/cms/Drupal.webp",
+            name: "Drupal",
+            alt: "Drupal",
+        },
+        {
+            id: 3,
+            icon: "/assets/images/tech/cms/Joomla.webp",
+            name: "Joomla",
+            alt: "Joomla",
+        },
+        {
+            id: 4,
+            icon: "/assets/images/tech/cms/Kentico.webp",
+            name: "Kentico",
+            alt: "Kentico",
+        },
+        {
+            id: 5,
+            icon: "/assets/images/tech/cms/Orchard.webp",
+            name: "Orchard",
+            alt: "Orchard",
+        },
+        {
+            id: 6,
+            icon: "/assets/images/tech/cms/Sitefinity.webp",
+            name: "Sitefinity",
+            alt: "Sitefinity",
+        },
+        {
+            id: 7,
+            icon: "/assets/images/tech/cms/WordPress.webp",
+            name: "WordPress",
+            alt: "WordPress",
+        },
+    ],
+    dataAnalytics: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/data analytics/Power BI.webp",
+            name: "Power BI",
+            alt: "Power BI",
+        },
+        {
+            id: 2,
+            icon: "/assets/images/tech/data analytics/Tableau.webp",
+            name: "Tableau",
+            alt: "Tableau",
+        },
+    ],
+    devOps: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/devops/Azure DevOps.webp",
+            name: "Azure DevOps",
+            alt: "Azure DevOps",
+        },
+    ],
+    emerging: [
+        {
+            id: 1,
+            icon: "/assets/images/tech/emerging/Blockchain.webp",
+            name: "Blockchain",
+            alt: "Blockchain",
+        },
+    ],
+};
