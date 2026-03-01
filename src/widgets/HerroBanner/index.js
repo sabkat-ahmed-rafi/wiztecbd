@@ -6,21 +6,58 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
 import ScrollAnimatedSection from "@/components/ScrollAnimationSection";
-import { overViewData } from "@/app/staticData/home";
+import { overViewData as staticOverViewData } from "@/app/staticData/home";
 import GradientText from "@/components/GradientText";
 import OverViewCard from "../OverViewCard";
 import ImageURL from "@/components/ImageUrl";
+import api from "@/config/api";
 
 const HerroBanner = () => {
     const containerRef = useRef(null);
     const [isMobile, setIsMobile] = useState(null);
     const [isError, setIsError] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [homeData, setHomeData] = useState(null);
+    const [overViewData, setOverViewData] = useState(staticOverViewData);
 
     const videoId = "UeDf2noMfOk"; // Updated video ID
 
     useEffect(() => {
+        const fetchHomeData = async () => {
+            try {
+                const response = await api.get("/api/get-home");
+                if (response.data && response.data.home) {
+                    const data = response.data.home;
+                    setHomeData(data);
+
+                    // Update overview data with API values
+                    const updatedOverView = staticOverViewData.map(item => {
+                        if (item.label.toLowerCase().includes("client")) {
+                            return { ...item, target: parseInt(data.totalClients) || item.target };
+                        }
+                        if (item.label.toLowerCase().includes("website")) {
+                            return { ...item, target: parseInt(data.totalWebsites) || item.target };
+                        }
+                        if (item.label.toLowerCase().includes("erp")) {
+                            return { ...item, target: parseInt(data.totalERPs) || item.target };
+                        }
+                        if (item.label.toLowerCase().includes("mobile")) {
+                            return { ...item, target: parseInt(data.totalMobileApps) || item.target };
+                        }
+                        return item;
+                    });
+                    setOverViewData(updatedOverView);
+                }
+            } catch (error) {
+                console.error("Error fetching home data:", error);
+            }
+        };
+        fetchHomeData();
+    }, []);
+
+    useEffect(() => {
         // Check if it's a mobile device
+        // ... (rest of the component logic for particles remains unchanged)
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 640); // Mobile breakpoint
         };
@@ -67,7 +104,7 @@ const HerroBanner = () => {
                     motionDirection: "random",
                     particleSpeed: 0.6,
                     lineWidth: 0.3,
-                    onInit: () => {},
+                    onInit: () => { },
                 },
                 customOptions
             );
@@ -194,7 +231,7 @@ const HerroBanner = () => {
                         <div className=" max-w-xl md:col-span-8 col-span-12">
                             <ScrollAnimatedSection delay={0}>
                                 <h1 className=" text-H1 mb-2 font-bold text-center md:text-start">
-                                    <GradientText className={"text-H1 font-bold  text-center md:text-start"} text={"Wizard Software & Technology"} /> Bangladesh Ltd.
+                                    <GradientText className={"text-H1 font-bold  text-center md:text-start"} text={homeData?.title || "Wizard Software & Technology"} /> {homeData ? "" : "Bangladesh Ltd."}
                                 </h1>
                             </ScrollAnimatedSection>
                             <ScrollAnimatedSection delay={200}>
@@ -203,7 +240,7 @@ const HerroBanner = () => {
                                 </p>
                             </ScrollAnimatedSection>
                             <ScrollAnimatedSection delay={400}>
-                                <p className=" text-subtitle2 text-center md:text-justify">Unlock limitless possibilities with our comprehensive IT solutions designed to address all your digital challenges under one roof. From advanced software development to seamless system integration, we empower businesses to thrive in an ever-evolving technological landscape.</p>
+                                <p className=" text-subtitle2 text-center md:text-justify">{homeData?.description || "Unlock limitless possibilities with our comprehensive IT solutions designed to address all your digital challenges under one roof. From advanced software development to seamless system integration, we empower businesses to thrive in an ever-evolving technological landscape."}</p>
                             </ScrollAnimatedSection>
 
                             <div className="flex space-x-4 mt-4">

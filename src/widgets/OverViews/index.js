@@ -1,10 +1,46 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 import ScrollAnimatedSection from "@/components/ScrollAnimationSection";
-import { overViewData } from "@/app/staticData/home";
+import { overViewData as staticOverViewData } from "@/app/staticData/home";
 import OverViewCard from "../OverViewCard";
+import api from "@/config/api";
 
 const OverViews = () => {
+    const [overViewData, setOverViewData] = useState(staticOverViewData);
+
+    useEffect(() => {
+        const fetchOverViewData = async () => {
+            try {
+                const response = await api.get("/api/get-home");
+                if (response.data && response.data.home) {
+                    const data = response.data.home;
+
+                    // Update overview data with API values
+                    const updatedOverView = staticOverViewData.map(item => {
+                        if (item.label.toLowerCase().includes("client")) {
+                            return { ...item, target: parseInt(data.totalClients) || item.target };
+                        }
+                        if (item.label.toLowerCase().includes("website")) {
+                            return { ...item, target: parseInt(data.totalWebsites) || item.target };
+                        }
+                        if (item.label.toLowerCase().includes("erp")) {
+                            return { ...item, target: parseInt(data.totalERPs) || item.target };
+                        }
+                        if (item.label.toLowerCase().includes("mobile")) {
+                            return { ...item, target: parseInt(data.totalMobileApps) || item.target };
+                        }
+                        return item;
+                    });
+                    setOverViewData(updatedOverView);
+                }
+            } catch (error) {
+                console.error("Error fetching overview data:", error);
+            }
+        };
+        fetchOverViewData();
+    }, []);
+
     return (
         <>
             <ScrollAnimatedSection delay={0}>

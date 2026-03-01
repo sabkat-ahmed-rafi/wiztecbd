@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,8 +7,25 @@ import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
 
+import api from "@/config/api";
+
 const OfferPopup = () => {
     const { isOpen, openModal, closeModal } = useModal();
+    const [image, setImage] = useState("/assets/images/jueal.png");
+
+    useEffect(() => {
+        const fetchImage = async () => {
+            try {
+                const response = await api.get("/api/get-home");
+                if (response.data && response.data.home && response.data.home.image) {
+                    setImage(response.data.home.image);
+                }
+            } catch (error) {
+                console.error("Error fetching popup image:", error);
+            }
+        };
+        fetchImage();
+    }, []);
 
     useEffect(() => {
         const showPopupTimeout = setTimeout(() => {
@@ -28,7 +45,7 @@ const OfferPopup = () => {
             <div className="flex flex-col md:flex-row pt-5 gap-4 md:gap-0">
                 <div className="flex items-center justify-center md:w-2/5 w-full">
                     <div className="bg-auto-pop md:h-370 p-4 pb-0 md:left-0 right-0 bottom-0 2xl:bottom-1 flex items-end justify-center w-full">
-                        <Image src={"/assets/images/jueal.png"} alt={"alt"} height={370} width={256} className="h-auto w-256 max-h-full max-w-full object-cover" />
+                        <Image src={image} alt={"offer"} height={370} width={256} className="h-auto w-256 max-h-full max-w-full object-cover" />
                     </div>
                 </div>
                 <div className="md:w-3/5 w-full pl-10">

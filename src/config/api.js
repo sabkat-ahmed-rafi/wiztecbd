@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL, 
+  baseURL: `http://${process.env.NEXT_PUBLIC_API_BASE_URL || process.env.VITE_API_BASE_URL}`,
   headers: {
     "Content-Type": "multipart/form-data",
-    "x-api-key": import.meta.env.VITE_API_KEY
+    "x-api-key": process.env.NEXT_PUBLIC_API_KEY || process.env.VITE_API_KEY
   },
 });
 
