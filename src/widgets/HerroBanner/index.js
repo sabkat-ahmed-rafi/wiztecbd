@@ -281,7 +281,7 @@ const HerroBanner = () => {
 
                     <div className="fixed inset-0 flex items-center justify-center z-50">
                         <div
-                            className="bg-white relative rounded-lg shadow-lg w-11/12 max-w-[900px] relative transition-transform transform scale-95 sm:scale-100"
+                            className="bg-white rounded-lg shadow-lg w-11/12 max-w-[900px] relative transition-transform transform scale-95 sm:scale-100"
                             onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside
                         >
                             <div className="relative w-full h-0 pb-[56.20%]">
