@@ -28,16 +28,21 @@ const OfferPopup = () => {
     }, []);
 
     useEffect(() => {
-        const showPopupTimeout = setTimeout(() => {
-            openModal(true);
+        const hasShownInSession = sessionStorage.getItem("offerPopupShown");
 
-            const closePopupTimeout = setTimeout(() => {
-                closeModal(false);
-            }, 60 * 1000);
-            return () => clearTimeout(closePopupTimeout);
-        }, 0.1 * 60 * 1000);
+        if (!hasShownInSession) {
+            const showPopupTimeout = setTimeout(() => {
+                openModal(true);
+                sessionStorage.setItem("offerPopupShown", "true");
 
-        return () => clearTimeout(showPopupTimeout);
+                const closePopupTimeout = setTimeout(() => {
+                    closeModal(false);
+                }, 60 * 1000);
+                return () => clearTimeout(closePopupTimeout);
+            }, 0.1 * 60 * 1000);
+
+            return () => clearTimeout(showPopupTimeout);
+        }
     }, []);
 
     return (
