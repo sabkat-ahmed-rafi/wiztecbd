@@ -11,6 +11,7 @@ html {
 .grayscale {
     filter: grayscale(100%);
 }
+
 .grayscale-0 {
     filter: grayscale(0%);
 }
@@ -22,6 +23,7 @@ body {
     @apply bg-default_bg;
     @apply text-primary;
 }
+
 .hover-bg-left-to-right {
     /* @apply bg-primary; */
     @apply relative;
@@ -42,21 +44,29 @@ body {
 /* For scrollbar */
 @layer utilities {
     .scrollbar::-webkit-scrollbar {
-        @apply w-1; /* Width of the scrollbar */
+        @apply w-1;
+        /* Width of the scrollbar */
     }
+
     .scrollbar::-webkit-scrollbar-thumb {
-        @apply bg-success_main rounded-md; /* Thumb color and shape */
+        @apply bg-success_main rounded-md;
+        /* Thumb color and shape */
     }
+
     .scrollbar::-webkit-scrollbar-track {
-        @apply bg-transparent; /* Track color */
+        @apply bg-transparent;
+        /* Track color */
     }
+
     .scrollbar:hover::-webkit-scrollbar-thumb {
-        @apply bg-success_main; /* Darker thumb on hover */
+        @apply bg-success_main;
+        /* Darker thumb on hover */
     }
 }
 
 [id^="section"] {
-    scroll-margin-top: 100px; /* Adds 40px offset when scrolling */
+    scroll-margin-top: 100px;
+    /* Adds 40px offset when scrolling */
 }
 
 .hover-bg-left-to-right:hover::before {
@@ -67,10 +77,12 @@ body {
     @apply relative;
     @apply z-10;
 }
+
 .hover-bg-left-to-right .hover-content {
     @apply relative;
     @apply z-10;
 }
+
 /* Lets talk popup */
 .ant-modal-content {
     padding: 0px !important;
@@ -80,28 +92,37 @@ body {
     border: none !important;
     background-color: transparent !important;
 }
+
 .ant-select-selection-item {
     @apply font-montserrat;
     @apply text-base;
 }
+
 .ant-select-selector {
     box-shadow: none !important;
     font-size: "18px";
 }
+
 .ant-input-outlined:focus {
     box-shadow: none;
 }
+
 .swiper-slide {
     aspect-ratio: 3/5;
 }
+
 .no-scrollbar {
-    overflow: auto; /* Enables scrolling */
-    -ms-overflow-style: none; /* Hides scrollbar in IE and Edge */
-    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    overflow: auto;
+    /* Enables scrolling */
+    -ms-overflow-style: none;
+    /* Hides scrollbar in IE and Edge */
+    scrollbar-width: none;
+    /* Hides scrollbar in Firefox */
 }
 
 .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Hides scrollbar in Chrome, Safari, and Opera */
+    display: none;
+    /* Hides scrollbar in Chrome, Safari, and Opera */
 }
 
 /* triangle */
@@ -165,6 +186,7 @@ body {
         box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
         /* background: linear-gradient(to right, #ff7e5f, #feb47b);  */
     }
+
     100% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -196,6 +218,7 @@ body {
     font-size: 14px !important;
     background-color: #eeeeee;
 }
+
 .custom-input-contact {
     text-align: left !important;
     border-width: 0px !important;
@@ -209,6 +232,7 @@ body {
     @apply !border-divider;
     background-color: transparent;
 }
+
 .custom-input-contact:hover {
     @apply !border-black;
 }
@@ -218,15 +242,19 @@ body {
         background-color: rgba(143, 198, 69, 1) !important;
     }
 }
+
 .custom-header {
     background-color: rgba(143, 198, 69, 1) !important;
 }
+
 .monthList_month.is-selected-month {
     color: rgba(143, 198, 69, 1) !important;
 }
+
 .monthList_month.is-selected-month {
     color: rgba(143, 198, 69, 1) !important;
 }
+
 .is-selectedYearRef {
     color: rgba(143, 198, 69, 1) !important;
 }
@@ -234,17 +262,22 @@ body {
 .bw-image {
     filter: grayscale(100%);
 }
+
 /* for animation */
 /* Add this CSS for smooth fade-in and translate animation */
 .scroll-animate {
-    opacity: 0; /* Start with 0 opacity */
+    opacity: 0;
+    /* Start with 0 opacity */
     transform: translateY(60px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Smooth transition */
 }
+
 .scroll-animate.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 /* For developer page submite modal  */
 .circle {
     fill: none;

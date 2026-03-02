@@ -7,10 +7,9 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 const HyperlinkTable = ({ richText }) => {
     const HyperlinkTableData = richText
         .map((item) => {
-            // Fixing potential malformed HTML
-            const fixedContent = item.content.replace(/<h2[^>]*>(.*?)<h2\/?>/g, "<h2>$1</h2>");
-            const match = fixedContent.match(/<h2[^>]*>(.*?)<\/h2>/);
-            return match ? match[1] : null;
+            // Match any header tag (h1, h2, h3) and extract its inner text
+            const match = item.content.match(/<h[1-3][^>]*>(.*?)<\/h[1-3]>/i);
+            return match ? match[1].replace(/<[^>]*>?/gm, "") : null; // Also strip nested HTML tags from TOC title
         })
         .filter(Boolean);
 

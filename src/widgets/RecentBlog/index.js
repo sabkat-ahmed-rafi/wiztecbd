@@ -1,13 +1,49 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { GoArrowRight } from "react-icons/go";
 import Link from "next/link";
 
 import ScrollAnimatedSection from "@/components/ScrollAnimationSection";
-import blogs from "/public/Json/blogs.json";
+import staticBlogs from "/public/Json/blogs.json";
+import api from "@/config/api";
 
 const RecentBlog = () => {
-    const recentBlog = blogs[blogs.length - 1];
+    const [recentBlog, setRecentBlog] = useState(null);
+
+    useEffect(() => {
+        const fetchRecentBlog = async () => {
+            try {
+                const response = await api.get("/api/get-blogs");
+                if (response.data && response.data.blogs && response.data.blogs.length > 0) {
+                    const latest = response.data.blogs[0];
+                    // Strip HTML from content for description
+                    const strippedContent = latest.content?.replace(/<[^>]*>?/gm, "").substring(0, 150) + "...";
+
+                    setRecentBlog({
+                        id: latest.id,
+                        title: latest.title,
+                        description: strippedContent,
+                        img: latest.image,
+                        readTime: `${latest.readTime} mins read`,
+                        date: new Date(latest.createdAt).toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                        }),
+                    });
+                } else {
+                    setRecentBlog(staticBlogs[staticBlogs.length - 1]);
+                }
+            } catch (error) {
+                console.error("Error fetching recent blog:", error);
+                setRecentBlog(staticBlogs[staticBlogs.length - 1]);
+            }
+        };
+        fetchRecentBlog();
+    }, []);
+
+    if (!recentBlog) return null;
 
     return (
         <div>
@@ -19,7 +55,7 @@ const RecentBlog = () => {
                 <div className="md:w-3/5 w-full">
                     <div className="mb-4 w-auto inline-flex items-center gap-1 rounded-full bg-success_light p-1">
                         <span className=" rounded-full px-4 py-1 bg-success_main text-white ">Nows!</span>
-                        <span className="  rounded-full px-4 py-1 ">8 mins read</span>
+                        <span className="  rounded-full px-4 py-1 ">{recentBlog.readTime || "8 mins read"}</span>
                     </div>
                     <ScrollAnimatedSection>
                         <h5 className=" text-H5 font-bold mb-10px">{recentBlog.title}</h5>
