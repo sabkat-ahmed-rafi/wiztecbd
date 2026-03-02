@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-const CommentCard = ({ img, alt, name, time, comment, onReply }) => {
+const CommentCard = ({ img, alt, name, time, comment }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const toggleComment = () => {
         setIsExpanded((prev) => !prev);
@@ -16,9 +16,6 @@ const CommentCard = ({ img, alt, name, time, comment, onReply }) => {
                 <div className="mb-2">
                     <div className=" flex items-center justify-between mb-1">
                         <h5 className="text-H5 font-medium">{name}</h5>
-                        <button onClick={() => onReply(true)} className="self-start px-3 py-1 text-white text-subtitle2 md:text-body1 bg-primary rounded hover:bg-gray-700 ">
-                            Reply
-                        </button>
                     </div>
                     <p className="text-gray600 text-body2">{time}</p>
                 </div>

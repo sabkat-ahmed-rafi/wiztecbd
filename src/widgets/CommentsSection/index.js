@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import Button from "@/components/Button";
 import { AllComments } from "@/widgets/AllComments";
 
-const CommentsSection = ({ comments, handleComments, handleReply }) => {
+const CommentsSection = ({ comments, handleComments }) => {
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -14,7 +14,8 @@ const CommentsSection = ({ comments, handleComments, handleReply }) => {
             comment: "",
         },
         validationSchema: Yup.object({
-            email: Yup.string().email("Invalid email address").required("The field is required."),
+            name: Yup.string().required("Name is required."),
+            email: Yup.string().email("Invalid email address").required("Email is required."),
             comment: Yup.string().min(10, "Must be 10 characters or more").required("Comment is required."),
         }),
         onSubmit: (values, { resetForm }) => {
@@ -38,14 +39,29 @@ const CommentsSection = ({ comments, handleComments, handleReply }) => {
                             </linearGradient>
                         </defs>
                     </svg>
-                    <h5 className=" text-H5 font-semibold">Comments (03)</h5>
+                    <h5 className=" text-H5 font-semibold">Comments ({comments?.length || 0})</h5>
                 </div>
 
                 <div className=" flex flex-col gap-6 md:12">
                     {comments &&
-                        comments.map(({ id, name, img, alt, time, comment, reply }, index) => (
+                        comments.map(({ id, name, createdAt, comment, replies }, index) => (
                             <div key={id} className=" gap-4 flex flex-col">
-                                <AllComments id={index} userImg={img} alt={alt} user={name} date={time} comment={comment} handleReply={handleReply} reply={reply} />
+                                <AllComments
+                                    id={id}
+                                    userImg={"/assets/images/recentblog.webp"}
+                                    alt={name}
+                                    user={name}
+                                    date={new Date(createdAt).toLocaleDateString("en-US", {
+                                        month: "long",
+                                        day: "numeric",
+                                        year: "numeric",
+                                    }) + " AT " + new Date(createdAt).toLocaleTimeString("en-US", {
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                    })}
+                                    comment={comment}
+                                    reply={replies}
+                                />
                             </div>
                         ))}
                 </div>
@@ -73,9 +89,10 @@ const CommentsSection = ({ comments, handleComments, handleReply }) => {
                                 Name*
                             </label>
                             <input type="text" name="name" onChange={formik.handleChange} value={formik.values.name} className={`focus:ring-1 focus:ring-success_main  hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2  bg-white rounded-lg focus:outline-none ring-1 ring-success_main   focus:border-transparent`} />
+                            {formik.touched.name && formik.errors.name ? <div className=" text-subtitle2 mt-1 text-error_main">{formik.errors.name}</div> : null}
                         </div>
                         <div className=" flex flex-col my-4 w-1/2">
-                            <label htmlFor="name" className="font-semibold mb-2">
+                            <label htmlFor="email" className="font-semibold mb-2">
                                 Email*
                             </label>
 

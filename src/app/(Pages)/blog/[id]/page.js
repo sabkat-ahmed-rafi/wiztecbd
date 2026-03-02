@@ -20,6 +20,18 @@ import api from "@/config/api";
 const BlogDetails = ({ params }) => {
     const [blogDetails, setBlogDetails] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [comments, setComments] = useState([]);
+
+    const fetchComments = async () => {
+        try {
+            const response = await api.get(`/api/get-comments-by-blog/${params.id}?isApproved=true`);
+            if (response.data && response.data.comments) {
+                setComments(response.data.comments);
+            }
+        } catch (error) {
+            console.error("Error fetching comments:", error);
+        }
+    };
 
     useEffect(() => {
         const fetchBlogDetails = async () => {
@@ -53,7 +65,6 @@ const BlogDetails = ({ params }) => {
                             expertist: found.expertises?.map((e) => e.name) || [],
                             richText: richText,
                             tags: found.expertises?.map((e) => e.name) || [],
-                            comments: [], // Dynamic comments can be added here if available in API
                             topic: [
                                 { id: 1, text: "Software Development", url: "/services/custom-software-development" },
                                 { id: 2, text: "Website Development", url: "/services/website-development" },
@@ -81,6 +92,7 @@ const BlogDetails = ({ params }) => {
             }
         };
         fetchBlogDetails();
+        fetchComments();
     }, [params.id]);
 
     if (loading) {
@@ -91,56 +103,32 @@ const BlogDetails = ({ params }) => {
         return <p>Blog not found!</p>;
     }
 
-    const handleComments = (comments) => {
-        const modifcomm = {
-            id: blogDetails.comments.length + 1,
-            name: comments.name,
-            img: "/assets/images/recentblog.webp",
-            alt: "user",
-            time: new Date().toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-            }) + " AT " + new Date().toLocaleTimeString("en-US", {
-                hour: "2-digit",
-                minute: "2-digit",
-            }),
-            comment: comments.comment,
-            reply: [],
-        };
-        setBlogDetails(prev => ({
-            ...prev,
-            comments: [...prev.comments, modifcomm]
-        }));
-    };
+    const handleComments = async (values) => {
+        try {
+            const paramsData = new URLSearchParams();
+            paramsData.append("name", values.name);
+            paramsData.append("email", values.email);
+            paramsData.append("comment", values.comment);
+            paramsData.append("blogID", params.id);
 
-    const handleReply = (reply) => {
-        const modifcomm = {
-            id: Date.now(),
-            name: "User",
-            img: "/assets/images/recentblog.webp",
-            alt: "user",
-            time: new Date().toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-            }) + " AT " + new Date().toLocaleTimeString("en-US", {
-                hour: "2-digit",
-                minute: "2-digit",
-            }),
-            comment: reply.comment,
-        };
+            const response = await api.post("/api/add-comment", paramsData, {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+            });
 
-        const updatedComments = [...blogDetails.comments];
-        const commentIndex = updatedComments.findIndex(c => c.id === reply.id);
-        if (commentIndex !== -1) {
-            updatedComments[commentIndex].reply.push(modifcomm);
-            setBlogDetails(prev => ({
-                ...prev,
-                comments: updatedComments
-            }));
+            if (response.data.status === 200) {
+                alert("Thank you! Your comment has been submitted successfully and will be visible once approved by our team.");
+                fetchComments(); // Refresh comments list
+            } else {
+                alert(response.data.message || "Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error adding comment:", error);
+            alert("Failed to submit comment. Please check your connection and try again.");
         }
     };
+
 
     return (
         <RootSection>
@@ -165,7 +153,7 @@ const BlogDetails = ({ params }) => {
             </Section>
             <Section id="comments" bgColor="bg-secondary_bg">
                 <div className="container mx-auto md:px-4 max-w-xl w-full md:py-100 py-12">
-                    <CommentsSection handleComments={handleComments} handleReply={handleReply} comments={blogDetails.comments} />
+                    <CommentsSection handleComments={handleComments} comments={comments} blogID={params.id} />
                 </div>
             </Section>
             <Section id="articals">
