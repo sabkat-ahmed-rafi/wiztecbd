@@ -37,7 +37,7 @@ const OurFeatureProjects = ({ ourFeatureProjectsData, reverse }) => {
                     )}
                     {ourFeatureProjectsData.buttonText && (
                         <ScrollAnimatedSection delay={700}>
-                            <Link href={`/portfolio/${ourFeatureProjectsData.id}`}>
+                            <Link href={ourFeatureProjectsData.linkUrl || `/portfolio/${ourFeatureProjectsData.id}`}>
                                 <Button>
                                     {ourFeatureProjectsData.buttonText}
                                     <GoArrowRight />
