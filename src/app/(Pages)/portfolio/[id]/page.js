@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 
 import CaseStudiesBanner from "@/widgets/CaseStudiesBanner";
 import RelatedCases from "@/widgets/RelatedCases";
@@ -13,19 +14,59 @@ import Encountered from "@/widgets/Encountered";
 import ProjectTarget from "@/widgets/ProjectTarget";
 import Result from "@/widgets/FinalResult";
 import ResolutionOffered from "@/widgets/ResolutionOffered";
-import portfolio from "/public/Json/portfolio.json";
-import { DetailsFilter } from "@/utilities/detailsFilter";
 import Product from "@/widgets/Product";
 import List from "@/components/List";
+import { fetchCaseStudies } from "@/utilities/api";
+import { transformCaseStudiesToPortfolio } from "@/utilities/dataTransform";
 
 const CaseStudies = ({ params }) => {
-    const cases = DetailsFilter(portfolio, params.id);
+    const [cases, setCases] = useState(null);
+    const [relatedCaseStudies, setRelatedCaseStudies] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    if (!cases) {
-        return <p>Blog not found!</p>;
+    useEffect(() => {
+        const loadCaseStudy = async () => {
+            try {
+                const data = await fetchCaseStudies();
+                if (data.status === 200 && data.caseStudies) {
+                    const transformedPortfolio = transformCaseStudiesToPortfolio(data.caseStudies);
+                    const foundCase = transformedPortfolio.find((caseStudy) => caseStudy.id === params.id);
+                    
+                    if (foundCase) {
+                        setCases(foundCase);
+                        const related = transformedPortfolio.filter((related) => related.id !== params.id);
+                        setRelatedCaseStudies(related);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading case study:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadCaseStudy();
+    }, [params.id]);
+
+    if (loading) {
+        return (
+            <RootSection>
+                <div className="flex justify-center items-center min-h-screen">
+                    <div className="text-center">Loading...</div>
+                </div>
+            </RootSection>
+        );
     }
 
-    const relatedCaseStudies = portfolio.filter((related) => related.id !== params.id);
+    if (!cases) {
+        return (
+            <RootSection>
+                <div className="flex justify-center items-center min-h-screen">
+                    <p>Case study not found!</p>
+                </div>
+            </RootSection>
+        );
+    }
 
     return (
         <RootSection>

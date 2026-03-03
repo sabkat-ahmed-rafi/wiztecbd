@@ -1,10 +1,41 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 
 import OurFeatureProjects from "../OurFeatureProjects";
-import products from "/public/Json/products.json";
 import { Section } from "@/components/Section";
+import { fetchCaseStudies } from "@/utilities/api";
+import { transformCaseStudiesToProducts } from "@/utilities/dataTransform";
 
 const Products = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadProducts = async () => {
+            try {
+                const data = await fetchCaseStudies();
+                if (data.status === 200 && data.caseStudies) {
+                    const transformedProducts = transformCaseStudiesToProducts(data.caseStudies);
+                    setProducts(transformedProducts);
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadProducts();
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-64">
+                <div className="text-center">Loading...</div>
+            </div>
+        );
+    }
+
     return (
         <>
             {products.map((product, index) => {

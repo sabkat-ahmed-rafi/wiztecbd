@@ -1,13 +1,46 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 
 import Banner from "@/components/Banner";
 import OurFeatureProjects from "@/widgets/OurFeatureProjects";
-import products from "/public/Json/products.json";
 import { RootSection, Section } from "@/components/Section";
 import SelectFilter from "@/widgets/SelectFilter/index.js";
 import { bannerImages } from "@/app/staticData/portfolio";
+import { fetchCaseStudies } from "@/utilities/api";
+import { transformCaseStudiesToProducts } from "@/utilities/dataTransform";
 
 const Product = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadProducts = async () => {
+            try {
+                const data = await fetchCaseStudies();
+                if (data.status === 200 && data.caseStudies) {
+                    const transformedProducts = transformCaseStudiesToProducts(data.caseStudies);
+                    setProducts(transformedProducts);
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadProducts();
+    }, []);
+
+    if (loading) {
+        return (
+            <RootSection>
+                <div className="flex justify-center items-center min-h-screen">
+                    <div className="text-center">Loading...</div>
+                </div>
+            </RootSection>
+        );
+    }
+
     return (
         <RootSection>
             <Section id={"productBanner"}>
