@@ -10,24 +10,33 @@ import PhoneNumberInput from "@/components/PhoneNumber";
 import DatePicker from "@/components/DatePicker";
 import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
+import { useEffect } from "react";
+import api from "@/config/api";
 
 const ContactForm = () => {
+    const [services, setServices] = useState([]);
     const [selectValue, setSelectValue] = useState("");
     const { isOpen: isSuccess, openModal: openSuccess, closeModal: closeSuccess } = useModal();
     const { isOpen, openModal, closeModal } = useModal();
 
-    const options = [
-        { label: "Website Development", value: "Website Development" },
-        { label: "Mobile Games & App Development", value: "Mobile Games & App Development" },
-        { label: "Software Development", value: "Software Development" },
-        { label: "E-commerce Platform", value: "E-commerce Platform" },
-        { label: "Digital Marketing", value: "Digital Marketing" },
-        { label: "Support & Maintenance", value: "Support & Maintenance" },
-        { label: "Graphics Design", value: "Graphics Design" },
-        { label: "IT/Technical Training", value: "IT/Technical Training" },
-        { label: "IT Consultancy", value: "IT Consultancy" },
-        { label: "Other", value: "Other" },
-    ];
+    useEffect(() => {
+        const fetchServices = async () => {
+            try {
+                const response = await api.get("/api/get-services");
+                if (response.data.status === 200) {
+                    const dynamicOptions = response.data.services.map((service) => ({
+                        label: service.name,
+                        value: service.name,
+                    }));
+                    setServices([...dynamicOptions, { label: "Other", value: "Other" }]);
+                }
+            } catch (error) {
+                console.error("Failed to fetch services:", error);
+            }
+        };
+
+        fetchServices();
+    }, []);
 
     // Validation schema using Yup
     const validationSchema = Yup.object().shape({
@@ -78,7 +87,7 @@ const ContactForm = () => {
                         {formik.touched.email && formik.errors.email && <div className="text-error_main text-subtitle2 mt-1">{formik.errors.email}</div>}
                     </div>
                     <div className="mb-10">
-                        <Select options={options} multipleValu={false} value={selectValue} onChange={setSelectValue} placeholder="Select service" inputClass={"w-full !bg-transparent pb-1 px-4 text-gray500 border-0 border-b border-divider rounded-none border-black focus:border-black focus:outline-none hover:border-black "} />
+                        <Select options={services} multipleValu={false} value={selectValue} onChange={setSelectValue} placeholder="Select service" inputClass={"w-full !bg-transparent pb-1 px-4 text-gray500 border-0 border-b border-divider rounded-none border-black focus:border-black focus:outline-none hover:border-black "} />
                     </div>
                     <div className="mb-10">
                         <PhoneNumberInput name="number*" value={formik.values.number} onChange={(val) => formik.setFieldValue("number", val)} inputClass={"w-full py-0 px-2 !bg-transparent text-gray500 border-0 border-b border-divider rounded-none border-black focus:border-black focus:outline-none hover:border-black ring-transparent !hover:shadow-none"} />

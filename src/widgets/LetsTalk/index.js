@@ -7,16 +7,38 @@ import { FaCheck } from "react-icons/fa";
 import PhoneNumberInput from "@/components/PhoneNumber";
 import Modal from "@/components/Modal";
 import DatePicker from "@/components/DatePicker";
-import { services } from "@/app/staticData/home";
+import { services as staticServices } from "@/app/staticData/home";
 import ImageURL from "@/components/ImageUrl";
 import { clients } from "@/app/staticData/data";
 import { Popup } from "../IntroDesign";
+import { useEffect } from "react";
+import api from "@/config/api";
 
 const LetsTalk = ({ isOpen, onClose }) => {
+    const [services, setServices] = useState([]);
     const [tab, setTab] = useState([]);
     const [isSuccess, setIsSuccess] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
     const [isWarning, setIsWarning] = useState(false);
+
+    useEffect(() => {
+        const fetchServices = async () => {
+            try {
+                const response = await api.get("/api/get-services");
+                if (response.data.status === 200) {
+                    const dynamicServices = response.data.services.map((service) => ({
+                        id: service.id,
+                        label: service.name,
+                    }));
+                    setServices(dynamicServices);
+                }
+            } catch (error) {
+                console.error("Failed to fetch services:", error);
+            }
+        };
+
+        fetchServices();
+    }, []);
 
     const formik = useFormik({
         initialValues: {
