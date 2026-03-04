@@ -1,12 +1,33 @@
-import React from "react";
+'use client'
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaFacebook, FaXTwitter } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { MdArrowRightAlt } from "react-icons/md";
 import Link from "next/link";
+import api from "@/config/api";
 
 const Footer = () => {
+    const [offices, setOffices] = useState([]);
+
+    useEffect(() => {
+        const fetchOffices = async () => {
+            try {
+                const response = await api.get("/api/get-offices");
+                console.log(response)
+                if (response.data.status === 200) {
+                    setOffices(response.data.offices);
+                }
+            } catch (error) {
+                console.error("Failed to fetch offices:", error);
+            }
+        };
+
+        fetchOffices();
+    }, []);
+
     return (
         <div>
             <div className="bg-footer-image  bg-cover bg-center h-130 bg-default_bg"></div>
@@ -94,37 +115,24 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className=" col-span-4 xs:col-span-2 md:col-span-2 ">
-                        <div>
-                            <p className=" font-semibold mb-7">Bangladesh Office</p>
-                            <p className=" mb-6">
-                                Level 9 (West Side), 107 F Haque Tower, Bir Uttam C R Datta Road, Sonargaon Road, Dhaka-1205 <br />
-                                Mobile :{" "}
-                                <Link href="tel:01600299169" target="_blank" className=" hover:text-success_main hover:underline">
-                                    01600-299169
-                                </Link>{" "}
-                                <br />
-                                Email :{" "}
-                                <Link href="mailto:wiztecbd@gmail.com" target="_blank" className=" hover:text-success_main hover:underline">
-                                    wiztecbd@gmail.com
-                                </Link>
-                            </p>
-                        </div>
-                        <div>
-                            <p className=" font-semibold mb-4">UK Office</p>
-                            <p className=" mb-4">
-                                71-75, Shelton Street, Covent Garden, London, United Kingdom. <br />
-                                Mobile :{" "}
-                                <Link href="tel:+447462312013" target="_blank" className=" hover:text-success_main hover:underline">
-                                    +447462312013
-                                </Link>{" "}
-                                <br />
-                                Email :{" "}
-                                <Link href="mailto:wiztecuk@gmail.com" target="_blank" className=" hover:text-success_main hover:underline">
-                                    wiztecuk@gmail.com
-                                </Link>
-                            </p>
-                        </div>
+                    <div className=" col-span-4 xs:col-span-2 md:col-span-2 space-y-8">
+                        {offices.map((office) => (
+                            <div key={office.id}>
+                                <p className=" font-semibold mb-4">{office.title}</p>
+                                <p className=" mb-0">
+                                    {office.address} <br />
+                                    Mobile :{" "}
+                                    <Link href={`tel:${office.phone}`} target="_blank" className=" hover:text-success_main hover:underline">
+                                        {office.phone}
+                                    </Link>{" "}
+                                    <br />
+                                    Email :{" "}
+                                    <Link href={`mailto:${office.email}`} target="_blank" className=" hover:text-success_main hover:underline">
+                                        {office.email}
+                                    </Link>
+                                </p>
+                            </div>
+                        ))}
                     </div>
                     <div className="col-span-4 pb-4 text-subtitle2">
                         <p className="text-center">© {new Date().getFullYear()} Wizard Software & Technology Bangladesh Ltd. All Rights Reserved</p>
