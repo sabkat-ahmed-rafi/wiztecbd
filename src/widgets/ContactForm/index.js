@@ -16,7 +16,7 @@ import axios from "axios";
 
 const ContactForm = () => {
     const [services, setServices] = useState([]);
-    const [selectValue, setSelectValue] = useState("");
+    const [selectValue, setSelectValue] = useState([]);
     const { isOpen: isSuccess, openModal: openSuccess, closeModal: closeSuccess } = useModal();
     const { isOpen, openModal, closeModal } = useModal();
 
@@ -83,13 +83,9 @@ const ContactForm = () => {
                 payload.append("date", formattedDate);
                 payload.append("time", formattedTime);
 
-                // If "Other" or no selection, we might send an empty array or handle accordingly.
-                // Assuming we send an array of IDs.
-                if (selectValue && selectValue !== "Other") {
-                    payload.append("serviceIDs", JSON.stringify([selectValue]));
-                } else {
-                    payload.append("serviceIDs", JSON.stringify([]));
-                }
+                // Handle multiple select IDs
+                const validServiceIDs = selectValue.filter(id => id !== "Other");
+                payload.append("serviceIDs", JSON.stringify(validServiceIDs));
 
                 const response = await axios.post(`${api.defaults.baseURL}/api/add-contact`, payload, {
                     headers: {
@@ -104,7 +100,7 @@ const ContactForm = () => {
                         openSuccess();
                     }, 200);
                     resetForm();
-                    setSelectValue("");
+                    setSelectValue([]);
                 }
             } catch (error) {
                 console.error("Failed to submit contact form:", error);
@@ -132,7 +128,7 @@ const ContactForm = () => {
                         {formik.touched.email && formik.errors.email && <div className="text-error_main text-subtitle2 mt-1">{formik.errors.email}</div>}
                     </div>
                     <div className="mb-10">
-                        <Select options={services} multipleValu={false} value={selectValue} onChange={setSelectValue} placeholder="Select service" inputClass={"w-full !bg-transparent pb-1 px-4 text-gray500 border-0 border-b border-divider rounded-none border-black focus:border-black focus:outline-none hover:border-black "} />
+                        <Select options={services} multipleValu={true} value={selectValue} onChange={setSelectValue} placeholder="Select service" inputClass={"w-full !bg-transparent pb-1 px-4 text-gray500 border-0 border-b border-divider rounded-none border-black focus:border-black focus:outline-none hover:border-black "} />
                     </div>
                     <div className="mb-10">
                         <PhoneNumberInput name="number*" value={formik.values.number} onChange={(val) => formik.setFieldValue("number", val)} inputClass={"w-full py-0 px-2 !bg-transparent text-gray500 border-0 border-b border-divider rounded-none border-black focus:border-black focus:outline-none hover:border-black ring-transparent !hover:shadow-none"} />
