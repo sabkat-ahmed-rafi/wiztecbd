@@ -13,6 +13,7 @@ import { clients } from "@/app/staticData/data";
 import { Popup } from "../IntroDesign";
 import { useEffect } from "react";
 import api from "@/config/api";
+import axios from "axios";
 
 const LetsTalk = ({ isOpen, onClose }) => {
     const [services, setServices] = useState([]);
@@ -58,17 +59,53 @@ const LetsTalk = ({ isOpen, onClose }) => {
                 .required("Phone number is required"),
             email: Yup.string().email("Invalid email address").required("The field is required."),
         }),
-        onSubmit: (values, { resetForm }) => {
-            const final_data = {
-                ...values,
-                service_ids: tab,
-            };
-            setIsSubmit(true);
-            setTimeout(() => {
-                setIsSuccess(true);
-            }, 200);
-            resetForm();
-            console.log("Form Values:", final_data);
+        onSubmit: async (values, { resetForm }) => {
+            try {
+                const dt = values.dateTime;
+                let formattedDate = "";
+                let formattedTime = "";
+
+                if (dt && typeof dt === "object" && dt.year && dt.month && dt.day) {
+                    formattedDate = `${dt.year}-${String(dt.month).padStart(2, "0")}-${String(dt.day).padStart(2, "0")}`;
+                    formattedTime = `${String(dt.hour || 0).padStart(2, "0")}:${String(dt.minute || 0).padStart(2, "0")}`;
+                } else if (dt) {
+                    const dateObj = new Date(dt);
+                    if (!isNaN(dateObj.getTime())) {
+                        formattedDate = dateObj.toISOString().split("T")[0];
+                        formattedTime = dateObj.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+                    }
+                }
+
+                const payload = new URLSearchParams();
+                payload.append("name", values.name);
+                payload.append("email", values.email);
+                payload.append("mobile", values.number);
+                payload.append("companyName", values.company);
+                payload.append("companyWebsite", values.website);
+                payload.append("description", values.descrition);
+                payload.append("date", formattedDate);
+                payload.append("time", formattedTime);
+                payload.append("serviceIDs", JSON.stringify(tab));
+
+                const response = await axios.post(`${api.defaults.baseURL}/api/add-contact`, payload, {
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "x-api-key": api.defaults.headers["x-api-key"],
+                    },
+                });
+
+                if (response.data.status === 200 || response.data.status === 201) {
+                    setIsSubmit(true);
+                    setTimeout(() => {
+                        setIsSuccess(true);
+                    }, 200);
+                    resetForm();
+                    setTab([]);
+                    console.log("Form submitted successfully");
+                }
+            } catch (error) {
+                console.error("Failed to submit contact form:", error);
+            }
         },
     });
 

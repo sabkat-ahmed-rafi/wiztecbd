@@ -12,6 +12,7 @@ import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
 import { useEffect } from "react";
 import api from "@/config/api";
+import axios from "axios";
 
 const ContactForm = () => {
     const [services, setServices] = useState([]);
@@ -26,7 +27,7 @@ const ContactForm = () => {
                 if (response.data.status === 200) {
                     const dynamicOptions = response.data.services.map((service) => ({
                         label: service.name,
-                        value: service.name,
+                        value: service.id,
                     }));
                     setServices([...dynamicOptions, { label: "Other", value: "Other" }]);
                 }
@@ -57,13 +58,57 @@ const ContactForm = () => {
             dateTime: "",
         },
         validationSchema,
-        onSubmit: (values, { resetForm }) => {
-            const formData = { ...values, selectValue };
-            openModal();
-            setTimeout(() => {
-                openSuccess();
-            }, 200);
-            resetForm();
+        onSubmit: async (values, { resetForm }) => {
+            try {
+                const dt = values.dateTime;
+                let formattedDate = "";
+                let formattedTime = "";
+
+                if (dt && typeof dt === "object" && dt.year && dt.month && dt.day) {
+                    formattedDate = `${dt.year}-${String(dt.month).padStart(2, "0")}-${String(dt.day).padStart(2, "0")}`;
+                    formattedTime = `${String(dt.hour || 0).padStart(2, "0")}:${String(dt.minute || 0).padStart(2, "0")}`;
+                } else if (dt) {
+                    const dateObj = new Date(dt);
+                    if (!isNaN(dateObj.getTime())) {
+                        formattedDate = dateObj.toISOString().split("T")[0];
+                        formattedTime = dateObj.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+                    }
+                }
+
+                const payload = new URLSearchParams();
+                payload.append("name", values.name);
+                payload.append("email", values.email);
+                payload.append("mobile", values.number);
+                payload.append("description", values.message);
+                payload.append("date", formattedDate);
+                payload.append("time", formattedTime);
+
+                // If "Other" or no selection, we might send an empty array or handle accordingly.
+                // Assuming we send an array of IDs.
+                if (selectValue && selectValue !== "Other") {
+                    payload.append("serviceIDs", JSON.stringify([selectValue]));
+                } else {
+                    payload.append("serviceIDs", JSON.stringify([]));
+                }
+
+                const response = await axios.post(`${api.defaults.baseURL}/api/add-contact`, payload, {
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "x-api-key": api.defaults.headers["x-api-key"],
+                    },
+                });
+
+                if (response.data.status === 200 || response.data.status === 201) {
+                    openModal();
+                    setTimeout(() => {
+                        openSuccess();
+                    }, 200);
+                    resetForm();
+                    setSelectValue("");
+                }
+            } catch (error) {
+                console.error("Failed to submit contact form:", error);
+            }
         },
     });
 
