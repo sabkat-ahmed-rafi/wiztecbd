@@ -4,21 +4,24 @@ import Image from "next/image";
 import { MdAttachFile } from "react-icons/md";
 import { FaMessage } from "react-icons/fa6";
 import { FaBold, FaItalic, FaStrikethrough, FaListUl, FaPaperPlane, FaComment, FaEdit, FaChevronDown, FaEllipsisV } from "react-icons/fa";
+import { io } from "socket.io-client";
 
 import ImageURL from "@/components/ImageUrl";
 import useModal from "@/hooks/useModal";
+import api from "@/config/api";
 
 const LiveChat = () => {
     const [enter, setEnter] = useState(false);
     const [anchorElAvat, setAnchorElAvat] = useState(null);
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState([]); // Visual previews
+    const [selectedFile, setSelectedFile] = useState(null); // Actual file for upload
     const [inputData, setInputData] = useState("");
     const chatContainerRef = useRef(null);
     const [email, setEmail] = useState("");
-    const [chatData, setChatData] = useState([
-        { id: 1, name: "author", msg: "Welcome to our software house!" },
-        { id: 2, name: "author", msg: "How can we help you?" },
-    ]);
+    const [chatData, setChatData] = useState([]);
+    const [socket, setSocket] = useState(null);
+    const [isAdminTyping, setIsAdminTyping] = useState(false);
+    const typingTimeoutRef = useRef(null);
     const { isOpen, openModal, closeModal } = useModal();
 
     useEffect(() => {
@@ -26,27 +29,117 @@ const LiveChat = () => {
             openModal(true);
         }, 8000);
 
-        return () => clearTimeout(showPopupTimeout);
+        // Initialize Socket
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "localhost:5000";
+        const socketUrl = baseUrl.startsWith("http") ? baseUrl : `http://${baseUrl}`;
+        const newSocket = io(socketUrl);
+        setSocket(newSocket);
+
+        return () => {
+            clearTimeout(showPopupTimeout);
+            newSocket.disconnect();
+        };
     }, []);
+
+    // Handle initial greeting if no chat data
+    useEffect(() => {
+        if (chatData.length === 0) {
+            setChatData([
+                { id: "greet-1", isAdmin: true, message: "Welcome to our software house!" },
+                { id: "greet-2", isAdmin: true, message: "How can we help you?" },
+            ]);
+        }
+    }, [chatData]);
+
+    // Room joining and message fetching
+    useEffect(() => {
+        if (socket && email && email.includes("@")) {
+            socket.emit("join_room", email);
+
+            // Fetch history from API
+            const fetchHistory = async () => {
+                try {
+                    const response = await api.get(`/api/get-messages?email=${email}&limit=100`);
+                    if (response.data.status === 200) {
+                        setChatData(response.data.messages.reverse()); // Reverse to show oldest first in list
+                        // Mark as read
+                        try {
+                            await api.put("/api/read-user", { email });
+                        } catch (err) {
+                            console.error("Error marking messages as read:", err);
+                        }
+                    }
+                } catch (error) {
+                    console.error("Error fetching chat history:", error);
+                }
+            };
+            fetchHistory();
+        }
+    }, [socket, email]);
 
     // Remove a selected image from the preview
     const handleImageRemove = (index) => {
         const updatedImages = images.filter((_, idx) => idx !== index);
         setImages(updatedImages);
+        if (updatedImages.length === 0) setSelectedFile(null);
     };
+
+    const adminTypingTimeoutRef = useRef(null);
+
+    // Real-time listeners
+    useEffect(() => {
+        if (!socket) return;
+
+        socket.on("new_message_from_admin", (data) => {
+            setChatData((prev) => [...prev, { ...data, isAdmin: true }]);
+            // Mark as read
+            if (anchorElAvat) {
+                api.put("/api/read-user", { email }).catch(err => console.error(err));
+            }
+        });
+
+        socket.on("typing", (data) => {
+            if (data.isAdmin) {
+                setIsAdminTyping(true);
+                // Clear existing safety timeout
+                if (adminTypingTimeoutRef.current) clearTimeout(adminTypingTimeoutRef.current);
+                // Set safety timeout to auto-clear after 5 seconds
+                adminTypingTimeoutRef.current = setTimeout(() => {
+                    setIsAdminTyping(false);
+                }, 5000);
+            }
+        });
+
+        socket.on("stop_typing", (data) => {
+            if (data.isAdmin) {
+                setIsAdminTyping(false);
+                if (adminTypingTimeoutRef.current) {
+                    clearTimeout(adminTypingTimeoutRef.current);
+                    adminTypingTimeoutRef.current = null;
+                }
+            }
+        });
+
+        return () => {
+            socket.off("new_message_from_admin");
+            socket.off("typing");
+            socket.off("stop_typing");
+            if (adminTypingTimeoutRef.current) clearTimeout(adminTypingTimeoutRef.current);
+        };
+    }, [socket, anchorElAvat, email]);
 
     // Handle scroll to bottom for new chat data and initial load
     useEffect(() => {
         const chatContainer = chatContainerRef.current;
         if (chatContainer) {
-            // Ensure scrolling to bottom when the component loads and when chatData changes
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
-    }, [chatData]); // Dependency on chatData so it triggers every time the data changes
+    }, [chatData, isAdminTyping]);
 
     const handleOpenNavAvatar = (event) => {
         setAnchorElAvat(event.currentTarget);
         closeModal();
+        if (email) api.put("/api/read-user", { email }).catch(err => console.error(err));
     };
 
     const handleCloseNavAvatar = () => {
@@ -55,15 +148,53 @@ const LiveChat = () => {
 
     const handleInputChange = (e) => {
         setInputData(e.target.value);
+        if (socket && email) {
+            socket.emit("typing", { room: "admin", isAdmin: false });
+            if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
+            typingTimeoutRef.current = setTimeout(() => {
+                socket.emit("stop_typing", { room: "admin" });
+            }, 2000);
+        }
     };
 
-    const handleFormSubmit = (e) => {
+    const checkIsAdmin = (msg) => {
+        // Handle boolean, string, or number from different data sources
+        return msg.isAdmin === true || msg.isAdmin === "true" || msg.isAdmin === 1 || msg.isAdmin === "1";
+    };
+
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-        if (inputData.trim() !== "" || images.length > 0) {
-            const newId = chatData.length + 1;
-            setChatData((prevChatData) => [...prevChatData, { id: newId, name: "user", msg: inputData, images }]);
+        if (inputData.trim() !== "" || selectedFile) {
+            const formData = new FormData();
+            formData.append("email", email);
+            formData.append("message", inputData);
+            formData.append("isAdmin", false);
+            if (selectedFile) {
+                formData.append("file", selectedFile);
+            }
+
+            // Optimistic update
+            const tempId = Date.now();
+            const newMessage = {
+                id: tempId,
+                email,
+                message: inputData,
+                file: images[0] || null, // Preview URL
+                isAdmin: false,
+                createdAt: new Date().toISOString()
+            };
+            setChatData((prev) => [...prev, newMessage]);
             setInputData("");
             setImages([]);
+            setSelectedFile(null);
+
+            try {
+                await api.post("/api/send-message", formData);
+                if (socket) socket.emit("stop_typing", { room: "admin" });
+            } catch (error) {
+                console.error("Error sending message:", error);
+                // Optional: handle error/retry
+            }
         }
     };
 
@@ -73,8 +204,10 @@ const LiveChat = () => {
         const files = e.target.files;
 
         if (files && files.length > 0) {
-            const fileArray = Array.from(files).map((file) => URL.createObjectURL(file));
-            setImages((prevImages) => [...prevImages, ...fileArray]);
+            const file = files[0];
+            setSelectedFile(file);
+            const previewUrl = URL.createObjectURL(file);
+            setImages([previewUrl]); // Limit to one image as per backend logic
         }
     };
 
@@ -141,31 +274,35 @@ const LiveChat = () => {
                                 }}
                             >
                                 {chatData.map((data) => (
-                                    <div key={data.id} className={`my-2 flex flex-col ${data.name === "author" ? "items-start" : "items-end"}`}>
-                                        {data.images && data.images.length > 0 && (
+                                    <div key={data.id} className={`my-2 flex flex-col ${checkIsAdmin(data) ? "items-start" : "items-end"}`}>
+                                        {data.file && (
                                             <div className="flex space-x-1 mb-1">
-                                                {data.images.slice(0, 3).map((image, idx) => (
-                                                    <div key={idx} className="flex items-center gap-1">
-                                                        <div className={`relative w-20 bg-black/20 flex items-center justify-center rounded-md ${data.images.length === 1 ? " h-32" : " h-20"}`}>
-                                                            <ImageURL image={image} alt="uploaded" height={40} width={40} />
-                                                            {idx === 2 && data.images.length > 3 && (
-                                                                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                                                                    <span className="text-white text-body2 font-semibold">More</span>
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                ))}
+                                                <div className="relative w-28 h-28 bg-black/20 flex items-center justify-center rounded-md">
+                                                    <ImageURL image={data.file} alt="uploaded" height={100} width={100} className="object-cover rounded-md" />
+                                                </div>
                                             </div>
                                         )}
 
-                                        {data.msg && (
-                                            <div className={`rounded-lg px-2 py-1 ${data.name === "author" ? "bg-white/40" : "bg-success_main text-white"}`}>
-                                                <p className="text-xs">{data.msg}</p>
+                                        {data.message && (
+                                            <div className={`rounded-lg px-3 py-1.5 max-w-[80%] ${checkIsAdmin(data) ? "bg-white/40" : "bg-success_main text-white"}`}>
+                                                <p className="text-xs">{data.message}</p>
                                             </div>
                                         )}
+                                        <span className="text-[10px] text-gray-400 mt-1">
+                                            {new Date(data.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                        </span>
                                     </div>
                                 ))}
+                                {isAdminTyping && (
+                                    <div className="flex items-center gap-1 text-xs text-gray-500 italic pb-2">
+                                        <div className="flex gap-1">
+                                            <span className="animate-bounce">.</span>
+                                            <span className="animate-bounce delay-100">.</span>
+                                            <span className="animate-bounce delay-200">.</span>
+                                        </div>
+                                        Admin is typing
+                                    </div>
+                                )}
                             </div>
                             <form onSubmit={handleFormSubmit} className="mt-4 rounded-lg border-2 border-divider">
                                 {/* Display selected images */}
