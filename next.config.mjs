@@ -14,6 +14,11 @@ const nextConfig = {
                 port: "3000",
                 pathname: "/**",
             },
+            {
+                protocol: "https",
+                hostname: "backend.wiztecbd.com",
+                pathname: "/uploads/**",
+            },
         ],
     },
 };
