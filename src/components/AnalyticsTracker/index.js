@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import axios from "axios";
 import api from "@/config/api";
 
 export default function AnalyticsTracker() {
+  const isTracked = useRef(false);
 
   useEffect(() => {
+    if (isTracked.current) return;
+    isTracked.current = true;
+
     const trackVisitor = async () => {
       try {
         const existingVisitorId = localStorage.getItem("visitorId");
@@ -14,6 +18,8 @@ export default function AnalyticsTracker() {
         
         if (!visitorId) {
           visitorId = crypto.randomUUID();
+          // Save immediately to avoid race conditions
+          localStorage.setItem("visitorId", visitorId);
         }
 
         const response = await api.post(
@@ -29,11 +35,9 @@ export default function AnalyticsTracker() {
         
         const returnedId = response.data?.visitor?.visitorId;
         
-        // Only update local storage if the server returned a different ID, or if we generated a new one
-        if (returnedId && returnedId !== existingVisitorId) {
+        // Only update local storage if the server returned a noticeably different ID
+        if (returnedId && returnedId !== visitorId) {
           localStorage.setItem("visitorId", returnedId);
-        } else if (!existingVisitorId) {
-          localStorage.setItem("visitorId", visitorId);
         }
       } catch (error) {
         console.error("Failed to track visitor analytics:", error);
