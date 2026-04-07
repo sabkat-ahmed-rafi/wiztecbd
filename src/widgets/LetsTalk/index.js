@@ -61,20 +61,20 @@ const LetsTalk = ({ isOpen, onClose }) => {
         }),
         onSubmit: async (values, { resetForm }) => {
             try {
-                const dt = values.dateTime;
                 let formattedDate = "";
                 let formattedTime = "";
-
-                if (dt && typeof dt === "object" && dt.year && dt.month && dt.day) {
-                    formattedDate = `${dt.year}-${String(dt.month).padStart(2, "0")}-${String(dt.day).padStart(2, "0")}`;
-                    formattedTime = `${String(dt.hour || 0).padStart(2, "0")}:${String(dt.minute || 0).padStart(2, "0")}`;
-                } else if (dt) {
-                    const dateObj = new Date(dt);
-                    if (!isNaN(dateObj.getTime())) {
-                        formattedDate = dateObj.toISOString().split("T")[0];
-                        formattedTime = dateObj.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+                if (values.dateTime instanceof Date) {
+                    const dt = values.dateTime;
+                    formattedDate = dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");
+                    formattedTime = String(dt.getHours()).padStart(2, "0") + ":" + String(dt.getMinutes()).padStart(2, "0");
+                } else if (values.dateTime) {
+                    const dt = new Date(values.dateTime);
+                    if (!isNaN(dt.getTime())) {
+                        formattedDate = dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");
+                        formattedTime = String(dt.getHours()).padStart(2, "0") + ":" + String(dt.getMinutes()).padStart(2, "0");
                     }
                 }
+
 
                 const payload = new URLSearchParams();
                 payload.append("name", values.name);
