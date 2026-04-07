@@ -257,8 +257,10 @@ const LetsTalk = ({ isOpen, onClose }) => {
                                             label={"Date and Time"}
                                             onChange={(value) => formik.setFieldValue("dateTime", value)}
                                             value={formik.values.dateTime}
+                                            placeholder={"Select Date and Time"}
                                             inputClass={`custom-input !px-4 ${tab.length !== 0 ? "focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input" : "focus:ring-none focus:ring-none"} px-4 py-2 !bg-transparent rounded-lg focus:outline-none ring-1 ring-success_main `}
                                         />
+
                                     </div>
 
                                     <div className=" col-span-2 flex flex-col ">
