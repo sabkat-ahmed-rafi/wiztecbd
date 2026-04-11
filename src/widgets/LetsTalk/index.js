@@ -66,12 +66,18 @@ const LetsTalk = ({ isOpen, onClose }) => {
                 if (values.dateTime instanceof Date) {
                     const dt = values.dateTime;
                     formattedDate = dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");
-                    formattedTime = String(dt.getHours()).padStart(2, "0") + ":" + String(dt.getMinutes()).padStart(2, "0");
+                    const hours = dt.getHours();
+                    const ampm = hours >= 12 ? "PM" : "AM";
+                    const hours12 = hours % 12 || 12;
+                    formattedTime = `${String(hours12).padStart(2, "0")}:${String(dt.getMinutes()).padStart(2, "0")} ${ampm}`;
                 } else if (values.dateTime) {
                     const dt = new Date(values.dateTime);
                     if (!isNaN(dt.getTime())) {
                         formattedDate = dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");
-                        formattedTime = String(dt.getHours()).padStart(2, "0") + ":" + String(dt.getMinutes()).padStart(2, "0");
+                        const hours = dt.getHours();
+                        const ampm = hours >= 12 ? "PM" : "AM";
+                        const hours12 = hours % 12 || 12;
+                        formattedTime = `${String(hours12).padStart(2, "0")}:${String(dt.getMinutes()).padStart(2, "0")} ${ampm}`;
                     }
                 }
 
