@@ -14,7 +14,21 @@ import useChat from "./hooks/useChat";
 const LiveChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [previews, setPreviews] = useState([]);
   
+  // Handle new incoming messages when closed
+  const handleNewMessage = (data) => {
+    if (!isOpen) {
+      const id = Date.now();
+      setPreviews((prev) => [...prev, { id, text: data.message }]);
+      
+      // Auto-remove after 2 seconds
+      setTimeout(() => {
+        setPreviews((prev) => prev.filter((p) => p.id !== id));
+      }, 2000);
+    }
+  };
+
   // Use the custom chat hook
   const {
     messages,
@@ -23,7 +37,7 @@ const LiveChat = () => {
     sendMessage,
     markAsRead,
     sendTyping,
-  } = useChat(email);
+  } = useChat(email, { onNewMessage: handleNewMessage });
 
   // Initialize email from localStorage
   useEffect(() => {
@@ -54,6 +68,7 @@ const LiveChat = () => {
         isOpen={isOpen} 
         onClick={toggleChat} 
         unreadCount={unreadCount} 
+        previews={previews}
       />
       
       <ChatWindow 

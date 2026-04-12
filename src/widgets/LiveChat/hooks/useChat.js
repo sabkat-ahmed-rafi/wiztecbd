@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { io } from "socket.io-client";
 import api from "@/config/api";
 
-const useChat = (email) => {
+const useChat = (email, { onNewMessage } = {}) => {
   const [messages, setMessages] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [isAdminTyping, setIsAdminTyping] = useState(false);
@@ -40,6 +40,7 @@ const useChat = (email) => {
     socket.on("new_message_from_admin", (data) => {
       setMessages((prev) => [...prev, { ...data, isAdmin: true }]);
       fetchUnreadCount();
+      if (onNewMessage) onNewMessage(data);
     });
 
     socket.on("typing", (data) => {

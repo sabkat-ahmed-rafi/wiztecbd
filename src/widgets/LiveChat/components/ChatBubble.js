@@ -4,7 +4,7 @@ import { FaMessage } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-const ChatBubble = ({ isOpen, onClick, unreadCount }) => {
+const ChatBubble = ({ isOpen, onClick, unreadCount, previews = [] }) => {
   const [isDismissed, setIsDismissed] = useState(true); // Initialized to true to avoid flash before effect
 
   useEffect(() => {
@@ -38,6 +38,20 @@ const ChatBubble = ({ isOpen, onClick, unreadCount }) => {
         </div>
       )}
 
+      {/* Message Previews (Transient incoming messages) */}
+      {!isOpen && previews.length > 0 && (
+        <div className="absolute right-16 bottom-0 flex flex-col-reverse items-end gap-2 pr-2">
+          {previews.map((preview) => (
+            <div 
+              key={preview.id}
+              className="max-w-[200px] bg-white/80 backdrop-blur-md border border-white/40 px-3 py-2 rounded-2xl shadow-lg text-xs text-gray-800 animate-in slide-in-from-right fade-in duration-300"
+            >
+              <p className="truncate line-clamp-2">{preview.text}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
       {/* Main Bubble */}
       <button
         onClick={onClick}
@@ -53,7 +67,7 @@ const ChatBubble = ({ isOpen, onClick, unreadCount }) => {
 
         {/* Unread Badge */}
         {unreadCount > 0 && !isOpen && (
-          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white animate-pulse">
+          <span className="absolute -top-1 -right-1 bg-error_main text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center">
             {unreadCount > 9 ? "9+" : unreadCount}
           </span>
         )}
