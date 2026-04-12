@@ -24,13 +24,13 @@ const ChatBubble = ({ isOpen, onClick, unreadCount }) => {
       {/* Welcome Message Popup (Optional, shows when closed and not dismissed) */}
       {!isOpen && !isDismissed && (
         <div 
-          className="relative bg-white px-4 py-2 pr-8 rounded-2xl shadow-xl border border-gray-100 animate-bounce cursor-pointer group" 
+          className="relative bg-white px-4 py-2 rounded-2xl shadow-xl border border-gray-100 animate-bounce cursor-pointer group transition-all duration-300" 
           onClick={onClick}
         >
           <p className="text-sm font-medium text-gray-800">How can we help? 👋</p>
           <button 
             onClick={handleDismiss}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute -top-2 -right-2 bg-white border border-gray-100 shadow-md rounded-full p-0.5 text-gray-400 hover:text-red-500 hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
             title="Dismiss"
           >
             <IoClose className="text-sm" />
