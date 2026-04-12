@@ -10,7 +10,12 @@ const ChatWindow = ({ isOpen, messages, isAdminTyping, onSend, onTyping, email, 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-24 right-6 z-[9999] w-[90vw] sm:w-[400px] h-[600px] max-h-[80vh] bg-white/70 backdrop-blur-xl border border-white/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 animate-in slide-in-from-bottom-4 fade-in">
+    <div 
+      className="fixed bottom-24 right-6 z-[9999] w-[90vw] sm:w-[400px] h-[600px] max-h-[80vh] bg-white/70 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden flex flex-col transition-all duration-300 animate-in slide-in-from-bottom-4 fade-in"
+      style={{ 
+        boxShadow: '0 30px 60px -20px rgba(0, 0, 0, 0.3), 0 10px 30px -15px rgba(0, 0, 0, 0.2), 0 0 50px -10px rgba(139, 196, 63, 0.4)' 
+      }}
+    >
       {/* Header */}
       <div className="p-4 bg-[#8BC43F] text-white flex items-center gap-3">
         <div className="relative w-10 h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden border border-white/30">

@@ -68,15 +68,38 @@ const useChat = (email) => {
     };
   }, [socket]);
 
+  const triggerGreetings = useCallback(() => {
+    const g1 = { 
+      id: "greet-1", 
+      isAdmin: true, 
+      message: "Welcome to WiztecBD, the house of software wizards.", 
+      createdAt: new Date().toISOString() 
+    };
+    const g2 = { 
+      id: "greet-2", 
+      isAdmin: true, 
+      message: "How can we help you.", 
+      createdAt: new Date().toISOString() 
+    };
+    
+    setMessages([g1]);
+    setTimeout(() => {
+      setMessages(prev => prev.length === 1 ? [...prev, g2] : prev);
+    }, 1000);
+  }, []);
+
   const fetchMessages = async (page = 1) => {
     if (!email) return;
     setLoading(true);
     try {
       const response = await api.get(`/api/get-messages?email=${email}&page=${page}&limit=100`);
       if (response.data.status === 200) {
-        // Backend returns oldest first or newest first? 
-        // Current index.js reverses it: response.data.messages.reverse()
-        setMessages(response.data.messages.reverse());
+        const history = response.data.messages.reverse();
+        if (history.length === 0) {
+          triggerGreetings();
+        } else {
+          setMessages(history);
+        }
       }
     } catch (error) {
       console.error("Error fetching chat history:", error);
