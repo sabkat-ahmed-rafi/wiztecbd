@@ -15,7 +15,7 @@ const AppLayout = ({ children }) => {
             <div className=" z-20 fixed top-1/2 left-0 transform -translate-y-1/2">
                 <SocialLink />
             </div>
-            <div style={{ position: "fixed", bottom: "2%", right: "0%" }} className=" z-30">
+            <div className="z-50">
                 <LiveChat />
             </div>
             <TimeSwitcher />
@@ -25,7 +25,7 @@ const AppLayout = ({ children }) => {
             <Header />
             <div>{children}</div>
             <Footer />
-            <div style={{ position: "fixed", bottom: "12%", right: "2%" }} className="z-20">
+            <div style={{ position: "fixed", bottom: "20%", right: "2%" }} className="z-40">
                 <ScrollToTopButton />
             </div>
         </div>
