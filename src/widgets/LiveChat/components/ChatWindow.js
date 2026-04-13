@@ -18,9 +18,13 @@ const ChatWindow = ({ isOpen, messages, isAdminTyping, onSend, onTyping, email, 
     >
       {/* Header */}
       <div className="p-4 bg-[#8BC43F] text-white flex items-center gap-3">
-        <div className="relative w-10 h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden border border-white/30">
-          <Image src="/assets/icons/questions.svg" alt="Support" width={24} height={24} />
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></div>
+        <div className="relative w-11 h-11 rounded-full bg-white shadow-inner overflow-hidden border-2 border-white/50">
+          <Image 
+            src="/assets/images/support-avatar.png" 
+            alt="Support" 
+            fill
+            className="object-cover scale-110"
+          />
         </div>
         <div>
           <h3 className="font-semibold text-sm">WiztecBD Support</h3>
