@@ -25,7 +25,7 @@ const AppLayout = ({ children }) => {
             <Header />
             <div>{children}</div>
             <Footer />
-            <div style={{ position: "fixed", bottom: "20%", right: "2%" }} className="z-40">
+            <div style={{ position: "fixed", bottom: "27%", right: "2.7%" }} className="z-40">
                 <ScrollToTopButton />
             </div>
         </div>
