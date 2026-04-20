@@ -9,18 +9,20 @@ import * as Yup from "yup";
 import PhoneNumberInput from "../PhoneNumber";
 import Button from "../Button";
 import Modal from "../Modal";
-import Select from "../Select";
+import api from "@/config/api";
 
 //enroll pop
 
 const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
-    const [selectValue, setSelectValue] = useState("");
-    // sumit modal
+    const [submitError, setSubmitError] = useState("");
+
+    // submit modal
     const handleClose = () => {
         setIsSubmit(false);
         setIsSuccess(false);
+        setSubmitError("");
     };
 
     const formik = useFormik({
@@ -36,16 +38,27 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                 .required("Phone number is required"),
             email: Yup.string().email("Invalid email address").required("The field is required."),
         }),
-        onSubmit: (values, { resetForm }) => {
-            setIsSubmit(true);
-            onClose();
-            setTimeout(() => {
-                setIsSuccess(true);
-            }, 200);
-            console.log("Form Values:", values); // Logging values to the console
-            resetForm();
+        onSubmit: async (values, { resetForm }) => {
+            setSubmitError("");
+            try {
+                await api.post("/api/add-course-application", {
+                    name: values.name,
+                    email: values.email,
+                    phone: values.number,
+                    courseID: modalData?.id,
+                });
+                onClose();
+                setIsSubmit(true);
+                setTimeout(() => {
+                    setIsSuccess(true);
+                }, 200);
+                resetForm();
+            } catch (err) {
+                setSubmitError("Submission failed. Please try again.");
+            }
         },
     });
+
     return (
         <>
             <Modal width={650} isOpen={isOpen} onClose={onClose} title={title}>
@@ -113,13 +126,6 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                                 <input type="email" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Your Email Address" className={`focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2  bg-white rounded-lg focus:outline-none ring-1 ring-success_main   focus:border-transparent`} />
                                 <div className={`${formik.touched.email && formik.errors.email ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.email}</div>
                             </div>
-                            <div className=" flex flex-col my-4">
-                                <label htmlFor="email" className="font-semibold mb-2">
-                                    Chosen Course*
-                                </label>
-                                <Select options={options} multipleValu={false} value={selectValue} onChange={setSelectValue} placeholder="Select course" inputClass={"focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2  bg-white rounded-lg focus:outline-none ring-1 ring-success_main  focus:border-transparent"} />
-                                {/* <div className={`${formik.touched.email && formik.errors.email ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.email}</div> */}
-                            </div>
                             <div className="flex flex-col justify-between mb-8">
                                 <PhoneNumberInput
                                     name="number"
@@ -130,9 +136,10 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                                 />
                                 {formik.touched.number && formik.errors.number ? <div className=" text-subtitle2 mt-1 text-error_main">{formik.errors.number}</div> : null}
                             </div>
+                            {submitError && <div className="text-subtitle2 mb-2 text-error_main">{submitError}</div>}
                             <div className=" mb-4 flex">
-                                <Button size="small" type="submit">
-                                    submit
+                                <Button size="small" type="submit" disabled={formik.isSubmitting}>
+                                    {formik.isSubmitting ? "Submitting..." : "submit"}
                                 </Button>
                             </div>
                             <p className=" text-subtitle2">
@@ -168,15 +175,3 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
 };
 
 export default EnrollPop;
-const options = [
-    { label: "Website Development", value: "Website Development" },
-    { label: "Mobile Games & App Development", value: "Mobile Games & App Development" },
-    { label: "Software Development", value: "Software Development" },
-    { label: "E-commerce Platform", value: "E-commerce Platform" },
-    { label: "Digital Marketing", value: "Digital Marketing" },
-    { label: "Support & Maintenance", value: "Support & Maintenance" },
-    { label: "Graphics Design", value: "Graphics Design" },
-    { label: "IT/Technical Training", value: "IT/Technical Training" },
-    { label: "IT Consultancy", value: "IT Consultancy" },
-    { label: "Other", value: "Other" },
-];

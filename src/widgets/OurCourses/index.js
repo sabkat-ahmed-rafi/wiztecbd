@@ -1,23 +1,22 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import ScrollAnimatedSection from "@/components/ScrollAnimationSection";
 import { courseList } from "@/app/staticData/course";
 import useEdgeScroll from "@/hooks/useEdgeScroll";
-import courses from "/public/Json/courses.json";
+import useCourses from "@/hooks/useCourses";
 import EnrollPop from "@/components/EnrolePop";
 import Course from "../Course";
-import { useRouter } from "next/navigation";
 
 const OurCourses = () => {
-    const [tab, setTab] = useState(courses[1].id);
+    const [tab, setTab] = useState(courseList[1].id); // default: offline
     const scrollContainerRef = useEdgeScroll("horizontal", 5, 25);
     const [isOpen, setIsOpen] = useState(false);
+    const [modalData, setModalData] = useState("");
     const router = useRouter();
 
-    const [modalData, setModalData] = useState("");
+    const { courses, loading, error } = useCourses();
 
     const handlEnrole = (e, data) => {
         e.preventDefault();
@@ -26,9 +25,9 @@ const OurCourses = () => {
         setModalData(data);
     };
 
-    const isActiveTabs = courses.filter((service) => service.status_id == tab);
-
-    const tab_data = courseList.filter((data) => data.id == tab);
+    // Map courseList tab id → course_type string
+    const selectedType = courseList.find((cl) => cl.id === tab)?.status || "offline";
+    const isActiveTabs = courses.filter((c) => c.course_type === selectedType);
 
     const handleMainClick = (id) => {
         router.push(`/courses/${id}`);
@@ -43,24 +42,47 @@ const OurCourses = () => {
                 {courseList.map((list) => (
                     <ScrollAnimatedSection key={list.id} delay={400}>
                         <div onClick={() => setTab(list.id)} className={`flex flex-col z-0 items-center cursor-pointer  hover-bg-left-to-right ${tab == list.id ? "bg-primary text-white" : "bg-white"}  md:p-6 p-4 shadow-xl transform transition duration-500 hover:-translate-y-10px`}>
-                            <Image src={list.image1} height={48} width={48} alt="all" className={`${tab == list.id ? "hidden" : "inline"} md:h-12 md:w-12 h-8 w-8  hover-content transform transition duration-500 `} />
-                            <Image src={list.image2} height={48} width={48} alt="all" className={`${tab == list.id ? " inline text-white" : "hidden"} md:h-12 md:w-12 h-8 w-8 hover-content transform transition duration-500 `} />
+                            <img src={list.image1} height={48} width={48} alt="all" className={`${tab == list.id ? "hidden" : "inline"} md:h-12 md:w-12 h-8 w-8  hover-content transform transition duration-500 `} />
+                            <img src={list.image2} height={48} width={48} alt="all" className={`${tab == list.id ? " inline text-white" : "hidden"} md:h-12 md:w-12 h-8 w-8 hover-content transform transition duration-500 `} />
                             <h3 className="md:text-xl  text-center font-bold md:mt-4 mt-2  z-10 capitalize">{list.status} Courses</h3>
                         </div>
                     </ScrollAnimatedSection>
                 ))}
             </div>
-            {isActiveTabs.length > 0 ? (
+
+            {loading ? (
+                <div className=" h-32 flex items-center justify-center">
+                    <p className="text-H6 text-center font-semibold text-black/50">Loading courses...</p>
+                </div>
+            ) : error ? (
+                <div className=" h-32 flex items-center justify-center">
+                    <p className="text-H6 text-center font-semibold text-black/50">Failed to load courses.</p>
+                </div>
+            ) : isActiveTabs.length > 0 ? (
                 <div className="whitespace-nowrap md:scroll-container overflow-x-auto md:overflow-x-hidden no-scrollbar flex gap-4 mt-6 md:mt-12" ref={scrollContainerRef}>
                     {isActiveTabs.map((data) => (
                         <div onClick={() => handleMainClick(data.id)} key={data.id} className=" cursor-pointer">
-                            <Course img={data.img} alt={data.alt} title={data.title} seats={data.facilities.seats} houre={data.facilities.houre} time={data.facilities.time} classes={data.facilities.classes} status={data.status} handlEnrole={handlEnrole} classTime={data.facilities.class} link={data.doc_link} linkText={data.link_text} />
+                            <Course
+                                id={data.id}
+                                img={data.image}
+                                alt={data.title}
+                                title={data.title}
+                                seats={data.seats}
+                                houre={data.hour}
+                                time={data.time}
+                                classes={data.classes}
+                                status={data.course_type}
+                                handlEnrole={handlEnrole}
+                                classTime={null}
+                                link={data.apply_link || null}
+                                linkText={"Register Now"}
+                            />
                         </div>
                     ))}
                 </div>
             ) : (
                 <div className=" h-32 flex items-center justify-center">
-                    <h6 className=" text-H6 text-center font-semibold text-black/50 capitalize">{tab_data[0].status} Course Not Available</h6>
+                    <h6 className=" text-H6 text-center font-semibold text-black/50 capitalize">{selectedType} Course Not Available</h6>
                 </div>
             )}
             <EnrollPop title={"Course Summary"} isOpen={isOpen} onClose={() => setIsOpen(false)} modalData={modalData} />

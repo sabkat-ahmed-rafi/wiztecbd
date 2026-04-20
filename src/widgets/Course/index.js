@@ -5,7 +5,7 @@ import Link from "next/link";
 import ImageURL from "@/components/ImageUrl";
 import { isValidURL, Popup } from "../IntroDesign";
 
-const Course = ({ img, alt, title, classes, houre, seats, status, handlEnrole, time, classTime, link, linkText }) => {
+const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrole, time, classTime, link, linkText }) => {
     const [showPopup, setShowPopup] = useState(false);
     const handleClick = (e) => {
         if (!isValidURL(link)) {
@@ -67,7 +67,7 @@ const Course = ({ img, alt, title, classes, houre, seats, status, handlEnrole, t
                                         <span>{linkText}</span>
                                     </Link>
                                 ) : (
-                                    <button onClick={(e) => handlEnrole(e, { houre, seats, status, classes, time })} className=" hover-bg-left-to-right capitalize border border-success_dark cursor-pointer px-4 py-[6px] text-primary rounded-full text-subtitle2">
+                                    <button onClick={(e) => handlEnrole(e, { id, houre, seats, status, classes, time })} className=" hover-bg-left-to-right capitalize border border-success_dark cursor-pointer px-4 py-[6px] text-primary rounded-full text-subtitle2">
                                         <span>enroll now</span>
                                     </button>
                                 )}

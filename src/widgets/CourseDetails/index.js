@@ -84,14 +84,14 @@ const CourseDetails = ({ course_overview }) => {
                 <div className=" flex flex-col items-center gap-1">
                     <p className=" font-semibold">
                         📞 Mobile:{" "}
-                        <a href="tel:+8801635787345" className=" font-normal hover:text-success_main hover:underline">
-                            01635787345
+                        <a href="tel:+8801600299169" className=" font-normal hover:text-success_main hover:underline">
+                            8801600-299169
                         </a>
                     </p>
                     <p className=" font-semibold">
                         📧 Email:{" "}
-                        <a href="mailto:4irinfo@gmail.com.com" className=" font-normal hover:text-success_main hover:underline">
-                            4irinfo@gmail.com
+                        <a href="mailto:wiztecbd@gmail.com" className=" font-normal hover:text-success_main hover:underline">
+                            wiztecbd@gmail.com
                         </a>
                     </p>
                 </div>

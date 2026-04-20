@@ -68,14 +68,16 @@ const IntroDesign = ({ title, img, header, subheader, facilities, buttonText, li
                         ))}
                     </div>
 
-                    <ScrollAnimatedSection delay={800}>
-                        <Link href={isValidURL(link) ? link : "#"} target="_blank" onClick={handleClick}>
-                            <Button>
-                                {buttonText}
-                                <BsArrowRight className="transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
-                            </Button>
-                        </Link>
-                    </ScrollAnimatedSection>
+                    {buttonText && (
+                        <ScrollAnimatedSection delay={800}>
+                            <Link href={isValidURL(link) ? link : "#"} target="_blank" onClick={handleClick}>
+                                <Button>
+                                    {buttonText}
+                                    <BsArrowRight className="transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
+                                </Button>
+                            </Link>
+                        </ScrollAnimatedSection>
+                    )}
                 </div>
 
                 <div className="md:w-2/5">
