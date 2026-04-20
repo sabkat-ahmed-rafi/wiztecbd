@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 
 import ScrollAnimatedSection from "@/components/ScrollAnimationSection";
-import { popularCourses } from "@/app/staticData/course";
 import useEdgeScroll from "@/hooks/useEdgeScroll";
 import useCourses from "@/hooks/useCourses";
+import useServices from "@/hooks/useServices";
 import EnrollPop from "@/components/EnrolePop";
 import Tabs from "@/components/Tabs";
 import Course from "../Course";
@@ -17,20 +17,36 @@ const PopularCourses = () => {
     const [modalData, setModalData] = useState("");
     const router = useRouter();
 
-    const { courses, loading, error } = useCourses();
+    const { courses, loading: coursesLoading, error: coursesError } = useCourses();
+    const { services, loading: servicesLoading, error: servicesError } = useServices("courses-service");
 
     const handlEnrole = (e, data) => {
         e.preventDefault();
+        e.stopPropagation(); // Fix click propagation causing redirection
         setIsOpen(true);
         setModalData(data);
     };
 
-    // Tab 1 = all, other tabs filter by artical_id — API doesn't have artical_id so non-All tabs show empty
-    const isActiveTabs = activeTab === 1 ? courses : [];
+    const dynamicTabs = useMemo(() => {
+        const baseTabs = [{ id: 1, label: "all" }];
+        const fetchedTabs = (services || []).map((service) => ({
+            id: service.id,
+            label: service.name,
+        }));
+        return [...baseTabs, ...fetchedTabs];
+    }, [services]);
+
+    const isActiveTabs = useMemo(() => {
+        if (activeTab === 1) return courses;
+        return (courses || []).filter((course) => course.serviceID === activeTab);
+    }, [activeTab, courses]);
 
     const handleMainClick = (id) => {
         router.push(`/courses/${id}`);
     };
+
+    const isLoading = coursesLoading || servicesLoading;
+    const hasError = coursesError || servicesError;
 
     return (
         <>
@@ -39,13 +55,16 @@ const PopularCourses = () => {
                     <h1 className=" text-center  text-H1   font-bold mb-2">Popular Courses</h1>
                 </ScrollAnimatedSection>
             </div>
-            <Tabs tabs={popularCourses} isTab={activeTab} setIsTab={setActiveTab} />
+            
+            {!isLoading && !hasError && (
+                <Tabs tabs={dynamicTabs} isTab={activeTab} setIsTab={setActiveTab} />
+            )}
 
-            {loading ? (
+            {isLoading ? (
                 <div className=" h-256 flex items-center justify-center">
                     <p className="text-H6 text-center font-semibold text-black/50">Loading courses...</p>
                 </div>
-            ) : error ? (
+            ) : hasError ? (
                 <div className=" h-256 flex items-center justify-center">
                     <p className="text-H6 text-center font-semibold text-black/50">Failed to load courses.</p>
                 </div>

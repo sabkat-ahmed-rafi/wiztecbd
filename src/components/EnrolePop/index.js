@@ -159,9 +159,13 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                         <path d="M 30 50 L 45 65 L 70 35" className={`checkmark ${isSuccess ? "show" : ""}`} stroke={isSuccess ? "#8BC43F" : "transparent"} fill="none" strokeWidth="5" strokeLinecap="round"></path>
                     </svg>
                     <div className="my-4 space-y-4">
-                        <h5 className="  text-H5 font-semibold text-center">Successfully Submitted</h5>
-                        <p className="text-center text-subtitle2">Your requirement has been submitted successfully. Thank you for considering WiztecBD with service.</p>
-                        <p className="text-center text-subtitle2 font-semibold">We will email you a quotation.</p>
+                    <h5 className="text-H5 font-semibold text-center">Application Submitted</h5>
+                    <p className="text-center text-subtitle2">
+                        Your application for the course has been submitted successfully.
+                    </p>
+                    <p className="text-center text-subtitle2 font-semibold">
+                        We’ll review it and get back to you via email soon.
+                    </p>
                     </div>
                     <div className=" flex items-center justify-center">
                         <Button size="small" onClick={handleClose}>
