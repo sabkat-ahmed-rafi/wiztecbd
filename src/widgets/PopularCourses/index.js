@@ -11,7 +11,7 @@ import Tabs from "@/components/Tabs";
 import Course from "../Course";
 
 const PopularCourses = () => {
-    const [activeTab, setActiveTab] = useState(1);
+    const [activeTab, setActiveTab] = useState("all");
     const scrollContainerRef1 = useEdgeScroll("horizontal", 5, 25);
     const [isOpen, setIsOpen] = useState(false);
     const [modalData, setModalData] = useState("");
@@ -28,7 +28,7 @@ const PopularCourses = () => {
     };
 
     const dynamicTabs = useMemo(() => {
-        const baseTabs = [{ id: 1, label: "all" }];
+        const baseTabs = [{ id: "all", label: "all" }];
         const fetchedTabs = (services || []).map((service) => ({
             id: service.id,
             label: service.name,
@@ -37,7 +37,7 @@ const PopularCourses = () => {
     }, [services]);
 
     const isActiveTabs = useMemo(() => {
-        if (activeTab === 1) return courses;
+        if (activeTab === "all") return courses;
         return (courses || []).filter((course) => course.serviceID === activeTab);
     }, [activeTab, courses]);
 

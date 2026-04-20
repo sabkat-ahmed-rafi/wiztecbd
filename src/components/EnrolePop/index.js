@@ -17,6 +17,7 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
     const [submitError, setSubmitError] = useState("");
+    console.log("modaldata",modalData)
 
     // submit modal
     const handleClose = () => {
