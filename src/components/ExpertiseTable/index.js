@@ -106,13 +106,14 @@ const ExpertiseTable = ({ fieldValue, expartist, timeLine, header }) => {
                                     />
                                 </div>
                                 <div className="md:w-1/4 flex md:items-center gap-2 md:justify-end justify-between">
-                                    <input type="number" name="number" value={selectedData[index]?.day || ""} onChange={(e) => handleSelectChange(index, "day", e.target.value)} className="focus:ring-1 px-1 text-center  py-1 rounded-lg w-12 appearance-none input-no-arrows focus:ring-transparent hover:ring-transparent bg-secondary_bg ring-1 ring-success_main focus:border-transparent" />
+                                    <input type="number" name="number" value={selectedData[index]?.day || ""} onChange={(e) => handleSelectChange(index, "day", e.target.value)} placeholder="Days" className="focus:ring-1 px-1 text-center  py-1 rounded-lg w-12 appearance-none input-no-arrows focus:ring-transparent hover:ring-transparent bg-secondary_bg ring-1 ring-success_main focus:border-transparent" />
                                     <Select
                                         inputClass="focus:ring-1 md:w-32 w-64 focus:ring-success_main text-sm hover:ring-transparent focus:shadow-input px-4 py-1 rounded-lg flex items-center bg-secondary_bg focus:outline-none ring-1 ring-success_main focus:border-success_main"
                                         options={timeLine}
                                         multipleValu={false}
                                         value={selectedData[index]?.dayFormate || ""}
                                         onChange={(value) => handleSelectChange(index, "dayFormate", value)}
+                                        placeholder="Hours/day"
                                     />
                                 </div>
                             </div>
