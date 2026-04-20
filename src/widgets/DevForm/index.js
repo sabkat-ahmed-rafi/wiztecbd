@@ -7,6 +7,7 @@ import PhoneNumberInput from "@/components/PhoneNumber";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
+import api from "@/config/api";
 
 const DevForm = () => {
     const { isOpen: isSuccess, openModal: openSuccess, closeModal: closeSuccess } = useModal();
@@ -29,7 +30,7 @@ const DevForm = () => {
             company: "",
         },
         validationSchema: formValidationSchema,
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: async (values, { resetForm }) => {
             if (!isLocation) {
                 openWarning(true);
                 return;
@@ -38,25 +39,55 @@ const DevForm = () => {
                 openExpertist(true);
                 return;
             }
-            openModal();
-            setTimeout(() => {
-                openSuccess();
-            }, 200);
-            const fullformValues = {
-                ...values,
-                isLocation,
-                isExpert,
+
+            // Prepare required_employees array
+            const requiredEmployees = isExpert.map((expert) => ({
+                role: expert.technology,
+                languages: [expert.language], // Convert to array as per API requirement
+                expertise: expert.expert,
+                timeline_days: parseInt(expert.day) || 30,
+                timeline_hours: parseInt(expert.dayFormate) || 8
+            }));
+
+            // Prepare final payload
+            const payload = {
+                job_environment: isLocation,
+                name: values.name,
+                email: values.email,
+                phone_number: values.number,
+                company: values.company,
+                required_employees: requiredEmployees
             };
-            console.log("Form Values:", fullformValues);
-            setIsLocation("");
-            setSelectedData([]);
-            setSelected({
-                remote: "",
-                onsite: "",
-                hybrid: "",
-            });
-            setSelectRole([]);
-            resetForm();
+
+            try {
+                openModal();
+                const response = await api.post('/api/hire-employee', payload);
+                
+                if (response.data.status === 200) {
+                    setTimeout(() => {
+                        openSuccess();
+                    }, 200);
+                    
+                    // Reset form after successful submission
+                    setIsLocation("");
+                    setSelectedData([]);
+                    setSelected({
+                        remote: "",
+                        onsite: "",
+                        hybrid: "",
+                    });
+                    setSelectRole([]);
+                    resetForm();
+                } else {
+                    // Handle API error
+                    closeModal();
+                    alert('Submission failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                closeModal();
+                alert('Submission failed. Please try again.');
+            }
         },
     });
     return (

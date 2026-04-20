@@ -1,10 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Select from "../Select";
 import { useContextApi } from "@/app/utilities/contextApi";
+import api from "@/config/api";
 
-const ExpertiseTable = ({ fieldValue, languages, expartist, timeLine, header }) => {
+const ExpertiseTable = ({ fieldValue, expartist, timeLine, header }) => {
     const { selectedData, setSelectedData } = useContextApi();
+    const [expertises, setExpertises] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    // Fetch expertises from API
+    useEffect(() => {
+        const fetchExpertises = async () => {
+            try {
+                const response = await api.get('/api/get-expertises');
+                if (response.data.status === 200) {
+                    const formattedExpertises = response.data.expertises.map(expertise => {
+                        // Handle different possible response structures
+                        let label, value;
+                        if (typeof expertise === 'string') {
+                            label = expertise;
+                            value = expertise.toLowerCase().replace(/\s+/g, '-');
+                        } else if (expertise.name) {
+                            label = expertise.name;
+                            value = expertise.value || expertise.name.toLowerCase().replace(/\s+/g, '-');
+                        } else {
+                            // Fallback for unexpected structure
+                            label = JSON.stringify(expertise);
+                            value = 'unknown';
+                        }
+                        return { label, value };
+                    });
+                    setExpertises(formattedExpertises);
+                }
+            } catch (error) {
+                console.error('Error fetching expertises:', error);
+                // Fallback to static languages if API fails
+                setExpertises([
+                    { label: "Python", value: "python" },
+                    { label: "Node Js", value: "node" },
+                    { label: "PHP", value: "php" },
+                ]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchExpertises();
+    }, []);
 
     const handleSelectChange = (index, field, value) => {
         setSelectedData((prevSelectedData) => {
@@ -44,11 +87,11 @@ const ExpertiseTable = ({ fieldValue, languages, expartist, timeLine, header }) 
                                 <div className="md:w-1/4">
                                     <Select
                                         inputClass="focus:ring-1 w-full focus:ring-success_main text-sm hover:ring-transparent focus:shadow-input px-4 py-1 rounded-lg flex items-center bg-secondary_bg focus:outline-none ring-1 ring-success_main focus:border-success_main"
-                                        options={languages}
+                                        options={loading ? [] : expertises}
                                         multipleValu={false}
                                         value={selectedData[index]?.language || ""}
                                         onChange={(value) => handleSelectChange(index, "language", value)}
-                                        placeholder="Select language"
+                                        placeholder={loading ? "Loading..." : "Select language"}
                                     />
                                 </div>
 

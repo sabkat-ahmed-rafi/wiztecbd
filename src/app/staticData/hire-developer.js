@@ -22,7 +22,9 @@ export const expartist = [
     { label: "Beginner", value: "beginner" },
 ];
 export const timeLine = [
-    { label: "Weeks", value: "weeks" },
-    { label: "Day", value: "day" },
-    { label: "Months", value: "months" },
+    { label: "1 hour/day", value: 1 },
+    { label: "2 hours/day", value: 2 },
+    { label: "4 hours/day", value: 4 },
+    { label: "6 hours/day", value: 6 },
+    { label: "8 hours/day", value: 8 },
 ];
