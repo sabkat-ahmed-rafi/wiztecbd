@@ -79,6 +79,7 @@ const PopularCourses = () => {
                                 title={data.title}
                                 seats={data.seats}
                                 houre={data.hour}
+                                time={data.time}
                                 classes={data.classes}
                                 status={data.course_type}
                                 handlEnrole={handlEnrole}
