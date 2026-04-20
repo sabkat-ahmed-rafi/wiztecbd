@@ -23,7 +23,7 @@ const ExpertistRole = () => {
                         icon: service.icon,
                         active_icon: service.icon, // Use same icon for active state
                         label: service.name,
-                        value: service.name.toLowerCase().replace(/\s+/g, '-')
+                        value: service.name
                     }));
                     setServices(formattedServices);
                 }

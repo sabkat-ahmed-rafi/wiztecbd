@@ -41,6 +41,7 @@ const DevForm = () => {
             }
 
             // Prepare required_employees array
+            console.log('isExpert data:', isExpert);
             const requiredEmployees = isExpert.map((expert) => ({
                 role: expert.technology,
                 languages: [expert.language], // Convert to array as per API requirement
@@ -48,6 +49,7 @@ const DevForm = () => {
                 timeline_days: parseInt(expert.day) || 30,
                 timeline_hours: parseInt(expert.dayFormate) || 8
             }));
+            console.log('requiredEmployees:', requiredEmployees);
 
             // Prepare final payload
             const payload = {
@@ -59,11 +61,14 @@ const DevForm = () => {
                 required_employees: requiredEmployees
             };
 
+            console.log('Submitting payload:', payload);
+
             try {
                 openModal();
                 const response = await api.post('/api/hire-employee', payload);
+                console.log('API Response:', response);
                 
-                if (response.data.status === 200) {
+                if (response.status === 200 || response.status === 201) {
                     setTimeout(() => {
                         openSuccess();
                     }, 200);
@@ -85,8 +90,21 @@ const DevForm = () => {
                 }
             } catch (error) {
                 console.error('Error submitting form:', error);
+                console.error('Error response:', error.response);
+                console.error('Error data:', error.response?.data);
+                console.error('Error status:', error.response?.status);
                 closeModal();
-                alert('Submission failed. Please try again.');
+                
+                // Show more specific error message
+                if (error.response?.data?.message) {
+                    alert(`Submission failed: ${error.response.data.message}`);
+                } else if (error.response?.status === 400) {
+                    alert('Submission failed: Invalid data provided');
+                } else if (error.response?.status === 500) {
+                    alert('Submission failed: Server error. Please try again later.');
+                } else {
+                    alert('Submission failed. Please try again.');
+                }
             }
         },
     });
