@@ -25,7 +25,7 @@ const LetsTalk = ({ isOpen, onClose }) => {
     useEffect(() => {
         const fetchServices = async () => {
             try {
-                const response = await api.get("/api/get-services");
+                const response = await api.get("/api/get-services?index=contact-service");
                 if (response.data.status === 200) {
                     const dynamicServices = response.data.services.map((service) => ({
                         id: service.id,
