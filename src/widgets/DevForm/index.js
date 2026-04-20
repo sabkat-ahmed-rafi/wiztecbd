@@ -116,26 +116,26 @@ const DevForm = () => {
                         <label htmlFor="name" className="font-semibold mb-2">
                             Name*
                         </label>
-                        <input type="text" name="name" onChange={formik.handleChange} value={formik.values.name} placeholder="Your Full name" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent " />
+                        <input type="text" name="name" onChange={formik.handleChange} value={formik.values.name} placeholder="Your Full name" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2.5 bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent " />
                         {formik.touched.name && formik.errors.name && <div className="text-subtitle2 mt-1 text-error_main">{formik.errors.name}</div>}
                     </div>
                     <div className="col-span-1 flex flex-col">
                         <label htmlFor="email" className="font-semibold mb-2">
                             Email*
                         </label>
-                        <input type="email" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Your Email Address" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent " />
+                        <input type="email" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Your Email Address" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2.5 bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent " />
                         {formik.touched.email && formik.errors.email && <div className="text-subtitle2 mt-1 text-error_main">{formik.errors.email}</div>}
                     </div>
 
                     <div className="col-span-1 flex flex-col">
-                        <PhoneNumberInput label={" Mobile phone*"} value={formik.values.number} name="number" onChange={(val) => formik.setFieldValue("number", val)} inputClass={`focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-[5px] bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent`} />
+                        <PhoneNumberInput label={" Mobile phone*"} value={formik.values.number} name="number" onChange={(val) => formik.setFieldValue("number", val)} inputClass={`focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-[4px] bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent`} />
                         {formik.touched.number && formik.errors.number ? <div className=" text-subtitle2 mt-1 text-error_main">{formik.errors.number}</div> : null}
                     </div>
                     <div className="col-span-1 flex flex-col">
                         <label htmlFor="company" className="font-semibold mb-2">
                             Company
                         </label>
-                        <input type="text" name="company" onChange={formik.handleChange} value={formik.values.company} placeholder="Company Name" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent " />
+                        <input type="text" name="company" onChange={formik.handleChange} value={formik.values.company} placeholder="Company Name" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2.5 bg-secondary_bg rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent " />
                     </div>
                 </div>
                 <Button type="submit">Submit</Button>
