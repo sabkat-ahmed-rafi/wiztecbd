@@ -64,7 +64,7 @@ const OtherMenu = ({ onMouseEnter, onMouseLeave, onClose }) => {
                                         ))}
                                     </ul>
                                 ) : (
-                                    <p className=" mb-4">We're preparing exciting new courses! Stay tuned for updates.</p>
+                                    <p className=" mb-4">We&apos;re preparing exciting new courses! Stay tuned for updates.</p>
                                 )
                             }
                         </div>
