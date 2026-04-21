@@ -49,7 +49,7 @@ const CurrentOpenings = () => {
                 <form className="flex flex-col md:flex-row items-center justify-between pb-4 border-b border-divider">
                     <h5 className="text-H5 font-semibold mb-4 md:mb-0 ">Current Openings</h5>
 
-                    <Select options={options} value={fieldValue} multipleValu={false} onChange={setFieldValue} inputClass={"focus:ring-1 w-64 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 h-9 flex items-center bg-transparent rounded-lg focus:outline-none ring-1 ring-success_main focus:border-success_main"} />
+                    {/* <Select options={options} value={fieldValue} multipleValu={false} onChange={setFieldValue} inputClass={"focus:ring-1 w-64 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 h-9 flex items-center bg-transparent rounded-lg focus:outline-none ring-1 ring-success_main focus:border-success_main"} /> */}
                 </form>
                 <div className=" py-9 flex flex-col md:gap-6 gap-4 w-full">
                     {careers.length > 0 ? (
