@@ -50,7 +50,7 @@ const Product = () => {
             </Section>
             <Section id="filter" bgColor="#EEEEEE">
                 <div className=" container mx-auto px-4 max-w-xl py-12">
-                    <SelectFilter />
+                    {/* <SelectFilter /> */}
                 </div>
             </Section>
             {products.map((product, index) => {

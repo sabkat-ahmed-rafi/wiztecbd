@@ -52,7 +52,7 @@ const OurStats = () => {
             <ScrollAnimatedSection delay={200}>
                 <p className=" text-secondary mb-4">A picture is worth a thousands word.</p>
             </ScrollAnimatedSection>
-            <SelectFilter />
+            {/* <SelectFilter /> */}
         </div>
     );
 };
