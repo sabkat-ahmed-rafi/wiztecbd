@@ -62,10 +62,8 @@ const Vacancies = ({ params }) => {
                         <JobSummary
                             location={jobPost.location}
                             vacancies={jobPost.vacancies}
+                            applyLink={jobPost.applyLink}
                             jobType={jobPost.type}
-                            workingday={5} // Provided data doesn't have workingday, using default or could be dynamic if available
-                            deadline={new Date(jobPost.updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
-                            salary={vacanciData.companiesBanifit.salary}
                         />
                     </div>
                 </div>

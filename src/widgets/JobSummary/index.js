@@ -12,8 +12,9 @@ import Modal from "@/components/Modal";
 import PhoneNumberInput from "@/components/PhoneNumber";
 import DatePicker from "@/components/DatePicker";
 import useModal from "@/hooks/useModal";
+import Link from "next/link";
 
-const JobSummary = ({ location, vacancies, jobType, workingday, deadline, salary }) => {
+const JobSummary = ({ location, vacancies, jobType, applyLink }) => {
     const { isOpen: isSuccess, openModal: openSuccess, closeModal: closeSuccess } = useModal();
     const { isOpen: isSubmit, openModal: openSubmitModal, closeModal: closeSubmitModal } = useModal();
     const { isOpen, openModal, closeModal } = useModal();
@@ -125,27 +126,6 @@ const JobSummary = ({ location, vacancies, jobType, workingday, deadline, salary
                             </div>
                         </div>
                     )}
-
-                    {deadline && (
-                        <div className=" flex md:gap-6 gap-4">
-                            <span className="rounded-full border mb-auto border-divider p-1 h-auto">
-                                <FaRegCalendarPlus size={18} className=" text-success_main" />
-                            </span>
-                            <div>
-                                <p className="text-subtitle2 mb-1 font-medium">Deadline</p>
-                                <p className="text-subtitle2  font-medium">{deadline}</p>
-                            </div>
-                        </div>
-                    )}
-
-                    {workingday && (
-                        <div className=" flex md:gap-6 gap-4">
-                            <span className="rounded-full border mb-auto border-divider p-1 h-auto">
-                                <FaFortAwesome size={18} className=" text-success_main" />
-                            </span>
-                            <p className="text-subtitle2  font-medium">Weekly {workingday} Working days</p>
-                        </div>
-                    )}
                     <div className=" flex md:gap-6 gap-4">
                         <span className="rounded-full border mb-auto border-divider p-1 h-auto">
                             <TbVaccineBottle size={18} className=" text-success_main" />
@@ -155,21 +135,10 @@ const JobSummary = ({ location, vacancies, jobType, workingday, deadline, salary
                             <p className="text-subtitle2  font-medium">{vacancies}</p>
                         </div>
                     </div>
-                    {salary && (
-                        <div className=" flex md:gap-6 gap-4">
-                            <span className="rounded-full border mb-auto border-divider p-1 h-auto">
-                                <RiMapPinRangeFill size={18} className=" text-success_main" />
-                            </span>
-                            <div>
-                                <p className="text-subtitle2 mb-1 font-medium">Salary Range</p>
-                                <p className="text-subtitle2  font-medium">{salary}</p>
-                            </div>
-                        </div>
-                    )}
                 </div>
-                <Button onClick={openModal} size="small">
-                    Apply now
-                </Button>
+                <Link target="_blank" href={applyLink}>
+                    <Button size="small">Apply now</Button>
+                </Link>
             </div>
             <Modal isOpen={isOpen} onClose={closeModal} width={1126} title="Submit Your Application">
                 <form onSubmit={formik.handleSubmit}>
