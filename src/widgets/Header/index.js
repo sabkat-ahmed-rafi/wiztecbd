@@ -12,8 +12,12 @@ import ServiceMegaMenu from "@/components/MegaMenu";
 import AmoutMenu from "../AboutMenu";
 import OtherMenu from "../OtherMenu";
 import useModal from "@/hooks/useModal";
+import useCourses from "@/hooks/useCourses";
+import useCareers from "@/hooks/useCareers";
 
 const Header = () => {
+    const { courses, loading: coursesLoading } = useCourses();
+    const { careers, loading: careersLoading } = useCareers();
     // const [isOpen, setIsOpen] = useState(false);
     const [isOpenMega, setIsOpenMega] = useState(false);
     const [isAbout, setIsAbout] = useState(false);
@@ -70,7 +74,15 @@ const Header = () => {
                     </div>
                     {isOpenMega && <ServiceMegaMenu MegamenuData={services} onMouseEnter={() => setIsOpenMega(true)} onMouseLeave={() => setIsOpenMega(false)} onClose={() => setIsOpenMega(false)} />}
                     {isAbout && <AmoutMenu MegamenuData={services} onMouseEnter={() => setIsAbout(true)} onMouseLeave={() => setIsAbout(false)} onClose={() => setIsAbout(false)} />}
-                    {isOther && <OtherMenu onMouseEnter={() => setIsOther(true)} onMouseLeave={() => setIsOther(false)} onClose={() => setIsOther(false)} />}
+                    {isOther && <OtherMenu 
+                        courses={courses} 
+                        careers={careers} 
+                        coursesLoading={coursesLoading} 
+                        careersLoading={careersLoading} 
+                        onMouseEnter={() => setIsOther(true)} 
+                        onMouseLeave={() => setIsOther(false)} 
+                        onClose={() => setIsOther(false)} 
+                    />}
                     <Button onClick={() => openModal()} type="button" size="small">
                         {"Let's Talk"}
                     </Button>
