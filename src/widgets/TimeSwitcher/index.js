@@ -37,8 +37,8 @@ const TimeSwitcher = () => {
                 document.title = alternateTitle;
                 setTimeout(() => {
                     document.title = defaultTitle;
-                }, 500);
-            }, 500);
+                }, 1000);
+            }, 1000);
         };
 
         const interval = setInterval(titleToggle, 2000);
