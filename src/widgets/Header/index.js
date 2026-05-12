@@ -41,6 +41,10 @@ const Header = () => {
                             </span>
                             <span className={`  h-2px bg-success_main transition-width duration-300 ease-in-out w-0 group-hover:w-full`}></span>
                         </Link>
+                        <Link href="/courses" className=" text-secondary group h-100 flex flex-col justify-center hover:text-success_main">
+                            Courses
+                            <span className={`h-2px bg-success_main transition-width duration-300 ease-in-out w-0 group-hover:w-full`}></span>
+                        </Link>
                         <Link href="/portfolio" className=" text-secondary group h-100 flex flex-col justify-center hover:text-success_main">
                             Portfolio
                             <span className={`  h-2px bg-success_main transition-width duration-300 ease-in-out w-0 group-hover:w-full`}></span>

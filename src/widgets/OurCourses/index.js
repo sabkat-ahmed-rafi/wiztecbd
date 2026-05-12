@@ -10,7 +10,7 @@ import EnrollPop from "@/components/EnrolePop";
 import Course from "../Course";
 
 const OurCourses = () => {
-    const [tab, setTab] = useState(courseList[1].id); // default: offline
+    const [tab, setTab] = useState(null); // default: show all courses with no selected tab
     const scrollContainerRef = useEdgeScroll("horizontal", 5, 25);
     const [isOpen, setIsOpen] = useState(false);
     const [modalData, setModalData] = useState("");
@@ -26,8 +26,8 @@ const OurCourses = () => {
     };
 
     // Map courseList tab id → course_type string
-    const selectedType = courseList.find((cl) => cl.id === tab)?.status || "offline";
-    const isActiveTabs = courses.filter((c) => c.course_type === selectedType);
+    const selectedType = courseList.find((cl) => cl.id === tab)?.status || null;
+    const isActiveTabs = selectedType ? courses.filter((c) => c.course_type === selectedType) : courses;
 
     const handleMainClick = (id) => {
         router.push(`/courses/${id}`);
@@ -83,7 +83,7 @@ const OurCourses = () => {
                 </div>
             ) : (
                 <div className=" h-32 flex items-center justify-center">
-                    <h6 className=" text-H6 text-center font-semibold text-black/50 capitalize">{selectedType} Course Not Available</h6>
+                    <h6 className=" text-H6 text-center font-semibold text-black/50 capitalize">{selectedType ? `${selectedType} Course Not Available` : "Course Not Available"}</h6>
                 </div>
             )}
             <EnrollPop title={"Course Summary"} isOpen={isOpen} onClose={() => setIsOpen(false)} modalData={modalData} />

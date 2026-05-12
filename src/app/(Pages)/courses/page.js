@@ -10,15 +10,11 @@ import IntroDesign from "@/widgets/IntroDesign";
 import Training from "@/widgets/Training";
 import ContactButton from "@/components/contactbutton";
 import { RootSection, Section } from "@/components/Section";
-import MiniBanner from "@/components/MiniBanner";
 import ImageURL from "@/components/ImageUrl";
 
 const Courses = () => {
     return (
         <RootSection>
-            <Section>
-                <MiniBanner title={"Our Expert-Led Courses"} subtitle={"Gain In-Demand Skills and Real-World Project Experience"} description={" From Basics to Mastery: Courses Designed for Every Level"} BannerImage="/assets/images/miniBanner/Training.webp" />
-            </Section>
             <Section id={"course"} bgColor={"bg-success_light"}>
                 <div className=" container mx-auto px-4 max-w-xl md:py-100 py-12">
                     <OurCourses />
