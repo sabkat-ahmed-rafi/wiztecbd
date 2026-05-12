@@ -7,6 +7,15 @@ import ServiceCard from "../ServiceCard";
 import List from "@/components/List";
 import useArraySplit from "@/hooks/useArraySplit";
 
+const STATIC_COURSE_LAB_IMAGES = [
+    "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.33_ffe9922c.jpg",
+    "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.46_9590129c.jpg",
+    "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.46_fefd34aa.jpg",
+    "/assets/images/Cources/digital marketing/DM/WhatsApp Image 2025-03-11 at 11.32.47_6cdf1685.jpg",
+    "/assets/images/Cources/Artificial int/AI/WhatsApp Image 2025-03-11 at 11.32.37_1abe3f91.jpg",
+    "/assets/images/Cources/Artificial int/AI/WhatsApp Image 2025-03-11 at 11.33.01_9b081da3.jpg",
+];
+
 const CourseDetails = ({ course_overview }) => {
     const [firstHalf, secondHalf] = useArraySplit(course_overview.curriculum?.lists || []);
 
@@ -98,7 +107,7 @@ const CourseDetails = ({ course_overview }) => {
             </div>
             <div className="md:mb-12 mb-6 md:p-6 ">
                 <AutoSwiper pauseOnClick titleClass={" !text-H3"} title={"Your Dream Career Awaits – Start Learning Today!"}>
-                    {course_overview.sliderImage.map((img, index) => (
+                    {STATIC_COURSE_LAB_IMAGES.map((img, index) => (
                         <div key={index} className={` h-223 z-0 md:ml-6 justify-center items-center overflow-hidden`}>
                             <Image height={223} width={300} alt="training" loading="lazy" src={img} className=" max-w-full max-h-full h-auto w-auto object-cover" />
                         </div>
