@@ -13,9 +13,9 @@ import staticCourses from "/public/Json/courses.json";
  * Maps a raw API course object into the nested shape expected by
  * Banner, IntroDesign, and CourseOverview / CourseDetails.
  */
-const mapApiCourse = (course) => {
-    // Supplement API data with static data for sections the API doesn't provide
-    const staticCourse = staticCourses.find((c) => c.id === course.id);
+const mapApiCourse = (course, routeCourseId) => {
+    // Slider and selected overview blocks must come from static course data only.
+    const staticCourse = staticCourses.find((c) => Number(c.id) === Number(routeCourseId));
 
     const facilities = {
         houre: course.hour,
@@ -86,7 +86,7 @@ const mapApiCourse = (course) => {
 
     // These two sections are not in the API — use static JSON data by matching course ID
     const solutions = staticCourse?.course_overview?.solutions || null;
-    const sliderImage = staticCourse?.course_overview?.sliderImage || (course.image ? [course.image] : []);
+    const sliderImage = Array.isArray(staticCourse?.course_overview?.sliderImage) ? staticCourse.course_overview.sliderImage : [];
 
     const course_overview = {
         title: "Course Overview",
@@ -150,7 +150,7 @@ const CourseDetailsPage = () => {
         );
     }
 
-    const courseData = mapApiCourse(course);
+    const courseData = mapApiCourse(course, params?.id);
 
     return (
         <RootSection>
