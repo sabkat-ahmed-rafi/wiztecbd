@@ -113,6 +113,7 @@ const mapApiCourse = (course) => {
         title: course.title,
         description: course.description,
         img: course.image,
+        price: course.price,
         status: course.course_type,
         apply_link: course.apply_link || null,
         facilities,
@@ -184,6 +185,7 @@ const CourseDetailsPage = () => {
                         courseID={courseData.id}
                         course_overview={courseData.course_overview}
                         facilities={courseData.facilities}
+                        price={courseData.price}
                         status={courseData.status}
                         link={courseData.apply_link}
                         linkText={courseData.apply_link ? "Register Now" : null}

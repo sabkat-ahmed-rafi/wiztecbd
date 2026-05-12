@@ -77,6 +77,7 @@ const PopularCourses = () => {
                                 img={data.image}
                                 alt={data.title}
                                 title={data.title}
+                                price={data.price}
                                 seats={data.seats}
                                 houre={data.hour}
                                 time={data.time}

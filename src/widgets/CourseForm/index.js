@@ -14,7 +14,12 @@ import useModal from "@/hooks/useModal";
 import api from "@/config/api";
 import { isValidURL, Popup } from "../IntroDesign";
 
-const CourseForm = ({ courseID, status = "offline", facilities, link, linkText }) => {
+const formatCoursePrice = (price) => {
+    if (price === null || price === undefined || price === "") return "Contact for price";
+    return `BDT ${price}`;
+};
+
+const CourseForm = ({ courseID, status = "offline", facilities, link, linkText, price }) => {
     const [showPopup, setShowPopup] = useState(false);
     const [submitError, setSubmitError] = useState("");
     const { isOpen: isSuccess, openModal: openSuccess, closeModal: closeSuccess } = useModal();
@@ -77,6 +82,9 @@ const CourseForm = ({ courseID, status = "offline", facilities, link, linkText }
                         <div className={`${status == "online" ? "bg-success_main" : " bg-divider"} h-2 w-2  rounded-full`}></div>
                         <p className=" font-medium text-subtitle2 capitalize">{status}</p>
                     </div>
+                </div>
+                <div className="mb-4 rounded-md border border-success_main/30 bg-success_main/10 px-3 py-2">
+                    <p className="text-subtitle2 font-semibold text-success_main">Course Price: {formatCoursePrice(price)}</p>
                 </div>
                 <div className=" flex flex-col gap-4">
                     <div className=" flex gap-12">

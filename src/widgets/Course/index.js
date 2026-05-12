@@ -5,7 +5,12 @@ import Link from "next/link";
 import ImageURL from "@/components/ImageUrl";
 import { isValidURL, Popup } from "../IntroDesign";
 
-const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrole, time, classTime, link, linkText }) => {
+const formatCoursePrice = (price) => {
+    if (price === null || price === undefined || price === "") return "Contact for price";
+    return `BDT ${price}`;
+};
+
+const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrole, time, classTime, link, linkText, price }) => {
     const [showPopup, setShowPopup] = useState(false);
     const handleClick = (e) => {
         if (!isValidURL(link)) {
@@ -36,6 +41,7 @@ const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrol
                 <div className="relative -top-30px min-w-72 bg-white p-4 flex-1 flex flex-col shadow-xxl border border-transparent mx-4 rounded-lg group-hover:-top-10px transition-all transform ease-in-out duration-700">
                     <div className="mb-auto">
                         <h6 className="  text-H6 text-primary font-semibold wh mb-6 whitespace-normal">{title}</h6>
+                        <p className="mb-3 text-subtitle2 font-semibold text-success_main">Price: {formatCoursePrice(price)}</p>
                         <div className=" flex">
                             <div className=" w-1/2 text-black">
                                 <div className="flex items-center flex-wrap gap-2 mb-1">
@@ -67,7 +73,7 @@ const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrol
                                         <span>{linkText}</span>
                                     </Link>
                                 ) : (
-                                    <button onClick={(e) => handlEnrole(e, { id, houre, seats, status, classes, time })} className=" hover-bg-left-to-right capitalize border border-success_dark cursor-pointer px-4 py-[6px] text-primary rounded-full text-subtitle2">
+                                    <button onClick={(e) => handlEnrole(e, { id, houre, seats, status, classes, time, price })} className=" hover-bg-left-to-right capitalize border border-success_dark cursor-pointer px-4 py-[6px] text-primary rounded-full text-subtitle2">
                                         <span>enroll now</span>
                                     </button>
                                 )}

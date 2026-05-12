@@ -12,6 +12,10 @@ import Modal from "../Modal";
 import api from "@/config/api";
 
 //enroll pop
+const formatCoursePrice = (price) => {
+    if (price === null || price === undefined || price === "") return "Contact for price";
+    return `BDT ${price}`;
+};
 
 const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
     const [isSuccess, setIsSuccess] = useState(false);
@@ -72,6 +76,9 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                         </div>
                     </div>
                     <div className=" flex flex-col gap-4">
+                        <div className="rounded-md border border-success_main/30 bg-success_main/10 px-3 py-2">
+                            <p className="text-subtitle2 font-semibold text-success_main">Course Price: {formatCoursePrice(modalData?.price)}</p>
+                        </div>
                         <div className=" flex flex-col gap-8">
                             <div className=" flex gap-12">
                                 <div className=" flex gap-2">
