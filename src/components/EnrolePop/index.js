@@ -35,6 +35,10 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
             name: "",
             email: "",
             number: "",
+            date_of_birth: "",
+            gender: "",
+            education_level: "",
+            current_occupation: "",
         },
         validationSchema: Yup.object({
             name: Yup.string().min(4, "Must be 4 characters or more").required("The field is required."),
@@ -42,6 +46,10 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                 .matches(/^[0-9]{13}$/, "Phone number must be exactly 10 digits")
                 .required("Phone number is required"),
             email: Yup.string().email("Invalid email address").required("The field is required."),
+            date_of_birth: Yup.string().required("Date of birth is required"),
+            gender: Yup.string().oneOf(["male", "female", "other", "prefer_not_to_say"], "Invalid gender value").required("Gender is required"),
+            education_level: Yup.string().required("Education level is required"),
+            current_occupation: Yup.string().required("Current occupation is required"),
         }),
         onSubmit: async (values, { resetForm }) => {
             setSubmitError("");
@@ -51,6 +59,10 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                     email: values.email,
                     phone: values.number,
                     courseID: modalData?.id,
+                    date_of_birth: values.date_of_birth,
+                    gender: values.gender,
+                    education_level: values.education_level,
+                    current_occupation: values.current_occupation,
                 });
                 onClose();
                 setIsSubmit(true);
@@ -133,6 +145,40 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                                 </label>
                                 <input type="email" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Your Email Address" className={`focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2  bg-white rounded-lg focus:outline-none ring-1 ring-success_main   focus:border-transparent`} />
                                 <div className={`${formik.touched.email && formik.errors.email ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.email}</div>
+                            </div>
+                            <div className=" flex flex-col my-4">
+                                <label htmlFor="date_of_birth" className="font-semibold mb-2">
+                                    Date of birth*
+                                </label>
+                                <input type="date" name="date_of_birth" onChange={formik.handleChange} value={formik.values.date_of_birth} className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent" />
+                                <div className={`${formik.touched.date_of_birth && formik.errors.date_of_birth ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.date_of_birth}</div>
+                            </div>
+                            <div className=" flex flex-col my-4">
+                                <label htmlFor="gender" className="font-semibold mb-2">
+                                    Gender*
+                                </label>
+                                <select name="gender" onChange={formik.handleChange} value={formik.values.gender} className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent">
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer_not_to_say">Prefer not to say</option>
+                                </select>
+                                <div className={`${formik.touched.gender && formik.errors.gender ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.gender}</div>
+                            </div>
+                            <div className=" flex flex-col my-4">
+                                <label htmlFor="education_level" className="font-semibold mb-2">
+                                    Education level*
+                                </label>
+                                <input type="text" name="education_level" onChange={formik.handleChange} value={formik.values.education_level} placeholder="e.g. HSC, Bachelor, Masters" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent" />
+                                <div className={`${formik.touched.education_level && formik.errors.education_level ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.education_level}</div>
+                            </div>
+                            <div className=" flex flex-col my-4">
+                                <label htmlFor="current_occupation" className="font-semibold mb-2">
+                                    Current occupation*
+                                </label>
+                                <input type="text" name="current_occupation" onChange={formik.handleChange} value={formik.values.current_occupation} placeholder="e.g. Student, Job holder, Freelancer" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent" />
+                                <div className={`${formik.touched.current_occupation && formik.errors.current_occupation ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.current_occupation}</div>
                             </div>
                             <div className="flex flex-col justify-between mb-8">
                                 <PhoneNumberInput
