@@ -37,7 +37,6 @@ const CourseForm = ({ courseID, status = "offline", facilities, link, linkText, 
             name: "",
             email: "",
             number: "",
-            date_of_birth: "",
             gender: "",
             education_level: "",
             current_occupation: "",
@@ -48,7 +47,6 @@ const CourseForm = ({ courseID, status = "offline", facilities, link, linkText, 
                 .matches(/^[0-9]{13}$/, "Phone number must be exactly 10 digits")
                 .required("Phone number is required"),
             email: Yup.string().email("Invalid email address").required("The field is required."),
-            date_of_birth: Yup.string().required("Date of birth is required"),
             gender: Yup.string().oneOf(["male", "female", "other", "prefer_not_to_say"], "Invalid gender value").required("Gender is required"),
             education_level: Yup.string().required("Education level is required"),
             current_occupation: Yup.string().required("Current occupation is required"),
@@ -61,7 +59,6 @@ const CourseForm = ({ courseID, status = "offline", facilities, link, linkText, 
                     email: values.email,
                     phone: values.number,
                     courseID: courseID,
-                    date_of_birth: values.date_of_birth,
                     gender: values.gender,
                     education_level: values.education_level,
                     current_occupation: values.current_occupation,
@@ -95,8 +92,9 @@ const CourseForm = ({ courseID, status = "offline", facilities, link, linkText, 
                         <p className=" font-medium text-subtitle2 capitalize">{status}</p>
                     </div>
                 </div>
-                <div className="mb-4 rounded-md border border-success_main/30 bg-success_main/10 px-3 py-2">
-                    <p className="text-subtitle2 font-semibold text-success_main">Course Price: {formatCoursePrice(price)}</p>
+                <div className="mb-4 rounded-lg border-2 border-success_main bg-success_main/10 px-4 py-3 shadow-md">
+                    <p className="text-subtitle2 font-semibold uppercase tracking-wide text-success_main">Course Fee</p>
+                    <p className="text-H5 font-bold text-success_main">{formatCoursePrice(price)}</p>
                 </div>
                 <div className=" flex flex-col gap-4">
                     <div className=" flex gap-12">
@@ -180,13 +178,6 @@ const CourseForm = ({ courseID, status = "offline", facilities, link, linkText, 
                                 </label>
                                 <input type="email" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Your Email Address" className={`focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2  bg-white rounded-lg focus:outline-none ring-1 ring-success_main  focus:border-transparent`} />
                                 <div className={`${formik.touched.email && formik.errors.email ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.email}</div>
-                            </div>
-                            <div className=" flex flex-col my-4">
-                                <label htmlFor="date_of_birth" className="font-semibold mb-2">
-                                    Date of birth*
-                                </label>
-                                <input type="date" name="date_of_birth" onChange={formik.handleChange} value={formik.values.date_of_birth} className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent" />
-                                <div className={`${formik.touched.date_of_birth && formik.errors.date_of_birth ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.date_of_birth}</div>
                             </div>
                             <div className=" flex flex-col my-4">
                                 <label htmlFor="gender" className="font-semibold mb-2">

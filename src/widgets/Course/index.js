@@ -41,7 +41,10 @@ const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrol
                 <div className="relative -top-30px min-w-72 bg-white p-4 flex-1 flex flex-col shadow-xxl border border-transparent mx-4 rounded-lg group-hover:-top-10px transition-all transform ease-in-out duration-700">
                     <div className="mb-auto">
                         <h6 className="  text-H6 text-primary font-semibold wh mb-6 whitespace-normal">{title}</h6>
-                        <p className="mb-3 text-subtitle2 font-semibold text-success_main">Price: {formatCoursePrice(price)}</p>
+                        <div className="mb-4 inline-flex items-center rounded-full bg-success_main px-3 py-1 text-white shadow-md">
+                            <span className="mr-2 text-subtitle2 font-semibold uppercase tracking-wide">Course Fee</span>
+                            <span className="text-subtitle1 font-bold">{formatCoursePrice(price)}</span>
+                        </div>
                         <div className=" flex">
                             <div className=" w-1/2 text-black">
                                 <div className="flex items-center flex-wrap gap-2 mb-1">
