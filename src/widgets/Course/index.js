@@ -6,8 +6,11 @@ import ImageURL from "@/components/ImageUrl";
 import { isValidURL, Popup } from "../IntroDesign";
 
 const formatCoursePrice = (price) => {
-    if (price === null || price === undefined || price === "") return "Contact for price";
-    return `BDT ${price}`;
+    if (price === null || price === undefined) return "Contact";
+    const normalized = String(price).trim();
+    if (normalized === "") return "Contact";
+    if (normalized.toLowerCase() === "free") return "Free";
+    return `BDT ${normalized}`;
 };
 
 const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrole, time, classTime, link, linkText, price }) => {
@@ -20,7 +23,6 @@ const Course = ({ id, img, alt, title, classes, houre, seats, status, handlEnrol
         }
     };
 
-    console.log("sdfhjnfgjnmghjmghjmn---", link);
     return (
         <>
             {showPopup && (

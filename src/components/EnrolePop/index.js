@@ -13,9 +13,15 @@ import api from "@/config/api";
 
 //enroll pop
 const formatCoursePrice = (price) => {
-    if (price === null || price === undefined || price === "") return "Contact for price";
-    return `BDT ${price}`;
+    if (price === null || price === undefined) return "Contact for Details";
+    const normalized = String(price).trim();
+    if (normalized === "") return "Contact for Details";
+    if (normalized.toLowerCase() === "free") return "Free";
+    return `BDT ${normalized}`;
 };
+
+const EDUCATION_LEVEL_OPTIONS = ["SSC", "HSC", "Diploma", "Bachelor's Running", "Bachelor's Completed", "Master's Running", "Master's Completed"];
+const OCCUPATION_OPTIONS = ["Student", "Job Seeker", "Freelancer", "Intern", "Part-Time Employee", "Full-Time Employee", "Business Owner", "Teacher", "Government Employee", "Unemployed", "Other"];
 
 const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
     const [isSuccess, setIsSuccess] = useState(false);
@@ -161,14 +167,28 @@ const EnrollPop = ({ modalData, title, isOpen, onClose }) => {
                                 <label htmlFor="education_level" className="font-semibold mb-2">
                                     Education level*
                                 </label>
-                                <input type="text" name="education_level" onChange={formik.handleChange} value={formik.values.education_level} placeholder="e.g. HSC, Bachelor, Masters" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent" />
+                                <select name="education_level" onChange={formik.handleChange} value={formik.values.education_level} className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent">
+                                    <option value="">Select education level</option>
+                                    {EDUCATION_LEVEL_OPTIONS.map((option) => (
+                                        <option key={option} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
                                 <div className={`${formik.touched.education_level && formik.errors.education_level ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.education_level}</div>
                             </div>
                             <div className=" flex flex-col my-4">
                                 <label htmlFor="current_occupation" className="font-semibold mb-2">
                                     Current occupation*
                                 </label>
-                                <input type="text" name="current_occupation" onChange={formik.handleChange} value={formik.values.current_occupation} placeholder="e.g. Student, Job holder, Freelancer" className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent" />
+                                <select name="current_occupation" onChange={formik.handleChange} value={formik.values.current_occupation} className="focus:ring-1 focus:ring-success_main hover:ring-success_main hover:shadow-input focus:shadow-input px-4 py-2 bg-white rounded-lg focus:outline-none ring-1 ring-success_main focus:border-transparent">
+                                    <option value="">Select current occupation</option>
+                                    {OCCUPATION_OPTIONS.map((option) => (
+                                        <option key={option} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
                                 <div className={`${formik.touched.current_occupation && formik.errors.current_occupation ? "opacity-100" : "opacity-0"} text-subtitle2 mt-1 text-error_main`}>{formik.errors.current_occupation}</div>
                             </div>
                             <div className="flex flex-col justify-between mb-8">
