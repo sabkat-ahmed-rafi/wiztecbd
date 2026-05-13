@@ -15,9 +15,9 @@ import api from "@/config/api";
 import { isValidURL, Popup } from "../IntroDesign";
 
 const formatCoursePrice = (price) => {
-    if (price === null || price === undefined) return "Contact for Details";
+    if (price === null || price === undefined) return "Contact";
     const normalized = String(price).trim();
-    if (normalized === "") return "Contact for Details";
+    if (normalized === "") return "Contact";
     if (normalized.toLowerCase() === "free") return "Free";
     return `BDT ${normalized}`;
 };
