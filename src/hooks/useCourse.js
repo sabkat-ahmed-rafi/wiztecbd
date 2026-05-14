@@ -9,8 +9,15 @@ const useCourse = (id) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (!id) return;
+        if (!id) {
+            setCourse(null);
+            setError(null);
+            setLoading(false);
+            return;
+        }
+
         setLoading(true);
+        setError(null);
         api.get(`/api/get-course/${id}`)
             .then((res) => {
                 // handle both { course: {} } and { courses: [...] } shapes

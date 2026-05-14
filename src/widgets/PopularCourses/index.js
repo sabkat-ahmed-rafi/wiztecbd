@@ -8,6 +8,7 @@ import useCourses from "@/hooks/useCourses";
 import useServices from "@/hooks/useServices";
 import EnrollPop from "@/components/EnrolePop";
 import Tabs from "@/components/Tabs";
+import { getCourseSlug } from "@/utils/courseSlug";
 import Course from "../Course";
 
 const PopularCourses = () => {
@@ -41,8 +42,8 @@ const PopularCourses = () => {
         return (courses || []).filter((course) => course.serviceID === activeTab);
     }, [activeTab, courses]);
 
-    const handleMainClick = (id) => {
-        router.push(`/courses/${id}`);
+    const handleMainClick = (course) => {
+        router.push(`/courses/${getCourseSlug(course)}`);
     };
 
     const isLoading = coursesLoading || servicesLoading;
@@ -71,7 +72,7 @@ const PopularCourses = () => {
             ) : isActiveTabs.length > 0 ? (
                 <div className="whitespace-nowrap md:scroll-container overflow-x-auto md:overflow-x-hidden no-scrollbar flex gap-4 mt-6 md:mt-12" ref={scrollContainerRef1}>
                     {isActiveTabs.map((data) => (
-                        <div onClick={() => handleMainClick(data.id)} key={data.id} className=" cursor-pointer">
+                        <div onClick={() => handleMainClick(data)} key={data.id} className=" cursor-pointer">
                             <Course
                                 id={data.id}
                                 img={data.image}

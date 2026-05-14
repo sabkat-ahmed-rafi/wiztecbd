@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 import Button from "@/components/Button";
 import Menu from "@/components/Menu";
-import useModal from "@/hooks/useModal";
+import { getCourseSlug } from "@/utils/courseSlug";
 
 const OtherMenu = ({ onMouseEnter, onMouseLeave, onClose, courses = [], careers = [], coursesLoading, careersLoading }) => {
     const coursesList = courses.length > 4 ? courses.slice(0, 4) : courses;
@@ -61,7 +61,7 @@ const OtherMenu = ({ onMouseEnter, onMouseLeave, onClose, courses = [], careers 
                                 <ul className=" mb-4">
                                     {coursesList.map((course) => (
                                         <li key={course.id}>
-                                            <Link onClick={onClose} href={`/courses/${course.id}`} className=" font-medium flex items-center justify-between mb-1 capitalize hover:text-success_main">
+                                            <Link onClick={onClose} href={`/courses/${getCourseSlug(course)}`} className=" font-medium flex items-center justify-between mb-1 capitalize hover:text-success_main">
                                                 <span className="line-clamp-1">{course.title}</span>
                                                 <BsArrowRight />
                                             </Link>

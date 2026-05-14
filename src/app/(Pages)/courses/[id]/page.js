@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams } from "next/navigation";
 
 import Banner from "@/components/Banner";
@@ -7,15 +7,17 @@ import { RootSection, Section } from "@/components/Section";
 import IntroDesign from "@/widgets/IntroDesign";
 import CourseOverview from "@/widgets/CourseOverview";
 import useCourse from "@/hooks/useCourse";
+import useCourses from "@/hooks/useCourses";
+import { resolveCourseIdFromSlug } from "@/utils/courseSlug";
 import staticCourses from "/public/Json/courses.json";
 
 /**
  * Maps a raw API course object into the nested shape expected by
  * Banner, IntroDesign, and CourseOverview / CourseDetails.
  */
-const mapApiCourse = (course, routeCourseId) => {
+const mapApiCourse = (course, courseId) => {
     // Slider and selected overview blocks must come from static course data only.
-    const staticCourse = staticCourses.find((c) => Number(c.id) === Number(routeCourseId));
+    const staticCourse = staticCourses.find((c) => Number(c.id) === Number(courseId));
 
     const facilities = {
         houre: course.hour,
@@ -124,7 +126,18 @@ const mapApiCourse = (course, routeCourseId) => {
 
 const CourseDetailsPage = () => {
     const params = useParams();
-    const { course, loading, error } = useCourse(params?.id);
+    const routeParam = decodeURIComponent(params?.id || "");
+    const isNumericRouteParam = /^\d+$/.test(routeParam);
+    const { courses, loading: coursesLoading } = useCourses();
+
+    const resolvedCourseId = useMemo(() => {
+        if (!routeParam) return null;
+        if (isNumericRouteParam) return Number(routeParam);
+        return resolveCourseIdFromSlug(routeParam, courses);
+    }, [routeParam, isNumericRouteParam, courses]);
+
+    const { course, loading: courseLoading, error } = useCourse(resolvedCourseId);
+    const loading = (isNumericRouteParam ? false : coursesLoading) || courseLoading;
 
     if (loading) {
         return (
@@ -150,7 +163,7 @@ const CourseDetailsPage = () => {
         );
     }
 
-    const courseData = mapApiCourse(course, params?.id);
+    const courseData = mapApiCourse(course, course.id);
 
     return (
         <RootSection>

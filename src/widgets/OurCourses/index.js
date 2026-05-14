@@ -7,6 +7,7 @@ import { courseList } from "@/app/staticData/course";
 import useEdgeScroll from "@/hooks/useEdgeScroll";
 import useCourses from "@/hooks/useCourses";
 import EnrollPop from "@/components/EnrolePop";
+import { getCourseSlug } from "@/utils/courseSlug";
 import Course from "../Course";
 
 const OurCourses = () => {
@@ -29,8 +30,8 @@ const OurCourses = () => {
     const selectedType = courseList.find((cl) => cl.id === tab)?.status || null;
     const isActiveTabs = selectedType ? courses.filter((c) => c.course_type === selectedType) : courses;
 
-    const handleMainClick = (id) => {
-        router.push(`/courses/${id}`);
+    const handleMainClick = (course) => {
+        router.push(`/courses/${getCourseSlug(course)}`);
     };
 
     return (
@@ -61,7 +62,7 @@ const OurCourses = () => {
             ) : isActiveTabs.length > 0 ? (
                 <div className="whitespace-nowrap md:scroll-container overflow-x-auto md:overflow-x-hidden no-scrollbar flex gap-4 mt-6 md:mt-12" ref={scrollContainerRef}>
                     {isActiveTabs.map((data) => (
-                        <div onClick={() => handleMainClick(data.id)} key={data.id} className=" cursor-pointer">
+                        <div onClick={() => handleMainClick(data)} key={data.id} className=" cursor-pointer">
                             <Course
                                 id={data.id}
                                 img={data.image}
