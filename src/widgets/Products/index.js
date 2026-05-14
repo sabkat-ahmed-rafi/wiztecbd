@@ -41,7 +41,7 @@ const Products = () => {
             {products.map((product, index) => {
                 return (
                     <Section key={index} id={`product-${index}`} bgColor={product.color}>
-                        <div className="container mx-auto px-4 text-white max-w-xl md:py-100 py-12">
+                        <div className="container mx-auto px-4 text-white max-w-xl">
                             <OurFeatureProjects reverse={product.id % 2 == 0} ourFeatureProjectsData={product} />
                         </div>
                     </Section>
