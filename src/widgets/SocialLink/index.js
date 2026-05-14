@@ -49,7 +49,7 @@ const SocialLink = () => {
     return (
         <>
             {/* Desktop View */}
-            <div className="hidden md:flex flex-col gap-2 px-2 py-4 bg-white shadow-social rounded-tr-xl rounded-br-xl">
+            <div className="relative z-[100] hidden md:flex flex-col gap-2 rounded-br-xl rounded-tr-xl bg-white px-2 py-4 shadow-social">
                 {socialLinks.map(({ href, icon, alt }) => (
                     <Link key={alt} href={href} target="_blank" className="h-6 w-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
                         <Image src={`/assets/images/Social/${icon}`} height={24} width={24} alt={alt} />
@@ -58,7 +58,7 @@ const SocialLink = () => {
             </div>
 
             {/* Mobile View */}
-            <div className="md:hidden flex flex-col py-2 px-1 bg-white shadow-social rounded-tr-xl rounded-br-xl">
+            <div className="relative z-[100] flex flex-col rounded-br-xl rounded-tr-xl bg-white px-1 py-2 shadow-social md:hidden">
                 <div onClick={() => setOpen((prev) => !prev)} className="flex items-center justify-center rounded-full transition-all duration-300 group">
                     <BsFillChatDotsFill className="text-success_main" size={24} />
                 </div>

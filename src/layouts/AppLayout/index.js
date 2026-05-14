@@ -12,7 +12,7 @@ import LiveChat from "@/widgets/LiveChat";
 const AppLayout = ({ children }) => {
     return (
         <div className=" relative">
-            <div className=" z-20 fixed top-1/2 left-0 transform -translate-y-1/2">
+            <div className="fixed top-1/2 left-0 z-[100] -translate-y-1/2 transform">
                 <SocialLink />
             </div>
             <div className="z-50">
